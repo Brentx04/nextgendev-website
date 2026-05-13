@@ -177,7 +177,8 @@ async function handleSubmit() {
     form.name = form.email = form.subject = form.message = ''
     showSuccess.value = true
     setTimeout(() => { showSuccess.value = false }, 6000)
-  } catch {
+  } catch (err) {
+    console.error('EmailJS error:', err)
     showError.value = true
     setTimeout(() => { showError.value = false }, 6000)
   } finally {
