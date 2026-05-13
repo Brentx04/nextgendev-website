@@ -587,6 +587,7 @@ body.cursor-hover .cursor-ring {
   background: linear-gradient(135deg, rgba(124,58,237,0.08) 0%, rgba(192,132,252,0.03) 50%, transparent 70%);
   opacity: 0;
   transition: opacity 0.4s;
+  pointer-events: none;
 }
 .service-card::after {
   content: '';
@@ -596,6 +597,7 @@ body.cursor-hover .cursor-ring {
   background: linear-gradient(90deg, transparent, var(--purple-light), transparent);
   opacity: 0;
   transition: opacity 0.4s;
+  pointer-events: none;
 }
 .service-card:hover::before { opacity: 1; }
 .service-card:hover::after  { opacity: 1; }
