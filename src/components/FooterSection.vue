@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <a href="#home" class="footer-logo" @click.prevent="scrollTop">
-        <img :src="baseUrl + 'ngd-logo.png'" alt="Next Gen Codes" class="footer-logo-img" />
+        <img :src="baseUrl + 'NGC.png'" alt="Next Gen Codes" class="footer-logo-img" />
       </a>
       <p class="footer-copy">© 2025 Next Gen Codes. Alle rechten voorbehouden. Met trots gemaakt in Genk, België.</p>
       <nav class="footer-links">
