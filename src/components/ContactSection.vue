@@ -7,13 +7,13 @@
         <p class="contact-sub">Klaar om uw digitale aanwezigheid te transformeren? Vertel ons over uw project en wij zorgen voor de rest.</p>
 
         <div class="contact-details">
-          <a href="mailto:nextgendev28@gmail.com" class="contact-item">
+          <a href="mailto:daenenbrent@gmail.com" class="contact-item">
             <span class="ci-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             </span>
             <span class="ci-body">
               <span class="ci-label">E-MAIL</span>
-              <span class="ci-value">nextgendev28@gmail.com</span>
+              <span class="ci-value">daenenbrent@gmail.com</span>
             </span>
           </a>
           <a href="tel:+32472196739" class="contact-item">
