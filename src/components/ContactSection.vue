@@ -170,6 +170,8 @@ async function handleSubmit() {
       from_name:  form.name,
       from_email: form.email,
       email:      form.email,
+      to_email:   'daenenbrent@gmail.com',
+      reply_to:   form.email,
       subject:    form.subject || 'Geen dienst geselecteerd',
       message:    form.message,
     }, EMAILJS_PUBLIC)
