@@ -23,6 +23,7 @@
   </section>
 
   <!-- Service detail modal -->
+  <Teleport to="body">
   <Transition name="fade">
     <div v-if="activeService" class="svc-backdrop" @click.self="closeModal">
       <div class="svc-modal">
@@ -48,6 +49,7 @@
       </div>
     </div>
   </Transition>
+  </Teleport>
 </template>
 
 <script setup>
