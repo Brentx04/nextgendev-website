@@ -27,7 +27,7 @@
           <p class="terms-date">Laatste update: april 2025</p>
 
           <h3>1. Wie zijn wij?</h3>
-          <p>Next Gen Codes is een digitaal bureau gevestigd in Genk, België. Wij zijn momenteel in oprichting en deze website heeft een demonstratief karakter. Contactpersoon: Brent Daenen — <a href="mailto:nextgendev28@gmail.com">nextgendev28@gmail.com</a>.</p>
+          <p>Next Gen Codes is een digitaal bureau gevestigd in Genk, België. Wij zijn momenteel in oprichting en deze website heeft een demonstratief karakter. Contactpersoon: Brent Daenen — <a href="mailto:daenenbrent@gmail.com">daenenbrent@gmail.com</a>.</p>
 
           <h3>2. Welke gegevens verzamelen wij?</h3>
           <p>Via het contactformulier op deze website kunnen de volgende persoonsgegevens worden verzameld:</p>
@@ -51,12 +51,12 @@
           <p>Wij maken gebruik van <strong>EmailJS</strong> voor het verwerken van contactformulieren. EmailJS verwerkt uw gegevens uitsluitend om de e-mail te bezorgen en slaat deze niet op. Meer info: <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener">emailjs.com/legal/privacy-policy</a>.</p>
 
           <h3>7. Uw rechten (AVG/GDPR)</h3>
-          <p>U heeft het recht op inzage, correctie en verwijdering van uw persoonsgegevens. Neem hiervoor contact op via <a href="mailto:nextgendev28@gmail.com">nextgendev28@gmail.com</a>.</p>
+          <p>U heeft het recht op inzage, correctie en verwijdering van uw persoonsgegevens. Neem hiervoor contact op via <a href="mailto:daenenbrent@gmail.com">daenenbrent@gmail.com</a>.</p>
 
           <h3>8. Wijzigingen</h3>
           <p>Dit privacybeleid kan worden aangepast naarmate Next Gen Codes verder ontwikkelt. De meest recente versie is altijd beschikbaar op deze pagina.</p>
 
-          <p class="terms-note">Vragen over dit beleid? Mail ons op <a href="mailto:nextgendev28@gmail.com">nextgendev28@gmail.com</a>.</p>
+          <p class="terms-note">Vragen over dit beleid? Mail ons op <a href="mailto:daenenbrent@gmail.com">daenenbrent@gmail.com</a>.</p>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@
             operationeel als officiële onderneming.
           </p>
           <p class="terms-note">
-            Voor vragen kunt u contact opnemen via <a href="mailto:nextgendev28@gmail.com">nextgendev28@gmail.com</a>.
+            Voor vragen kunt u contact opnemen via <a href="mailto:daenenbrent@gmail.com">daenenbrent@gmail.com</a>.
           </p>
         </div>
       </div>
