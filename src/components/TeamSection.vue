@@ -53,7 +53,7 @@ const team = [
   {
     name: 'Brent Daenen',
     initials: 'BD',
-    photo: '/brent.png',
+    photo: import.meta.env.BASE_URL + 'brent.png',
     role: 'Oprichter & Full-Stack Developer',
     bio: 'Gepassioneerd door het bouwen van snelle, moderne webapplicaties. Combineert technische expertise met een scherp oog voor design.',
     skills: ['Vue', 'JavaScript', 'C#', 'UI/UX'],

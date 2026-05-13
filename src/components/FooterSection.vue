@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <a href="#home" class="footer-logo" @click.prevent="scrollTop">
-        <img src="/ngd-logo.png" alt="Next Gen Codes" class="footer-logo-img" />
+        <img :src="baseUrl + 'ngd-logo.png'" alt="Next Gen Codes" class="footer-logo-img" />
       </a>
       <p class="footer-copy">© 2025 Next Gen Codes. Alle rechten voorbehouden. Met trots gemaakt in Genk, België.</p>
       <nav class="footer-links">
@@ -97,6 +97,7 @@
 <script setup>
 import { ref } from 'vue'
 
+const baseUrl = import.meta.env.BASE_URL
 const showPrivacy = ref(false)
 const showTerms = ref(false)
 

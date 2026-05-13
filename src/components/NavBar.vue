@@ -2,7 +2,7 @@
   <nav id="navbar" :class="{ scrolled: isScrolled }">
     <div class="nav-inner">
       <a href="#home" class="logo" @click.prevent="scrollTo('home')">
-        <img src="/ngd-logo.png" alt="Next Gen Codes logo" class="logo-img" />
+        <img :src="baseUrl + 'ngd-logo.png'" alt="Next Gen Codes logo" class="logo-img" />
         <span class="logo-line"></span>
         <span class="logo-sub">NEXT GEN CODES</span>
       </a>
@@ -47,6 +47,8 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+
+const baseUrl = import.meta.env.BASE_URL
 
 const props = defineProps({
   activeSection: { type: String, default: 'home' },
