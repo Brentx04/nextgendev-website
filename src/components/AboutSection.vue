@@ -7,7 +7,7 @@
         </div>
         <div class="about-glow-orb"></div>
         <div class="about-logo-display">
-          <img src="/ngd-logo.png" alt="Next Gen Dev" class="about-logo-img" />
+          <img src="/ngd-logo.png" alt="Next Gen Codes" class="about-logo-img" />
         </div>
       </div>
 
@@ -15,7 +15,7 @@
         <p class="section-tag">// WIE WE ZIJN</p>
         <h2 class="section-title">UW VISIE,<br /><span class="gradient-text">ONZE CODE</span></h2>
         <p class="about-body">
-          Next Gen Dev is een gespecialiseerd digitaal bureau met een passie voor kwaliteit, precisie en het doorbreken van grenzen op het web. Wij bouwen geen gewone websites — wij engineeren ervaringen die indruk maken.
+          Next Gen Codes is een gespecialiseerd digitaal bureau met een passie voor kwaliteit, precisie en het doorbreken van grenzen op het web. Wij bouwen geen gewone websites — wij engineeren ervaringen die indruk maken.
         </p>
         <p class="about-body">
           Van ambitieuze startups tot gevestigde bedrijven: wij werken samen met opdrachtgevers die het beste verwachten. Ons team opereert op het snijvlak van design en technologie, altijd met één doel: uw succes.
