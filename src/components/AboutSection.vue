@@ -7,7 +7,7 @@
         </div>
         <div class="about-glow-orb"></div>
         <div class="about-logo-display">
-          <img :src="baseUrl + 'ngd-logo.png'" alt="Next Gen Codes" class="about-logo-img" />
+          <img :src="baseUrl + 'NGC.png'" alt="Next Gen Codes" class="about-logo-img" />
         </div>
       </div>
 
