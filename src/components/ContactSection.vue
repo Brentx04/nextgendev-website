@@ -87,6 +87,7 @@
               <option>Maatwerk Applicatie</option>
               <option>SEO &amp; Groei</option>
               <option>Analytics &amp; AI</option>
+              <option>Sollicitatie — Teamlid worden</option>
             </select>
             <svg class="select-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
@@ -99,7 +100,7 @@
             UW BERICHT
           </label>
           <div class="input-wrap">
-            <textarea id="message" v-model="form.message" rows="5" placeholder="Vertel ons over uw project, uw doelen en budget..."></textarea>
+            <textarea id="message" v-model="form.message" rows="5" :placeholder="messagePlaceholder"></textarea>
           </div>
           <span v-if="errors.message" class="field-error">{{ errors.message }}</span>
         </div>
@@ -131,7 +132,7 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, computed, onMounted } from 'vue'
 import emailjs from '@emailjs/browser'
 
 // ── EmailJS config ──────────────────────────────
@@ -149,6 +150,18 @@ const errors = reactive({ name: '', email: '', message: '' })
 const sending = ref(false)
 const showSuccess = ref(false)
 const showError = ref(false)
+
+const messagePlaceholder = computed(() =>
+  form.subject === 'Sollicitatie — Teamlid worden'
+    ? 'Vertel ons over jezelf, je skills en waarom je bij Next Gen Codes wil werken...'
+    : 'Vertel ons over uw project, uw doelen en budget...'
+)
+
+onMounted(() => {
+  window.addEventListener('ngc:apply', () => {
+    form.subject = 'Sollicitatie — Teamlid worden'
+  })
+})
 
 function validate() {
   errors.name = errors.email = errors.message = ''
