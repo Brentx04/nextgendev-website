@@ -467,23 +467,13 @@ body.cursor-hover .cursor-ring {
   pointer-events: none;
 }
 .hero-logo-img {
-  /* Container ratio matches image natural ratio (1170×528 = 2.22:1)
-     so object-fit: cover fills the oval perfectly with zero dark gaps */
-  width: clamp(320px, 32vw, 520px);
-  height: clamp(144px, 14.4vw, 234px);
-  object-fit: cover;
-  object-position: center center;
-  border-radius: 50%;
+  width: clamp(220px, 26vw, 380px);
+  height: auto;
+  object-fit: contain;
   opacity: 0.95;
-  border: 1px solid rgba(167,139,250,0.3);
   filter: brightness(1.05) saturate(1.1)
           drop-shadow(0 0 30px rgba(124,58,237,0.7))
           drop-shadow(0 0 60px rgba(124,58,237,0.3));
-  box-shadow:
-    0 0 0 8px rgba(124,58,237,0.07),
-    0 0 0 20px rgba(124,58,237,0.03),
-    0 0 80px rgba(124,58,237,0.5),
-    0 0 160px rgba(124,58,237,0.2);
   animation: hero-logo-float 5s ease-in-out infinite;
 }
 @keyframes hero-logo-float {
