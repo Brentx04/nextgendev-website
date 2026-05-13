@@ -26,7 +26,7 @@
     </div>
 
     <div class="hero-logo-display">
-      <img src="/ngd-logo.png" alt="Next Gen Dev" class="hero-logo-img" />
+      <img src="/ngd-logo.png" alt="Next Gen Codes" class="hero-logo-img" />
     </div>
 
     <div class="hero-stat-bar" ref="statBarRef">

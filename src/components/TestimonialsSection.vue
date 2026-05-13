@@ -30,7 +30,7 @@ useScrollReveal('#testimonials .testimonial-card')
 
 const testimonials = [
   {
-    text: 'Dankzij de expertise van Next Gen Dev is ons platform van de grond af aan opgebouwd en ons volledige bedrijfsproces gedigitaliseerd. Het team werkt uiterst professioneel en levert kwaliteit die onze verwachtingen overtreft. Een absolute aanrader voor wie digitale transformatie serieus neemt..',
+    text: 'Dankzij de expertise van Next Gen Codes is ons platform van de grond af aan opgebouwd en ons volledige bedrijfsproces gedigitaliseerd. Het team werkt uiterst professioneel en levert kwaliteit die onze verwachtingen overtreft. Een absolute aanrader voor wie digitale transformatie serieus neemt..',
     author: 'Navid',
     role: 'CEO — M+S tyre experts B.V.',
     initials: 'N',
