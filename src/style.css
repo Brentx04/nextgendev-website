@@ -240,14 +240,16 @@ body.cursor-hover .cursor-ring {
   text-decoration: none;
 }
 .logo-img {
-  height: 44px;
-  width: auto;
+  height: 48px;
+  width: 48px;
   object-fit: contain;
-  filter: drop-shadow(0 0 10px rgba(124,58,237,0.6)) brightness(1.1);
-  transition: filter var(--transition);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 8px rgba(124,58,237,0.7));
+  transition: filter var(--transition), transform var(--transition);
 }
 .logo:hover .logo-img {
-  filter: drop-shadow(0 0 20px rgba(167,139,250,0.9)) brightness(1.2);
+  filter: drop-shadow(0 0 18px rgba(167,139,250,1)) brightness(1.1);
+  transform: scale(1.07);
 }
 .logo-line {
   width: 1px; height: 20px;
@@ -467,13 +469,17 @@ body.cursor-hover .cursor-ring {
   pointer-events: none;
 }
 .hero-logo-img {
-  width: clamp(220px, 26vw, 380px);
-  height: auto;
+  width: clamp(200px, 22vw, 300px);
+  height: clamp(200px, 22vw, 300px);
   object-fit: contain;
-  opacity: 0.95;
-  filter: brightness(1.05) saturate(1.1)
-          drop-shadow(0 0 30px rgba(124,58,237,0.7))
-          drop-shadow(0 0 60px rgba(124,58,237,0.3));
+  border-radius: 50%;
+  opacity: 0.97;
+  filter: drop-shadow(0 0 24px rgba(124,58,237,0.8))
+          drop-shadow(0 0 60px rgba(124,58,237,0.35));
+  box-shadow:
+    0 0 0 6px rgba(124,58,237,0.08),
+    0 0 60px rgba(124,58,237,0.4),
+    0 0 120px rgba(124,58,237,0.15);
   animation: hero-logo-float 5s ease-in-out infinite;
 }
 @keyframes hero-logo-float {
@@ -731,13 +737,17 @@ body.cursor-hover .cursor-ring {
   z-index: 2;
 }
 .about-logo-img {
-  width: 260px;
-  height: auto;
+  width: 240px;
+  height: 240px;
   object-fit: contain;
+  border-radius: 50%;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 0 40px rgba(124,58,237,0.7))
-          drop-shadow(0 0 80px rgba(124,58,237,0.3));
+  filter: drop-shadow(0 0 30px rgba(124,58,237,0.75))
+          drop-shadow(0 0 70px rgba(124,58,237,0.3));
+  box-shadow:
+    0 0 0 6px rgba(124,58,237,0.08),
+    0 0 60px rgba(124,58,237,0.35);
   animation: orb-breathe 4s ease-in-out infinite;
 }
 .about-body {
@@ -1574,16 +1584,18 @@ body.cursor-hover .cursor-ring {
 }
 .footer-logo { flex-shrink: 0; }
 .footer-logo-img {
-  height: 40px;
-  width: auto;
+  height: 44px;
+  width: 44px;
   object-fit: contain;
-  filter: drop-shadow(0 0 8px rgba(124,58,237,0.5)) brightness(1.1);
-  opacity: 0.9;
-  transition: filter 0.3s, opacity 0.3s;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 8px rgba(124,58,237,0.5));
+  opacity: 0.85;
+  transition: filter 0.3s, opacity 0.3s, transform 0.3s;
 }
 .footer-logo:hover .footer-logo-img {
   opacity: 1;
-  filter: drop-shadow(0 0 16px rgba(167,139,250,0.8)) brightness(1.2);
+  filter: drop-shadow(0 0 16px rgba(167,139,250,0.9));
+  transform: scale(1.08);
 }
 .footer-copy { font-size: 0.8rem; color: var(--grey-dim); margin-left: auto; }
 .footer-links { display: flex; gap: 1.5rem; }
