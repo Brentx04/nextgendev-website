@@ -38,7 +38,7 @@
         <h3 class="member-name">Word deel van het team</h3>
         <p class="member-role">Open positie</p>
         <p class="member-bio">Wij zijn altijd op zoek naar getalenteerde developers en designers die onze passie voor digitale innovatie delen.</p>
-        <a href="#contact" @click.prevent="scrollTo('contact')" class="open-cta">Neem contact op →</a>
+        <a href="#contact" @click.prevent="applyForTeam" class="open-cta">Solliciteer nu →</a>
       </div>
     </div>
   </section>
@@ -64,6 +64,11 @@ const team = [
 
 function scrollTo(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+}
+
+function applyForTeam() {
+  scrollTo('contact')
+  setTimeout(() => window.dispatchEvent(new Event('ngc:apply')), 600)
 }
 
 onMounted(() => {
