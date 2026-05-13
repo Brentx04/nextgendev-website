@@ -2,7 +2,7 @@
   <section id="team" class="team" ref="sectionRef">
     <div class="section-header reveal">
       <p class="section-tag">// ONS TEAM</p>
-      <h2 class="section-title">DE <span class="gradient-text">MENSEN</span> ACHTER NGD</h2>
+      <h2 class="section-title">DE <span class="gradient-text">MENSEN</span> ACHTER NGC</h2>
     </div>
 
     <div class="team-grid">
