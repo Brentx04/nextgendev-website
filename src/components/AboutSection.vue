@@ -7,7 +7,7 @@
         </div>
         <div class="about-glow-orb"></div>
         <div class="about-logo-display">
-          <img src="/ngd-logo.png" alt="Next Gen Codes" class="about-logo-img" />
+          <img :src="baseUrl + 'ngd-logo.png'" alt="Next Gen Codes" class="about-logo-img" />
         </div>
       </div>
 
@@ -34,6 +34,8 @@
 
 <script setup>
 import { useScrollReveal } from '../composables/useScrollReveal.js'
+
+const baseUrl = import.meta.env.BASE_URL
 
 useScrollReveal('#about .about-inner > *')
 useScrollReveal('#about .pillar')

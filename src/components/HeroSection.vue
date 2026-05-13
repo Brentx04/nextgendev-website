@@ -26,7 +26,7 @@
     </div>
 
     <div class="hero-logo-display">
-      <img src="/ngd-logo.png" alt="Next Gen Codes" class="hero-logo-img" />
+      <img :src="baseUrl + 'ngd-logo.png'" alt="Next Gen Codes" class="hero-logo-img" />
     </div>
 
     <div class="hero-stat-bar" ref="statBarRef">
@@ -48,6 +48,8 @@
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
+
+const baseUrl = import.meta.env.BASE_URL
 
 const badgeRef  = ref(null)
 const subRef    = ref(null)
