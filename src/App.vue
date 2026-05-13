@@ -1,5 +1,6 @@
 <template>
   <div>
+    <LoadingScreen />
     <ScrollProgress :progress="scrollProgress" />
     <CircuitCanvas />
     <CustomCursor />
@@ -21,6 +22,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import LoadingScreen from './components/LoadingScreen.vue'
 import ScrollProgress from './components/ScrollProgress.vue'
 import CircuitCanvas from './components/CircuitCanvas.vue'
 import CustomCursor from './components/CustomCursor.vue'
