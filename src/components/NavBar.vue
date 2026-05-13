@@ -46,7 +46,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, watch, onMounted, onUnmounted } from 'vue'
 
 const baseUrl = import.meta.env.BASE_URL
 
@@ -57,6 +57,21 @@ const props = defineProps({
 const emit = defineEmits(['update:menuOpen'])
 
 const isScrolled = ref(false)
+let savedScrollY = 0
+
+watch(() => props.menuOpen, (open) => {
+  if (open) {
+    savedScrollY = window.scrollY
+    document.body.style.position = 'fixed'
+    document.body.style.top = `-${savedScrollY}px`
+    document.body.style.width = '100%'
+  } else {
+    document.body.style.position = ''
+    document.body.style.top = ''
+    document.body.style.width = ''
+    window.scrollTo(0, savedScrollY)
+  }
+})
 
 const navItems = [
   { id: 'home',         label: 'HOME' },
@@ -75,7 +90,7 @@ function scrollTo(id) {
 
 function handleMobileNav(id) {
   emit('update:menuOpen', false)
-  document.body.classList.remove('menu-open')
+
   setTimeout(() => scrollTo(id), 50)
 }
 
@@ -84,14 +99,14 @@ function onScroll() { isScrolled.value = window.scrollY > 40 }
 function onResize() {
   if (window.innerWidth > 768 && props.menuOpen) {
     emit('update:menuOpen', false)
-    document.body.classList.remove('menu-open')
+  
   }
 }
 
 function onKeyDown(e) {
   if (e.key === 'Escape' && props.menuOpen) {
     emit('update:menuOpen', false)
-    document.body.classList.remove('menu-open')
+  
   }
 }
 
