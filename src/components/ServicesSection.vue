@@ -1,12 +1,12 @@
 <template>
   <section id="services" class="services">
     <div class="section-header">
-      <p class="section-tag">// WAT WIJ DOEN</p>
-      <h2 class="section-title">ONZE <span class="gradient-text">DIENSTEN</span></h2>
+      <p class="section-tag">{{ T.services.tag }}</p>
+      <h2 class="section-title">{{ T.services.title }} <span class="gradient-text">{{ T.services.titleHighlight }}</span></h2>
     </div>
     <div class="services-grid">
       <div
-        v-for="service in services"
+        v-for="(service, index) in services"
         :key="service.num"
         class="service-card"
         :class="{ featured: service.featured }"
@@ -17,12 +17,11 @@
         <span class="card-num">{{ service.num }}</span>
         <h3>{{ service.title }}</h3>
         <p>{{ service.desc }}</p>
-        <a href="#" class="card-link" @click.prevent="openModal(service)">Meer info <span>→</span></a>
+        <a href="#" class="card-link" @click.prevent="openModal(index)">{{ T.services.moreInfo }} <span>→</span></a>
       </div>
     </div>
   </section>
 
-  <!-- Service detail modal -->
   <Teleport to="body">
   <Transition name="fade">
     <div v-if="activeService" class="svc-backdrop" @click.self="closeModal">
@@ -43,7 +42,7 @@
             </li>
           </ul>
           <button class="svc-cta" @click="goToContact">
-            Offerte aanvragen <span>→</span>
+            {{ T.services.requestQuote }} <span>→</span>
           </button>
         </div>
       </div>
@@ -53,106 +52,43 @@
 </template>
 
 <script setup>
-import { reactive, ref, onMounted, onUnmounted } from 'vue'
+import { reactive, ref, computed, onMounted, onUnmounted } from 'vue'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
+import { useLocale } from '../composables/useLocale.js'
+import { translations } from '../i18n/translations.js'
 
 useScrollReveal('#services .service-card')
 
-const glowRefs = reactive({})
-const activeService = ref(null)
+const { locale } = useLocale()
+const T = computed(() => translations[locale.value])
 
-const services = [
-  {
-    num: '01', featured: false,
-    title: 'Webontwikkeling',
-    desc: 'Snelle, schaalbare webapplicaties gebouwd met Vue, Node.js, JavaScript, HTML & CSS — van eenvoudige sites tot complexe platformen.',
-    detail: 'Wij bouwen webapplicaties die presteren. Van een representatieve bedrijfswebsite tot een volledig custom platform — elk project wordt met precisie en aandacht voor detail ontwikkeld met de nieuwste technologieën.',
-    points: [
-      'Maatwerk websites & webapplicaties',
-      'Vue 3, React, Node.js & moderne frameworks',
-      'Responsive design voor alle schermformaten',
-      'Snelle laadtijden & SEO-vriendelijke structuur',
-      'Veilige en schaalbare codebase',
-      'Onderhoud & doorontwikkeling na oplevering',
-    ],
-    icon: `<svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="3" stroke="currentColor" stroke-width="2"/><path d="M14 20L20 26L14 32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 32H34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
-  },
-  {
-    num: '02', featured: true,
-    title: 'UI/UX Design',
-    desc: 'Interfaces die niet alleen mooi ogen, maar ook converteren. Pixel-perfect design voor maximale gebruikerservaring.',
-    detail: 'Een goede interface is onzichtbaar — de gebruiker voelt zich intuïtief thuis. Wij ontwerpen ervaringen die bezoekers omzetten in klanten, met aandacht voor elk detail van het visuele systeem.',
-    points: [
-      'Wireframes & interactieve prototypes',
-      'Pixel-perfect UI-ontwerp in Figma',
-      'Gebruiksvriendelijke navigatie & flows',
-      'Design systems & componentbibliotheken',
-      'A/B testing & conversie-optimalisatie',
-      'Brand identity & visuele consistentie',
-    ],
-    icon: `<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="2"/><path d="M24 4V8M24 40V44M44 24H40M8 24H4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
-  },
-  {
-    num: '03', featured: false,
-    title: 'Digitale Strategie',
-    desc: 'Van merkpositionering tot go-to-market — wij bouwen de strategie die u als eerste aan de finish brengt.',
-    detail: 'Technologie zonder strategie is energie zonder richting. Wij helpen u een duidelijke digitale roadmap uit te stippelen die aansluit bij uw bedrijfsdoelstellingen en uw concurrenten een stap voor blijft.',
-    points: [
-      'Digitale roadmap & prioritering',
-      'Concurrentieanalyse & marktonderzoek',
-      'Go-to-market planning',
-      'Technologiekeuze & architectuuradvies',
-      'KPI-definitie & meetbaarheid',
-      'Groeistrategieën op maat',
-    ],
-    icon: `<svg viewBox="0 0 48 48" fill="none"><rect x="6" y="14" width="16" height="20" rx="2" stroke="currentColor" stroke-width="2"/><rect x="26" y="8" width="16" height="14" rx="2" stroke="currentColor" stroke-width="2"/><rect x="26" y="26" width="16" height="14" rx="2" stroke="currentColor" stroke-width="2"/></svg>`,
-  },
-  {
-    num: '04', featured: false,
-    title: 'Maatwerk Applicaties',
-    desc: 'Op maat gemaakte software in C#, Python of Node.js die perfect aansluit op uw bedrijfsprocessen — inclusief MySQL & Oracle databasekoppelingen.',
-    detail: 'Standaardsoftware past zelden perfect. Wij ontwikkelen applicaties die exact aansluiten op uw processen — robuust, veilig en klaar voor de toekomst, met volledige integratie in uw bestaande infrastructuur.',
-    points: [
-      'Bedrijfsapplicaties in C#, Python & Node.js',
-      'MySQL, Oracle & andere databasekoppelingen',
-      'REST API-ontwikkeling & integraties',
-      'Automatisering van bedrijfsprocessen',
-      'ERP- en CRM-koppelingen',
-      'Veiligheid, testing & documentatie',
-    ],
-    icon: `<svg viewBox="0 0 48 48" fill="none"><path d="M24 6L42 16V32L24 42L6 32V16L24 6Z" stroke="currentColor" stroke-width="2"/><path d="M24 6V42M6 16L42 32M42 16L6 32" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/></svg>`,
-  },
-  {
-    num: '05', featured: false,
-    title: 'SEO & Groei',
-    desc: 'Datagestuurde SEO, performantie-optimalisatie en groeistrategieën die uw digitale aanwezigheid versterken.',
-    detail: 'Gevonden worden is de eerste stap. Wij optimaliseren uw digitale aanwezigheid van technische SEO tot contentstrategie, zodat uw website structureel hoger scoort en meer kwalitatief verkeer aantrekt.',
-    points: [
-      'Technische SEO & site-audit',
-      'Zoekwoordonderzoek & contentstrategie',
-      'Core Web Vitals & performantie-optimalisatie',
-      'Lokale SEO voor Belgische markt',
-      'Linkbuilding & autoriteitsopbouw',
-      'Maandelijkse rapportage & bijsturing',
-    ],
-    icon: `<svg viewBox="0 0 48 48" fill="none"><path d="M24 10C16.268 10 10 16.268 10 24C10 31.732 16.268 38 24 38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 24H38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M30 15L38 12L35 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  },
-  {
-    num: '06', featured: false,
-    title: 'Analytics & AI',
-    desc: 'Intelligente dashboards, voorspellende analyses en AI-integraties die van uw data bruikbare inzichten maken.',
-    detail: 'Data is uw meest waardevolle asset — als u er iets mee doet. Wij bouwen intelligente systemen die uw data omzetten in beslissingen: van realtime dashboards tot AI-gestuurde automatiseringen.',
-    points: [
-      'Maatwerk analytics dashboards',
-      'AI-integraties & machine learning modellen',
-      'Voorspellende analyses & rapportage',
-      'Google Analytics 4 & datavisualisatie',
-      'Chatbot & AI-assistent ontwikkeling',
-      'Data pipeline & warehouse opzet',
-    ],
-    icon: `<svg viewBox="0 0 48 48" fill="none"><rect x="8" y="20" width="12" height="18" rx="1" stroke="currentColor" stroke-width="2"/><rect x="18" y="12" width="12" height="26" rx="1" stroke="currentColor" stroke-width="2"/><rect x="28" y="6" width="12" height="32" rx="1" stroke="currentColor" stroke-width="2"/></svg>`,
-  },
+const glowRefs = reactive({})
+const activeServiceIndex = ref(null)
+
+const serviceIcons = [
+  `<svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="3" stroke="currentColor" stroke-width="2"/><path d="M14 20L20 26L14 32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 32H34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+  `<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="2"/><path d="M24 4V8M24 40V44M44 24H40M8 24H4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+  `<svg viewBox="0 0 48 48" fill="none"><rect x="6" y="14" width="16" height="20" rx="2" stroke="currentColor" stroke-width="2"/><rect x="26" y="8" width="16" height="14" rx="2" stroke="currentColor" stroke-width="2"/><rect x="26" y="26" width="16" height="14" rx="2" stroke="currentColor" stroke-width="2"/></svg>`,
+  `<svg viewBox="0 0 48 48" fill="none"><path d="M24 6L42 16V32L24 42L6 32V16L24 6Z" stroke="currentColor" stroke-width="2"/><path d="M24 6V42M6 16L42 32M42 16L6 32" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/></svg>`,
+  `<svg viewBox="0 0 48 48" fill="none"><path d="M24 10C16.268 10 10 16.268 10 24C10 31.732 16.268 38 24 38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 24H38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M30 15L38 12L35 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  `<svg viewBox="0 0 48 48" fill="none"><rect x="8" y="20" width="12" height="18" rx="1" stroke="currentColor" stroke-width="2"/><rect x="18" y="12" width="12" height="26" rx="1" stroke="currentColor" stroke-width="2"/><rect x="28" y="6" width="12" height="32" rx="1" stroke="currentColor" stroke-width="2"/></svg>`,
 ]
+
+const nums = ['01', '02', '03', '04', '05', '06']
+const featuredIndex = 1
+
+const services = computed(() =>
+  T.value.services.list.map((svc, i) => ({
+    ...svc,
+    num: nums[i],
+    featured: i === featuredIndex,
+    icon: serviceIcons[i],
+  }))
+)
+
+const activeService = computed(() =>
+  activeServiceIndex.value !== null ? services.value[activeServiceIndex.value] : null
+)
 
 function onCardMouseMove(e, num) {
   const card = e.currentTarget
@@ -166,13 +102,13 @@ function onCardMouseMove(e, num) {
   }
 }
 
-function openModal(service) {
-  activeService.value = service
+function openModal(index) {
+  activeServiceIndex.value = index
   document.body.classList.add('menu-open')
 }
 
 function closeModal() {
-  activeService.value = null
+  activeServiceIndex.value = null
   document.body.classList.remove('menu-open')
 }
 

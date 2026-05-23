@@ -18,8 +18,18 @@
         </li>
       </ul>
 
+      <div class="lang-switcher">
+        <button
+          v-for="lang in langs"
+          :key="lang"
+          class="lang-btn"
+          :class="{ active: locale === lang }"
+          @click="setLocale(lang)"
+        >{{ lang.toUpperCase() }}</button>
+      </div>
+
       <button class="btn-nav-cta" @click="scrollTo('contact')">
-        <span>OFFERTE AANVRAGEN</span> <span class="btn-arrow">›</span>
+        <span>{{ T.nav.cta }}</span> <span class="btn-arrow">›</span>
       </button>
 
       <button
@@ -39,14 +49,25 @@
             <a :href="'#' + item.id" @click.prevent="handleMobileNav(item.id)">{{ item.label }}</a>
           </li>
         </ul>
-        <a href="#contact" class="mobile-cta" @click.prevent="handleMobileNav('contact')">OFFERTE AANVRAGEN</a>
+        <div class="mobile-lang-switcher">
+          <button
+            v-for="lang in langs"
+            :key="lang"
+            class="lang-btn"
+            :class="{ active: locale === lang }"
+            @click="setLocale(lang)"
+          >{{ lang.toUpperCase() }}</button>
+        </div>
+        <a href="#contact" class="mobile-cta" @click.prevent="handleMobileNav('contact')">{{ T.nav.cta }}</a>
       </div>
     </Transition>
   </nav>
 </template>
 
 <script setup>
-import { ref, watch, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
+import { useLocale } from '../composables/useLocale.js'
+import { translations } from '../i18n/translations.js'
 
 const baseUrl = import.meta.env.BASE_URL
 
@@ -55,6 +76,21 @@ const props = defineProps({
   menuOpen: { type: Boolean, default: false },
 })
 const emit = defineEmits(['update:menuOpen'])
+
+const { locale, setLocale } = useLocale()
+const langs = ['nl', 'en', 'fr']
+
+const T = computed(() => translations[locale.value])
+
+const navItems = computed(() => [
+  { id: 'home',         label: T.value.nav.home },
+  { id: 'services',     label: T.value.nav.services },
+  { id: 'about',        label: T.value.nav.about },
+  { id: 'portfolio',    label: T.value.nav.portfolio },
+  { id: 'testimonials', label: T.value.nav.testimonials },
+  { id: 'team',         label: T.value.nav.team },
+  { id: 'contact',      label: T.value.nav.contact },
+])
 
 const isScrolled = ref(false)
 let savedScrollY = 0
@@ -73,16 +109,6 @@ watch(() => props.menuOpen, (open) => {
   }
 })
 
-const navItems = [
-  { id: 'home',         label: 'HOME' },
-  { id: 'services',     label: 'DIENSTEN' },
-  { id: 'about',        label: 'OVER ONS' },
-  { id: 'portfolio',    label: 'PROJECTEN' },
-  { id: 'testimonials', label: 'REVIEWS' },
-  { id: 'team',         label: 'ONS TEAM' },
-  { id: 'contact',      label: 'CONTACT' },
-]
-
 function scrollTo(id) {
   const el = document.getElementById(id)
   if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -90,7 +116,6 @@ function scrollTo(id) {
 
 function handleMobileNav(id) {
   emit('update:menuOpen', false)
-
   setTimeout(() => scrollTo(id), 50)
 }
 
@@ -99,14 +124,12 @@ function onScroll() { isScrolled.value = window.scrollY > 40 }
 function onResize() {
   if (window.innerWidth > 768 && props.menuOpen) {
     emit('update:menuOpen', false)
-  
   }
 }
 
 function onKeyDown(e) {
   if (e.key === 'Escape' && props.menuOpen) {
     emit('update:menuOpen', false)
-  
   }
 }
 
@@ -121,3 +144,59 @@ onUnmounted(() => {
   document.removeEventListener('keydown', onKeyDown)
 })
 </script>
+
+<style scoped>
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-right: 0.5rem;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: var(--grey-dim);
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  padding: 0.3rem 0.45rem;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.lang-btn:hover {
+  color: var(--white);
+}
+
+.lang-btn.active {
+  color: var(--purple-light);
+  background: rgba(124, 58, 237, 0.12);
+}
+
+.mobile-lang-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 0.5rem 0 1rem;
+}
+
+.mobile-lang-switcher .lang-btn {
+  font-size: 0.7rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 4px;
+}
+
+.mobile-lang-switcher .lang-btn.active {
+  border-color: var(--purple-light);
+}
+
+@media (max-width: 768px) {
+  .lang-switcher {
+    display: none;
+  }
+}
+</style>

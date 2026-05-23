@@ -12,16 +12,12 @@
       </div>
 
       <div class="about-content">
-        <p class="section-tag">// WIE WE ZIJN</p>
-        <h2 class="section-title">UW VISIE,<br /><span class="gradient-text">ONZE CODE</span></h2>
-        <p class="about-body">
-          Next Gen Codes is een gespecialiseerd digitaal bureau met een passie voor kwaliteit, precisie en het doorbreken van grenzen op het web. Wij bouwen geen gewone websites — wij engineeren ervaringen die indruk maken.
-        </p>
-        <p class="about-body">
-          Van ambitieuze startups tot gevestigde bedrijven: wij werken samen met opdrachtgevers die het beste verwachten. Ons team opereert op het snijvlak van design en technologie, altijd met één doel: uw succes.
-        </p>
+        <p class="section-tag">{{ T.about.tag }}</p>
+        <h2 class="section-title">{{ T.about.title1 }}<br /><span class="gradient-text">{{ T.about.title2 }}</span></h2>
+        <p class="about-body">{{ T.about.body1 }}</p>
+        <p class="about-body">{{ T.about.body2 }}</p>
         <div class="about-pillars">
-          <div v-for="pillar in pillars" :key="pillar.title" class="pillar">
+          <div v-for="pillar in T.about.pillars" :key="pillar.title" class="pillar">
             <div class="pillar-icon">{{ pillar.icon }}</div>
             <h4>{{ pillar.title }}</h4>
             <p>{{ pillar.desc }}</p>
@@ -33,18 +29,17 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
+import { useLocale } from '../composables/useLocale.js'
+import { translations } from '../i18n/translations.js'
 
 const baseUrl = import.meta.env.BASE_URL
+const { locale } = useLocale()
+const T = computed(() => translations[locale.value])
 
 useScrollReveal('#about .about-inner > *')
 useScrollReveal('#about .pillar')
 
 const hexGrid = [false, false, false, false, true, false, false, false, false]
-
-const pillars = [
-  { icon: '⬡', title: 'PRECISIE',   desc: 'Elk pixel, elke regel code met aandacht en intentie gemaakt.' },
-  { icon: '◈', title: 'INNOVATIE',  desc: 'Wij leven aan de voorhoede van wat technisch mogelijk is.' },
-  { icon: '◉', title: 'RESULTAAT',  desc: 'Resultaatgericht denken dat het verschil maakt voor uw organisatie.' },
-]
 </script>

@@ -1,8 +1,8 @@
 <template>
   <section id="portfolio" class="portfolio">
     <div class="section-header">
-      <p class="section-tag">// ONS WERK</p>
-      <h2 class="section-title">GESELECTEERDE <span class="gradient-text">PROJECTEN</span></h2>
+      <p class="section-tag">{{ T.portfolio.tag }}</p>
+      <h2 class="section-title">{{ T.portfolio.title }} <span class="gradient-text">{{ T.portfolio.titleHighlight }}</span></h2>
     </div>
     <div class="portfolio-grid">
       <article
@@ -32,7 +32,7 @@
             target="_blank"
             rel="noopener"
             class="project-visit"
-          >Bezoek site ↗</a>
+          >{{ T.portfolio.visitSite }}</a>
         </div>
         <div class="project-info">
           <h3>{{ project.title }}</h3>
@@ -47,17 +47,20 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
+import { useLocale } from '../composables/useLocale.js'
+import { translations } from '../i18n/translations.js'
 
 useScrollReveal('#portfolio .project-card')
 
-const projects = [
+const { locale } = useLocale()
+const T = computed(() => translations[locale.value])
+
+const projectsMeta = [
   {
     size: 'large',
     bg: 'linear-gradient(135deg, #0d0520 0%, #3b0764 50%, #1a0a2e 100%)',
-    cat: 'WEBSITE',
-    title: 'MS Tyre Experts',
-    desc: 'Professionele bedrijfswebsite voor een toonaangevende bandenvakspecialist. Moderne UI, volledige mobiele optimalisatie en snelle laadtijden.',
     tags: ['HTML', 'CSS', 'JavaScript', 'Vue'],
     url: 'https://mstyreexperts.com',
     preview: 'https://mstyreexperts.com',
@@ -65,9 +68,6 @@ const projects = [
   {
     size: '',
     bg: 'linear-gradient(135deg, #0a0a1e 0%, #1a0a3e 100%)',
-    cat: 'AI TOOL',
-    title: 'Humanizer',
-    desc: 'Een AI-tekst humanizer die gegenereerde tekst omzet naar natuurlijk, menselijk klinkend schrijven. Eenvoudig te gebruiken en direct in de browser.',
     tags: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'AI'],
     url: 'https://brentx04.github.io/Humanizer/',
     preview: 'https://brentx04.github.io/Humanizer/',
@@ -75,22 +75,20 @@ const projects = [
   {
     size: '',
     bg: 'linear-gradient(135deg, #100520 0%, #2d1060 100%)',
-    cat: 'BINNENKORT',
-    title: 'Project in Ontwikkeling',
-    desc: 'Een nieuw project is momenteel in ontwikkeling. Neem contact op voor meer informatie.',
-    tags: ['Python', 'Node.js'],
+    tags: ['C#', 'MySQL'],
     url: null,
   },
   {
     size: 'large right',
     bg: 'linear-gradient(135deg, #060616 0%, #1e0a4a 100%)',
-    cat: 'BINNENKORT',
-    title: 'Project in Ontwikkeling',
-    desc: 'Een nieuw project is momenteel in ontwikkeling. Neem contact op voor meer informatie.',
     tags: ['Vue', 'JavaScript', 'Figma'],
     url: null,
   },
 ]
+
+const projects = computed(() =>
+  T.value.portfolio.projects.map((p, i) => ({ ...projectsMeta[i], ...p }))
+)
 
 function onTilt(e) {
   const card = e.currentTarget
