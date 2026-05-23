@@ -65,11 +65,12 @@ const projects = [
   {
     size: '',
     bg: 'linear-gradient(135deg, #0a0a1e 0%, #1a0a3e 100%)',
-    cat: 'BINNENKORT',
-    title: 'Project in Ontwikkeling',
-    desc: 'Een nieuw project is momenteel in ontwikkeling. Neem contact op voor meer informatie.',
-    tags: ['C#', 'MySQL'],
-    url: null,
+    cat: 'AI TOOL',
+    title: 'Humanizer',
+    desc: 'Een AI-tekst humanizer die gegenereerde tekst omzet naar natuurlijk, menselijk klinkend schrijven. Eenvoudig te gebruiken en direct in de browser.',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'AI'],
+    url: 'https://brentx04.github.io/Humanizer/',
+    preview: 'https://brentx04.github.io/Humanizer/',
   },
   {
     size: '',
