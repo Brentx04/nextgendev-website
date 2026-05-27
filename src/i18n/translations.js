@@ -165,7 +165,7 @@ export const translations = {
         ['Analytics Dashboard', 'AI-integratie'],
       ],
       bookCall: 'BOEK EEN GRATIS GESPREK',
-      bookCallSub: 'Vrijblijvend · 30 min. kennismakingsgesprek',
+      bookCallSub: 'Vrijblijvend · 15 min. kennismakingsgesprek',
     },
     faq: {
       tag: '// VEELGESTELDE VRAGEN',
@@ -374,7 +374,7 @@ export const translations = {
         ['Analytics Dashboard', 'AI Integration'],
       ],
       bookCall: 'BOOK A FREE CALL',
-      bookCallSub: 'No commitment · 30 min. discovery call',
+      bookCallSub: 'No commitment · 15 min. discovery call',
     },
     faq: {
       tag: '// FREQUENTLY ASKED QUESTIONS',
@@ -583,7 +583,7 @@ export const translations = {
         ['Tableau de Bord', 'Intégration IA'],
       ],
       bookCall: 'RÉSERVER UN APPEL GRATUIT',
-      bookCallSub: 'Sans engagement · Appel découverte 30 min.',
+      bookCallSub: 'Sans engagement · Appel découverte 15 min.',
     },
     faq: {
       tag: '// QUESTIONS FRÉQUENTES',
