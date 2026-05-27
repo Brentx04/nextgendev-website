@@ -42,7 +42,7 @@
         </div>
 
         <a
-          href="https://calendly.com/daenenbrent/30min"
+          href="https://calendly.com/d/cyvn-84w-3v7"
           target="_blank"
           rel="noopener"
           class="book-call-btn"
