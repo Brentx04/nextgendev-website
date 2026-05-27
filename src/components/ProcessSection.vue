@@ -223,12 +223,20 @@ onMounted(() => {
 .process-cta-btn:hover .btn-bg { opacity: 0.85; }
 .process-cta-btn .btn-text { position: relative; z-index: 1; }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .process-track {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
   }
   .process-line { display: none; }
+}
+
+@media (max-width: 600px) {
+  .process { padding: 5rem 1.2rem; }
+  .process-track {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
   .process-step {
     flex-direction: row;
     text-align: left;
@@ -237,5 +245,6 @@ onMounted(() => {
   }
   .step-node { flex-shrink: 0; margin-bottom: 0; width: 60px; height: 60px; }
   .step-icon { width: 24px; height: 24px; }
+  .process-cta-btn { font-size: 0.62rem; padding: 0.8rem 1.6rem; }
 }
 </style>

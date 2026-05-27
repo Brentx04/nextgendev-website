@@ -31,7 +31,7 @@ onMounted(() => {
 .wa-float {
   position: fixed;
   bottom: 28px;
-  right: 28px;
+  left: 28px;
   z-index: 8000;
   width: 54px;
   height: 54px;

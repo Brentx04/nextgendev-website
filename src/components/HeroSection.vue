@@ -143,7 +143,7 @@ onMounted(() => {
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
 .hero-urgency {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   margin-top: 1rem;
@@ -152,6 +152,7 @@ onMounted(() => {
   font-weight: 700;
   letter-spacing: 0.12em;
   color: rgba(251, 191, 36, 0.85);
+  white-space: nowrap;
 }
 
 .urgency-dot {
