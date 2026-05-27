@@ -40,6 +40,27 @@
           <span class="badge-dot"></span>
           {{ T.contact.available }}
         </div>
+
+        <a
+          href="https://calendly.com/daenenbrent"
+          target="_blank"
+          rel="noopener"
+          class="book-call-btn"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <span class="book-call-text">
+            <span class="book-call-main">{{ T.contact.bookCall }}</span>
+            <span class="book-call-sub">{{ T.contact.bookCallSub }}</span>
+          </span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="book-call-arrow">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
       </div>
 
       <form class="contact-form" @submit.prevent="handleSubmit" novalidate>
@@ -350,6 +371,57 @@ async function handleSubmit() {
 </script>
 
 <style scoped>
+/* ── Book a call ── */
+.book-call-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.2rem;
+  background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(236,72,153,0.05));
+  border: 1px solid rgba(124,58,237,0.28);
+  border-radius: 12px;
+  color: var(--white);
+  text-decoration: none;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.book-call-btn:hover {
+  border-color: rgba(124,58,237,0.55);
+  box-shadow: 0 0 28px rgba(124,58,237,0.18);
+  transform: translateY(-2px);
+}
+.book-call-btn > svg:first-child {
+  flex-shrink: 0;
+  color: var(--purple-light);
+}
+.book-call-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.book-call-main {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--purple-light);
+}
+.book-call-sub {
+  font-size: 0.75rem;
+  color: var(--grey);
+  letter-spacing: 0.02em;
+}
+.book-call-arrow {
+  flex-shrink: 0;
+  color: rgba(124,58,237,0.5);
+  transition: transform 0.2s, color 0.2s;
+}
+.book-call-btn:hover .book-call-arrow {
+  transform: translateX(3px);
+  color: var(--purple-light);
+}
+
 /* ── Budget Calculator ── */
 .budget-calc { margin-bottom: 1.2rem; }
 

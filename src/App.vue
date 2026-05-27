@@ -13,10 +13,12 @@
       <PortfolioSection />
       <TestimonialsSection />
       <TeamSection />
+      <FAQSection />
       <ContactSection />
     </main>
     <FooterSection />
     <BackToTop :visible="scrollY > 400" />
+    <WhatsAppButton />
   </div>
 </template>
 
@@ -37,6 +39,8 @@ import TeamSection from './components/TeamSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import FooterSection from './components/FooterSection.vue'
 import BackToTop from './components/BackToTop.vue'
+import FAQSection from './components/FAQSection.vue'
+import WhatsAppButton from './components/WhatsAppButton.vue'
 
 const activeSection = ref('home')
 const menuOpen = ref(false)
