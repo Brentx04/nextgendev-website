@@ -85,10 +85,11 @@ onMounted(() => {
 
 <style scoped>
 .process {
-  padding: 7rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .process-track {
@@ -225,27 +226,23 @@ onMounted(() => {
 .process-cta-btn .btn-text { position: relative; z-index: 1; }
 
 @media (max-width: 1100px) {
-  .process-track {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem 1.5rem;
-  }
+  .process-track { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.5rem; }
   .process-line { display: none; }
 }
 
-@media (max-width: 600px) {
-  .process { padding: 5rem 1.2rem; }
-  .process-track {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+@media (max-width: 768px) {
+  .process-track { grid-template-columns: 1fr; gap: 1.5rem; }
   .process-step {
     flex-direction: row;
     text-align: left;
     align-items: flex-start;
-    gap: 1.2rem;
+    gap: 1rem;
   }
-  .step-node { flex-shrink: 0; margin-bottom: 0; width: 60px; height: 60px; }
-  .step-icon { width: 24px; height: 24px; }
+  .step-node { flex-shrink: 0; margin-bottom: 0; width: 56px; height: 56px; min-width: 56px; }
+  .step-icon { width: 22px; height: 22px; }
+  .step-title { font-size: 0.68rem; }
+  .step-desc { font-size: 0.82rem; }
+  .process-cta { margin-top: 2.5rem; }
   .process-cta-btn { font-size: 0.62rem; padding: 0.8rem 1.6rem; }
 }
 </style>

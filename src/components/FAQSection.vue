@@ -73,10 +73,11 @@ function scrollToContact() {
 
 <style scoped>
 .faq {
-  padding: 7rem 2rem;
   max-width: 860px;
   margin: 0 auto;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .faq-list {
@@ -206,9 +207,10 @@ function scrollToContact() {
   box-shadow: 0 0 20px rgba(124,58,237,0.35);
 }
 
-@media (max-width: 600px) {
-  .faq { padding: 5rem 1.2rem; }
-  .faq-answer { padding-left: 1.6rem; }
-  .faq-cta { flex-direction: column; align-items: flex-start; }
+@media (max-width: 768px) {
+  .faq-q-text { font-size: 0.9rem; }
+  .faq-answer { padding: 0 1rem 1.2rem 1rem; }
+  .faq-cta { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .faq-cta-btn { width: 100%; text-align: center; }
 }
 </style>

@@ -1759,7 +1759,7 @@ body.cursor-hover .cursor-ring {
 /* ---- 1280px: large tablet / small laptop ---- */
 @media (max-width: 1280px) {
   .hero { padding: 120px 7vw 80px; }
-  .services, .about, .portfolio, .team, .contact, .testimonials { padding: 7rem 7vw; }
+  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq { padding: 7rem 7vw; }
   .footer { padding: 3rem 7vw; }
   .about-inner { gap: 4rem; }
   .contact-inner { gap: 4rem; }
@@ -1781,7 +1781,7 @@ body.cursor-hover .cursor-ring {
     justify-content: center;
   }
 
-  .services, .about, .portfolio, .team, .contact, .testimonials { padding: 6rem 6vw; }
+  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq { padding: 6rem 6vw; }
   .footer { padding: 2.5rem 6vw; }
 
   .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1847,7 +1847,7 @@ body.cursor-hover .cursor-ring {
   .stat-divider { display: none; }
   .scroll-indicator { display: none; }
 
-  .services, .about, .portfolio, .team, .contact, .testimonials { padding: 4rem 5vw; }
+  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq { padding: 4rem 5vw; }
   .footer { padding: 2rem 5vw; }
   .section-title { font-size: clamp(1.5rem, 6vw, 2.5rem); }
   .section-header { margin-bottom: 2rem; }
@@ -1893,7 +1893,7 @@ body.cursor-hover .cursor-ring {
   .hero-badge { font-size: 0.48rem; padding: 0.3rem 0.75rem; letter-spacing: 0.1em; }
   .hero-stat-bar { gap: 0.75rem; padding: 0.85rem; }
 
-  .services, .about, .portfolio, .team, .contact, .testimonials { padding: 3rem 4vw; }
+  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq { padding: 3rem 4vw; }
   .footer { padding: 2rem 4vw; }
   .section-title { font-size: clamp(1.4rem, 8vw, 2rem); }
 

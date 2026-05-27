@@ -537,6 +537,14 @@ async function handleSubmit() {
   color: var(--purple-light);
 }
 
+@media (max-width: 480px) {
+  .book-call-btn { padding: 0.85rem 1rem; gap: 0.7rem; }
+  .book-call-main { font-size: 0.55rem; }
+  .book-call-sub { font-size: 0.7rem; }
+  .book-call-arrow { display: none; }
+  .custom-select-list { position: fixed; left: 16px; right: 16px; bottom: auto; }
+}
+
 /* ── Budget Calculator ── */
 .budget-calc { margin-bottom: 1.2rem; }
 

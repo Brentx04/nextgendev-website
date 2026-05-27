@@ -36,13 +36,6 @@ const T = computed(() => translations[locale.value])
 </script>
 
 <style scoped>
-.testimonials {
-  padding: 7rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
