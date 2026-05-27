@@ -99,12 +99,28 @@
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
             {{ T.contact.fieldProject }}
           </label>
-          <div class="input-wrap select-wrap">
-            <select id="subject" v-model="form.subject">
-              <option value="">{{ T.contact.selectPlaceholder }}</option>
-              <option v-for="opt in T.contact.selectOptions" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
-            </select>
-            <svg class="select-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="custom-select" :class="{ open: selectOpen }" v-click-outside="closeSelect">
+            <button type="button" class="custom-select-trigger" @click="selectOpen = !selectOpen">
+              <span :class="{ placeholder: !form.subject }">
+                {{ form.subject ? T.contact.selectOptions.find(o => o.value === form.subject)?.label : T.contact.selectPlaceholder }}
+              </span>
+              <svg class="select-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <Transition name="dropdown">
+              <ul v-if="selectOpen" class="custom-select-list">
+                <li
+                  v-for="opt in T.contact.selectOptions"
+                  :key="opt.value"
+                  class="custom-select-item"
+                  :class="{ active: form.subject === opt.value }"
+                  @click="pickOption(opt.value)"
+                >
+                  <svg v-if="form.subject === opt.value" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span v-else class="item-dot"></span>
+                  {{ opt.label }}
+                </li>
+              </ul>
+            </Transition>
           </div>
         </div>
 
@@ -207,6 +223,17 @@ import emailjs from '@emailjs/browser'
 import { useLocale } from '../composables/useLocale.js'
 import { translations } from '../i18n/translations.js'
 
+// v-click-outside directive
+const vClickOutside = {
+  mounted(el, binding) {
+    el._clickOutside = (e) => { if (!el.contains(e.target)) binding.value() }
+    document.addEventListener('click', el._clickOutside)
+  },
+  unmounted(el) {
+    document.removeEventListener('click', el._clickOutside)
+  },
+}
+
 const { locale } = useLocale()
 const T = computed(() => translations[locale.value])
 
@@ -219,6 +246,11 @@ const errors = reactive({ name: '', email: '', message: '' })
 const sending = ref(false)
 const showSuccess = ref(false)
 const showError = ref(false)
+
+// Custom select
+const selectOpen = ref(false)
+function closeSelect() { selectOpen.value = false }
+function pickOption(val) { form.subject = val; selectOpen.value = false }
 
 // ── Budget Calculator ──
 const showCalc = ref(false)
@@ -371,6 +403,89 @@ async function handleSubmit() {
 </script>
 
 <style scoped>
+/* ── Custom Select ── */
+.custom-select {
+  position: relative;
+  z-index: 10;
+}
+
+.custom-select-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(124,58,237,0.22);
+  border-radius: 8px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.custom-select-trigger:hover,
+.custom-select.open .custom-select-trigger {
+  border-color: rgba(124,58,237,0.55);
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.08);
+}
+
+.custom-select-trigger .placeholder { color: rgba(148,163,184,0.55); }
+
+.select-chevron {
+  flex-shrink: 0;
+  color: rgba(124,58,237,0.6);
+  transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+.custom-select.open .select-chevron { transform: rotate(180deg); }
+
+.custom-select-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #0f0f22;
+  border: 1px solid rgba(124,58,237,0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 30px rgba(124,58,237,0.1);
+  list-style: none;
+  padding: 4px;
+}
+
+.custom-select-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.92rem;
+  color: var(--grey);
+  cursor: pointer;
+  border-radius: 7px;
+  transition: background 0.15s, color 0.15s;
+}
+.custom-select-item:hover {
+  background: rgba(124,58,237,0.12);
+  color: var(--white);
+}
+.custom-select-item.active {
+  background: rgba(124,58,237,0.15);
+  color: var(--purple-light);
+}
+.item-dot {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+}
+
+/* Dropdown animation */
+.dropdown-enter-active { transition: opacity 0.18s ease, transform 0.18s ease; }
+.dropdown-leave-active { transition: opacity 0.14s ease, transform 0.14s ease; }
+.dropdown-enter-from  { opacity: 0; transform: translateY(-6px); }
+.dropdown-leave-to    { opacity: 0; transform: translateY(-4px); }
+
 /* ── Book a call ── */
 .book-call-btn {
   display: flex;
