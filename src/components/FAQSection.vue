@@ -76,6 +76,7 @@ function scrollToContact() {
   padding: 7rem 2rem;
   max-width: 860px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .faq-list {

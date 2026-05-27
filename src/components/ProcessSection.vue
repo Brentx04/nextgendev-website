@@ -88,6 +88,7 @@ onMounted(() => {
   padding: 7rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .process-track {
