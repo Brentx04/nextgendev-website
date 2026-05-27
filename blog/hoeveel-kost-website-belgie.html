@@ -73,13 +73,9 @@
     }
     .site-nav a { text-decoration: none; }
     .nav-logo {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--purple-light), var(--pink));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      display: flex;
+      align-items: center;
+      line-height: 0;
     }
     .nav-cta {
       font-family: var(--font-display);
@@ -311,7 +307,9 @@
 
 <!-- NAV -->
 <nav class="site-nav">
-  <a href="/" class="nav-logo">NGC</a>
+  <a href="/" class="nav-logo">
+    <img src="/NGC.png" alt="Next Gen Codes" style="height:36px;width:auto;display:block;" />
+  </a>
   <a href="/#contact" class="nav-cta">OFFERTE AANVRAGEN</a>
 </nav>
 
