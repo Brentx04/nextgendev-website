@@ -75,7 +75,6 @@ function scrollToContact() {
 .faq {
   max-width: 860px;
   margin: 0 auto;
-  overflow: hidden;
   width: 100%;
   box-sizing: border-box;
 }

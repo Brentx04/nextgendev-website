@@ -87,7 +87,6 @@ onMounted(() => {
 .process {
   max-width: 1200px;
   margin: 0 auto;
-  overflow: hidden;
   width: 100%;
   box-sizing: border-box;
 }

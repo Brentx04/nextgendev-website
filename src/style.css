@@ -132,6 +132,9 @@ body.cursor-hover .cursor-ring {
   line-height: 1.1;
   letter-spacing: -0.01em;
   margin-bottom: 2rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 /* ── KNOPPEN ── */
