@@ -9,6 +9,7 @@ export const translations = {
       team: 'ONS TEAM',
       contact: 'CONTACT',
       cta: 'OFFERTE AANVRAGEN',
+      pricing: 'PRIJSCALCULATOR',
     },
     hero: {
       badge: 'SYSTEEM ACTIEF — OPGERICHT 2025',
@@ -88,7 +89,7 @@ export const translations = {
       projects: [
         { cat: 'WEBSITE', title: 'MS Tyre Experts', desc: 'Professionele bedrijfswebsite voor een toonaangevende bandenvakspecialist. Moderne UI, volledige mobiele optimalisatie en snelle laadtijden.' },
         { cat: 'AI TOOL', title: 'Humanizer', desc: 'Een AI-tekst humanizer die gegenereerde tekst omzet naar natuurlijk, menselijk klinkend schrijven. Eenvoudig te gebruiken en direct in de browser.' },
-        { cat: 'BINNENKORT', title: 'Project in Ontwikkeling', desc: 'Een nieuw project is momenteel in ontwikkeling. Neem contact op voor meer informatie.' },
+        { cat: 'WEB TOOL', title: 'Prijscalculator', desc: 'Interactieve offertecalculator waarmee klanten diensten samenstellen en direct een prijsraming ontvangen. Gebouwd met Vue 3.' },
         { cat: 'BINNENKORT', title: 'Project in Ontwikkeling', desc: 'Een nieuw project is momenteel in ontwikkeling. Neem contact op voor meer informatie.' },
       ],
     },
@@ -151,6 +152,18 @@ export const translations = {
       errEmail: 'E-mailadres is verplicht.',
       errEmailInvalid: 'Ongeldig e-mailadres.',
       errMessage: 'Bericht is verplicht.',
+      calcToggle: 'Bereken uw budget',
+      calcEstimate: 'Geschatte investering',
+      calcApply: 'Voeg schatting toe aan bericht →',
+      calcApplyNote: 'Budgetschatting op basis van de calculator:',
+      calcTotal: 'Totaal',
+      calcServices: ['Website', 'Maatwerk Applicatie', 'SEO & Groei', 'Analytics & AI'],
+      calcOpts: [
+        ['Landingspagina', 'Meerdere pagina\'s', 'Webshop'],
+        ['Kleine app', 'Middelgrote app', 'Enterprise'],
+        ['Starter', 'Professioneel', 'Groei'],
+        ['Analytics Dashboard', 'AI-integratie'],
+      ],
     },
     footer: {
       copy: '© 2025 Next Gen Codes. Alle rechten voorbehouden. Met trots gemaakt in Genk, België.',
@@ -188,6 +201,7 @@ export const translations = {
       team: 'OUR TEAM',
       contact: 'CONTACT',
       cta: 'REQUEST QUOTE',
+      pricing: 'PRICING CALCULATOR',
     },
     hero: {
       badge: 'SYSTEM ACTIVE — FOUNDED 2025',
@@ -267,7 +281,7 @@ export const translations = {
       projects: [
         { cat: 'WEBSITE', title: 'MS Tyre Experts', desc: 'Professional business website for a leading tyre specialist. Modern UI, full mobile optimisation and fast load times.' },
         { cat: 'AI TOOL', title: 'Humanizer', desc: 'An AI text humanizer that converts generated text into natural, human-sounding writing. Easy to use and runs directly in the browser.' },
-        { cat: 'COMING SOON', title: 'Project in Development', desc: 'A new project is currently in development. Contact us for more information.' },
+        { cat: 'WEB TOOL', title: 'Pricing Calculator', desc: 'Interactive quote calculator letting clients configure services and get an instant price estimate. Built with Vue 3.' },
         { cat: 'COMING SOON', title: 'Project in Development', desc: 'A new project is currently in development. Contact us for more information.' },
       ],
     },
@@ -330,6 +344,18 @@ export const translations = {
       errEmail: 'Email address is required.',
       errEmailInvalid: 'Invalid email address.',
       errMessage: 'Message is required.',
+      calcToggle: 'Calculate your budget',
+      calcEstimate: 'Estimated investment',
+      calcApply: 'Add estimate to message →',
+      calcApplyNote: 'Budget estimate from the calculator:',
+      calcTotal: 'Total',
+      calcServices: ['Website', 'Custom Application', 'SEO & Growth', 'Analytics & AI'],
+      calcOpts: [
+        ['Landing Page', 'Multi-Page', 'E-Commerce'],
+        ['Small App', 'Mid-Size App', 'Enterprise'],
+        ['Starter', 'Professional', 'Growth'],
+        ['Analytics Dashboard', 'AI Integration'],
+      ],
     },
     footer: {
       copy: '© 2025 Next Gen Codes. All rights reserved. Proudly made in Genk, Belgium.',
@@ -367,6 +393,7 @@ export const translations = {
       team: 'NOTRE ÉQUIPE',
       contact: 'CONTACT',
       cta: 'DEMANDER UN DEVIS',
+      pricing: 'CALCULATEUR DE PRIX',
     },
     hero: {
       badge: 'SYSTÈME ACTIF — FONDÉ EN 2025',
@@ -446,7 +473,7 @@ export const translations = {
       projects: [
         { cat: 'SITE WEB', title: 'MS Tyre Experts', desc: "Site web professionnel pour un spécialiste de pneus de premier plan. Interface moderne, optimisation mobile complète et temps de chargement rapides." },
         { cat: 'OUTIL IA', title: 'Humanizer', desc: "Un humaniseur de texte IA qui convertit le texte généré en écriture naturelle et humaine. Facile à utiliser et fonctionne directement dans le navigateur." },
-        { cat: 'BIENTÔT', title: 'Projet en Développement', desc: "Un nouveau projet est en cours de développement. Contactez-nous pour plus d'informations." },
+        { cat: 'OUTIL WEB', title: 'Calculateur de Prix', desc: "Calculateur de devis interactif permettant aux clients de configurer des services et d'obtenir une estimation de prix instantanée. Construit avec Vue 3." },
         { cat: 'BIENTÔT', title: 'Projet en Développement', desc: "Un nouveau projet est en cours de développement. Contactez-nous pour plus d'informations." },
       ],
     },
@@ -509,6 +536,18 @@ export const translations = {
       errEmail: "L'adresse e-mail est requise.",
       errEmailInvalid: "Adresse e-mail invalide.",
       errMessage: 'Le message est requis.',
+      calcToggle: 'Calculer votre budget',
+      calcEstimate: 'Investissement estimé',
+      calcApply: 'Ajouter l\'estimation au message →',
+      calcApplyNote: 'Estimation budgétaire du calculateur :',
+      calcTotal: 'Total',
+      calcServices: ['Site Web', 'Application Sur Mesure', 'SEO & Croissance', 'Analytics & IA'],
+      calcOpts: [
+        ['Page d\'atterrissage', 'Multi-Pages', 'E-Commerce'],
+        ['Petite App', 'App Moyenne', 'Enterprise'],
+        ['Starter', 'Professionnel', 'Croissance'],
+        ['Tableau de Bord', 'Intégration IA'],
+      ],
     },
     footer: {
       copy: '© 2025 Next Gen Codes. Tous droits réservés. Fièrement créé à Genk, Belgique.',

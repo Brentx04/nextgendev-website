@@ -24,11 +24,15 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const visible = ref(true)
+const alreadyLoaded = sessionStorage.getItem('ngc-loaded')
+const visible = ref(!alreadyLoaded)
 const progress = ref(0)
 const baseUrl = import.meta.env.BASE_URL
 
 onMounted(() => {
+  if (alreadyLoaded) return
+  sessionStorage.setItem('ngc-loaded', '1')
+
   const duration = 2200
   const start = performance.now()
 

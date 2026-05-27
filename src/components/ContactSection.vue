@@ -87,6 +87,61 @@
           </div>
         </div>
 
+        <!-- Budget Calculator -->
+        <div class="budget-calc">
+          <button type="button" class="budget-toggle" @click="showCalc = !showCalc">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            {{ T.contact.calcToggle }}
+            <svg class="chevron" :class="{ open: showCalc }" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+
+          <div class="budget-panel" :class="{ open: showCalc }">
+            <div class="budget-services">
+              <div
+                v-for="(svc, i) in calcServices"
+                :key="i"
+                class="budget-svc"
+                :class="{ active: svc.state.enabled }"
+              >
+                <!-- Top row: icon + name + price + toggle -->
+                <div class="bsvc-top">
+                  <div class="bsvc-icon" v-html="svc.icon"></div>
+                  <span class="bsvc-name">{{ svc.name }}</span>
+                  <span class="bsvc-price" :class="{ enabled: svc.state.enabled }">
+                    {{ svc.state.enabled ? svc.options.find(o => o.id === svc.state.selected)?.price : svc.range }}
+                  </span>
+                  <label class="bsvc-toggle" @click.stop>
+                    <input type="checkbox" v-model="svc.state.enabled" />
+                    <span class="bsvc-track"></span>
+                    <span class="bsvc-thumb"></span>
+                  </label>
+                </div>
+                <!-- Sub-options -->
+                <div class="bsvc-opts" v-if="svc.state.enabled" @click.stop>
+                  <button
+                    v-for="opt in svc.options"
+                    :key="opt.id"
+                    type="button"
+                    class="bsvc-opt"
+                    :class="{ active: svc.state.selected === opt.id }"
+                    @click.stop="svc.state.selected = opt.id"
+                  >{{ opt.name }}</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="budget-result">
+              <div class="budget-result-left">
+                <span class="budget-label">{{ T.contact.calcEstimate }}</span>
+                <span class="budget-total">{{ calcTotal }}</span>
+              </div>
+              <button type="button" class="budget-apply" @click="applyCalc" v-if="calcHasSelection">
+                {{ T.contact.calcApply }}
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div class="form-group" :class="{ 'has-error': errors.message }">
           <label for="message">
             <span class="field-step">04</span>
@@ -144,6 +199,103 @@ const sending = ref(false)
 const showSuccess = ref(false)
 const showError = ref(false)
 
+// ── Budget Calculator ──
+const showCalc = ref(false)
+
+const calcIcons = [
+  `<svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="3" stroke="currentColor" stroke-width="2"/><path d="M14 20L20 26L14 32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 32H34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+  `<svg viewBox="0 0 48 48" fill="none"><path d="M24 6L42 16V32L24 42L6 32V16L24 6Z" stroke="currentColor" stroke-width="2"/><path d="M24 6V42M6 16L42 32M42 16L6 32" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/></svg>`,
+  `<svg viewBox="0 0 48 48" fill="none"><path d="M24 10C16.268 10 10 16.268 10 24C10 31.732 16.268 38 24 38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 24H38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M30 15L38 12L35 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  `<svg viewBox="0 0 48 48" fill="none"><rect x="8" y="20" width="12" height="18" rx="1" stroke="currentColor" stroke-width="2"/><rect x="18" y="12" width="12" height="26" rx="1" stroke="currentColor" stroke-width="2"/><rect x="28" y="6" width="12" height="32" rx="1" stroke="currentColor" stroke-width="2"/></svg>`,
+]
+
+const calcServiceDefs = computed(() => [
+  {
+    name: T.value.contact.calcServices[0],
+    icon: calcIcons[0],
+    range: '€199 – €999',
+    options: [
+      { id: 'basic',     name: T.value.contact.calcOpts[0][0], price: '€199 – €349' },
+      { id: 'advanced',  name: T.value.contact.calcOpts[0][1], price: '€399 – €699' },
+      { id: 'ecommerce', name: T.value.contact.calcOpts[0][2], price: '€599 – €999' },
+    ],
+  },
+  {
+    name: T.value.contact.calcServices[1],
+    icon: calcIcons[1],
+    range: '€299 – €1,500',
+    options: [
+      { id: 'small',      name: T.value.contact.calcOpts[1][0], price: '€299 – €599' },
+      { id: 'medium',     name: T.value.contact.calcOpts[1][1], price: '€599 – €999' },
+      { id: 'enterprise', name: T.value.contact.calcOpts[1][2], price: '€999 – €1,500+' },
+    ],
+  },
+  {
+    name: T.value.contact.calcServices[2],
+    icon: calcIcons[2],
+    range: '€49 – €249/mo',
+    options: [
+      { id: 'starter', name: T.value.contact.calcOpts[2][0], price: '€49 – €99/mo' },
+      { id: 'pro',     name: T.value.contact.calcOpts[2][1], price: '€99 – €179/mo' },
+      { id: 'growth',  name: T.value.contact.calcOpts[2][2], price: '€149 – €249/mo' },
+    ],
+  },
+  {
+    name: T.value.contact.calcServices[3],
+    icon: calcIcons[3],
+    range: '€199 – €899',
+    options: [
+      { id: 'dashboard', name: T.value.contact.calcOpts[3][0], price: '€199 – €449' },
+      { id: 'aiapp',     name: T.value.contact.calcOpts[3][1], price: '€449 – €899' },
+    ],
+  },
+])
+
+const calcStates = reactive([
+  { enabled: false, selected: 'basic' },
+  { enabled: false, selected: 'small' },
+  { enabled: false, selected: 'starter' },
+  { enabled: false, selected: 'dashboard' },
+])
+
+const calcServices = computed(() =>
+  calcServiceDefs.value.map((def, i) => ({ ...def, state: calcStates[i] }))
+)
+
+const calcHasSelection = computed(() => calcStates.some(s => s.enabled))
+
+function parsePriceRange(str) {
+  const nums = str.replace(/[€+,]/g, '').match(/[\d.]+/g) || ['0']
+  return [parseFloat(nums[0]) || 0, parseFloat(nums[1] || nums[0]) || 0]
+}
+function fmtK(n) {
+  return n >= 1000 ? `€${(n / 1000).toFixed(n % 1000 === 0 ? 0 : 1)}k` : `€${n}`
+}
+
+const calcTotal = computed(() => {
+  if (!calcHasSelection.value) return '€0'
+  let lo = 0, hi = 0
+  calcServices.value.forEach(svc => {
+    if (!svc.state.enabled) return
+    const opt = svc.options.find(o => o.id === svc.state.selected) || svc.options[0]
+    const [a, b] = parsePriceRange(opt.price)
+    lo += a; hi += b
+  })
+  return `${fmtK(lo)} – ${fmtK(hi)}`
+})
+
+function applyCalc() {
+  const lines = calcServices.value
+    .map(svc => {
+      if (!svc.state.enabled) return null
+      const opt = svc.options.find(o => o.id === svc.state.selected) || svc.options[0]
+      return `• ${svc.name} (${opt.name}): ${opt.price}`
+    })
+    .filter(Boolean)
+  form.message = `${T.value.contact.calcApplyNote}\n${lines.join('\n')}\n${T.value.contact.calcTotal}: ${calcTotal.value}\n\n`
+  showCalc.value = false
+}
+
 const messagePlaceholder = computed(() =>
   form.subject === 'apply'
     ? T.value.contact.placeholderApply
@@ -196,3 +348,239 @@ async function handleSubmit() {
   }
 }
 </script>
+
+<style scoped>
+/* ── Budget Calculator ── */
+.budget-calc { margin-bottom: 1.2rem; }
+
+.budget-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(124,58,237,0.07);
+  border: 1px solid rgba(124,58,237,0.28);
+  border-radius: 8px;
+  color: var(--purple-light);
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.budget-toggle:hover {
+  background: rgba(124,58,237,0.14);
+  border-color: var(--purple-light);
+  box-shadow: 0 0 16px rgba(124,58,237,0.15);
+}
+.budget-toggle .chevron { transition: transform 0.25s ease; }
+.budget-toggle .chevron.open { transform: rotate(180deg); }
+
+/* Panel */
+.budget-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.budget-panel.open { max-height: 700px; }
+
+.budget-services {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+/* Service row */
+.budget-svc {
+  border: 1px solid rgba(124,58,237,0.14);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.018);
+  overflow: hidden;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.budget-svc.active {
+  border-color: rgba(124,58,237,0.38);
+  background: rgba(124,58,237,0.05);
+  box-shadow: 0 0 20px rgba(124,58,237,0.06);
+}
+
+.bsvc-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+/* Icon */
+.bsvc-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(192,132,252,0.1));
+  border: 1px solid rgba(124,58,237,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple-light);
+  padding: 6px;
+}
+.bsvc-icon svg { width: 100%; height: 100%; }
+.budget-svc.active .bsvc-icon {
+  background: linear-gradient(135deg, rgba(124,58,237,0.4), rgba(236,72,153,0.2));
+  border-color: rgba(124,58,237,0.4);
+}
+
+/* Name */
+.bsvc-name {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--grey-mid);
+  flex: 1;
+  letter-spacing: 0.02em;
+}
+.budget-svc.active .bsvc-name { color: var(--white); }
+
+/* Price badge */
+.bsvc-price {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--grey-dim);
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.bsvc-price.enabled {
+  background: linear-gradient(90deg, var(--purple-light), #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Mini toggle */
+.bsvc-toggle {
+  position: relative;
+  width: 34px;
+  height: 20px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.bsvc-toggle input { display: none; }
+.bsvc-track {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(124,58,237,0.25);
+  border-radius: 10px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.bsvc-toggle input:checked + .bsvc-track {
+  background: linear-gradient(135deg, var(--purple), #ec4899);
+  border-color: transparent;
+}
+.bsvc-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.22s cubic-bezier(.34,1.56,.64,1);
+  pointer-events: none;
+}
+.bsvc-toggle input:checked ~ .bsvc-thumb { transform: translateX(14px); }
+
+/* Sub-options */
+.bsvc-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 0 12px 10px;
+}
+
+.bsvc-opt {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(124,58,237,0.18);
+  border-radius: 6px;
+  color: var(--grey-dim);
+  font-family: var(--font-display);
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  padding: 0.28rem 0.7rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.bsvc-opt:hover {
+  border-color: rgba(124,58,237,0.45);
+  color: var(--grey-light);
+  background: rgba(124,58,237,0.08);
+}
+.bsvc-opt.active {
+  background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(236,72,153,0.12));
+  border-color: var(--purple-light);
+  color: var(--purple-light);
+}
+
+/* Result bar */
+.budget-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(236,72,153,0.05));
+  border: 1px solid rgba(124,58,237,0.25);
+  border-radius: 10px;
+}
+
+.budget-result-left {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.budget-label {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey-dim);
+}
+
+.budget-total {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--purple-light), #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.budget-apply {
+  background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(236,72,153,0.2));
+  border: 1px solid rgba(124,58,237,0.4);
+  border-radius: 6px;
+  color: var(--purple-light);
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.budget-apply:hover {
+  background: linear-gradient(135deg, rgba(124,58,237,0.45), rgba(236,72,153,0.3));
+  border-color: var(--purple-light);
+  color: #fff;
+  box-shadow: 0 0 14px rgba(124,58,237,0.25);
+}
+</style>

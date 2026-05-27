@@ -18,6 +18,8 @@
         </li>
       </ul>
 
+      <a href="/calculator/index.html" target="_blank" class="btn-pricing">{{ T.nav.pricing }}</a>
+
       <div class="lang-switcher">
         <button
           v-for="lang in langs"
@@ -58,6 +60,7 @@
             @click="setLocale(lang)"
           >{{ lang.toUpperCase() }}</button>
         </div>
+        <a href="/calculator/index.html" target="_blank" class="mobile-pricing">{{ T.nav.pricing }}</a>
         <a href="#contact" class="mobile-cta" @click.prevent="handleMobileNav('contact')">{{ T.nav.cta }}</a>
       </div>
     </Transition>
@@ -194,8 +197,49 @@ onUnmounted(() => {
   border-color: var(--purple-light);
 }
 
+.btn-pricing {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--purple-light);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.btn-pricing:hover {
+  background: rgba(124, 58, 237, 0.15);
+  border-color: var(--purple-light);
+  color: #fff;
+}
+
+.mobile-pricing {
+  display: block;
+  text-align: center;
+  margin: 0 1.5rem 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  border-radius: 8px;
+  color: var(--purple-light);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.mobile-pricing:hover {
+  background: rgba(124, 58, 237, 0.12);
+}
+
 @media (max-width: 768px) {
   .lang-switcher {
+    display: none;
+  }
+  .btn-pricing {
     display: none;
   }
 }

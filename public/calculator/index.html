@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing Calculator — Next Gen Codes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #07050f;
+      --surface: #0e0b1e;
+      --surface2: #14102a;
+      --border: rgba(139,92,246,0.18);
+      --border-active: rgba(139,92,246,0.55);
+      --purple: #8b5cf6;
+      --purple-light: #a78bfa;
+      --pink: #ec4899;
+      --text: #e2e0f0;
+      --muted: #7c7a9a;
+      --radius: 14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 20px 60px;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      text-decoration: none;
+    }
+    .logo-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      box-shadow: 0 0 12px var(--purple);
+    }
+    .logo-text {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--purple-light);
+      text-transform: uppercase;
+    }
+    .header h1 {
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .header h1 span {
+      background: linear-gradient(90deg, var(--purple-light), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 380px;
+      margin-inline: auto;
+      line-height: 1.6;
+    }
+
+    /* ── Lang switcher ── */
+    .lang-bar {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 28px;
+    }
+    .lang-bar button {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-bar button:hover { color: var(--text); border-color: rgba(139,92,246,0.4); }
+    .lang-bar button.active {
+      color: var(--purple-light);
+      border-color: var(--purple);
+      background: rgba(139,92,246,0.1);
+    }
+
+    /* ── Layout ── */
+    .calculator {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ── Service Card ── */
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .service-card.active {
+      border-color: var(--border-active);
+      box-shadow: 0 0 0 1px rgba(139,92,246,0.12), 0 8px 32px rgba(139,92,246,0.08);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .card-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--purple-light);
+      padding: 8px;
+    }
+    .card-icon svg { width: 100%; height: 100%; }
+    .card-label { flex: 1; }
+    .card-label strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .card-label span {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 1px;
+      display: block;
+    }
+    .card-price-badge {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--purple-light);
+      background: rgba(139,92,246,0.12);
+      padding: 4px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+
+    /* Toggle */
+    .toggle { position: relative; width: 42px; height: 24px; flex-shrink: 0; }
+    .toggle input { display: none; }
+    .toggle-track {
+      position: absolute; inset: 0;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .toggle input:checked + .toggle-track {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      border-color: transparent;
+    }
+    .toggle-thumb {
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: #fff;
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1);
+      pointer-events: none;
+    }
+    .toggle input:checked ~ .toggle-thumb { transform: translateX(18px); }
+
+    /* Options panel */
+    .card-options {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), padding 0.25s;
+      padding: 0 20px;
+    }
+    .card-options.open { max-height: 400px; padding: 0 20px 20px; }
+    .options-divider { height: 1px; background: var(--border); margin-bottom: 16px; }
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .option-btn {
+      display: flex; flex-direction: column; gap: 2px;
+      padding: 12px 14px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      text-align: left;
+    }
+    .option-btn:hover { border-color: rgba(139,92,246,0.35); }
+    .option-btn.selected { border-color: var(--purple); background: rgba(139,92,246,0.1); }
+    .option-btn .opt-name { font-size: 13px; font-weight: 600; color: var(--text); }
+    .option-btn .opt-desc { font-size: 11px; color: var(--muted); }
+    .option-btn .opt-price { margin-top: 6px; font-size: 12px; font-weight: 700; color: var(--purple-light); }
+    .option-btn.selected .opt-name { color: var(--purple-light); }
+
+    /* ── Summary ── */
+    .summary {
+      background: var(--surface);
+      border: 1px solid var(--border-active);
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      box-shadow: 0 0 40px rgba(139,92,246,0.06);
+    }
+    .summary-label {
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); font-weight: 600; margin-bottom: 6px;
+    }
+    .summary-price {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(90deg, var(--purple-light), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 6px;
+      transition: opacity 0.2s;
+    }
+    .summary-note { font-size: 12px; color: var(--muted); margin-bottom: 20px; }
+    .summary-breakdown { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; min-height: 20px; }
+    .breakdown-row {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: var(--muted);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .breakdown-row .br-name { color: var(--text); font-weight: 500; }
+    .breakdown-row .br-price { color: var(--purple-light); font-weight: 600; font-size: 12px; }
+    .empty-msg { color: var(--muted); font-size: 13px; font-style: italic; }
+
+    .cta-btn {
+      display: block; width: 100%; padding: 14px 24px;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      border: none; border-radius: 10px;
+      color: #fff; font-family: 'Inter', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 0.04em;
+      cursor: pointer; text-align: center; text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .cta-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .cta-btn:active { transform: translateY(0); }
+
+    /* ── Footer ── */
+    .footer-note {
+      text-align: center; margin-top: 28px;
+      font-size: 12px; color: var(--muted); line-height: 1.7;
+    }
+    .footer-note a { color: var(--purple-light); text-decoration: none; }
+    .footer-note a:hover { text-decoration: underline; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .header  { animation: fadeUp 0.5s ease both; }
+    .service-card { animation: fadeUp 0.5s ease both; }
+    .service-card:nth-child(1) { animation-delay: 0.05s; }
+    .service-card:nth-child(2) { animation-delay: 0.1s; }
+    .service-card:nth-child(3) { animation-delay: 0.15s; }
+    .service-card:nth-child(4) { animation-delay: 0.2s; }
+    .summary { animation: fadeUp 0.5s 0.25s ease both; }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div class="header">
+    <a class="logo" href="/index.html" target="_parent">
+      <div class="logo-dot"></div>
+      <span class="logo-text">Next Gen Codes</span>
+    </a>
+    <h1>{{ T.title }} <span>{{ T.titleHighlight }}</span></h1>
+    <p>{{ T.subtitle }}</p>
+  </div>
+
+  <div class="lang-bar">
+    <button v-for="l in langs" :key="l" :class="{ active: locale === l }" @click="setLang(l)">{{ l.toUpperCase() }}</button>
+  </div>
+
+  <div class="calculator">
+    <div
+      v-for="svc in services"
+      :key="svc.id"
+      class="service-card"
+      :class="{ active: svc.enabled }"
+    >
+      <div class="card-header" @click="toggle(svc)">
+        <div class="card-icon" :style="{ background: svc.iconBg }" v-html="svc.icon"></div>
+        <div class="card-label">
+          <strong>{{ svc.name }}</strong>
+          <span>{{ svc.tagline }}</span>
+        </div>
+        <div class="card-price-badge" :style="{ opacity: svc.enabled ? 1 : 0.4 }">
+          {{ svc.enabled && svc.selected ? optionRange(svc) : svc.range }}
+        </div>
+        <label class="toggle" @click.stop>
+          <input type="checkbox" :checked="states[svc.id].enabled" @change="toggle(svc)" />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+
+      <div class="card-options" :class="{ open: svc.enabled }">
+        <div class="options-divider"></div>
+        <div class="options-grid">
+          <button
+            v-for="opt in svc.options"
+            :key="opt.id"
+            class="option-btn"
+            :class="{ selected: states[svc.id].selected === opt.id }"
+            @click="selectOption(svc.id, opt.id)"
+          >
+            <span class="opt-name">{{ opt.name }}</span>
+            <span class="opt-desc">{{ opt.desc }}</span>
+            <span class="opt-price">{{ opt.price }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="summary">
+      <div class="summary-label">{{ T.estimatedInvestment }}</div>
+      <div class="summary-price">{{ totalRange }}</div>
+      <div class="summary-note">
+        {{ hasSelections ? T.indicativeNote : T.enableNote }}
+      </div>
+      <div class="summary-breakdown">
+        <template v-if="hasSelections">
+          <div v-for="row in breakdown" :key="row.name" class="breakdown-row">
+            <span class="br-name">{{ row.name }}</span>
+            <span class="br-price">{{ row.price }}</span>
+          </div>
+        </template>
+        <span v-else class="empty-msg">{{ T.noServices }}</span>
+      </div>
+      <a class="cta-btn" href="/#contact" target="_parent">{{ T.cta }}</a>
+    </div>
+  </div>
+
+  <p class="footer-note" v-html="T.footerNote"></p>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script>
+const { createApp, reactive, ref, computed, watch } = Vue
+
+const i18n = {
+  nl: {
+    title: 'Prijs',
+    titleHighlight: 'Calculator',
+    subtitle: 'Selecteer de diensten die u nodig hebt en ontvang direct een schatting voor uw project.',
+    estimatedInvestment: 'Geschatte investering',
+    indicativeNote: 'Indicatief bereik — definitieve offerte na overleg.',
+    enableNote: 'Schakel diensten in om een schatting te zien.',
+    noServices: 'Nog geen diensten geselecteerd.',
+    cta: 'Vraag een gratis offerte aan →',
+    footerNote: 'Alle prijzen zijn indicatief en in EUR. De volgende kosten zijn <strong style="color:#e2e0f0">niet inbegrepen</strong>: btw, domeinnaam, hosting &amp; SSL-certificaat.<br /><a href="/#contact" target="_parent">Neem contact op</a> voor een offerte op maat.',
+    services: [
+      {
+        name: 'Website',
+        tagline: 'Design, ontwikkeling & lancering',
+        options: [
+          { name: 'Landingspagina', desc: 'Één pagina, snel & modern' },
+          { name: 'Meerdere pagina\'s', desc: 'Volledige site met CMS-integratie' },
+          { name: 'Webshop', desc: 'Shop, betalingen & voorraadbeheer' },
+        ],
+      },
+      {
+        name: 'Maatwerk Applicatie',
+        tagline: 'C#, Python, Node.js & database',
+        options: [
+          { name: 'Kleine app', desc: 'Intern tool of MVP' },
+          { name: 'Middelgrote app', desc: 'REST API + dashboard + DB' },
+          { name: 'Enterprise', desc: 'Complexe integraties & schaalbaar' },
+        ],
+      },
+      {
+        name: 'SEO & Groei',
+        tagline: 'Maandelijks abonnement — meer organisch verkeer',
+        options: [
+          { name: 'Starter', desc: 'Audit + basis + maandrapport' },
+          { name: 'Professioneel', desc: 'Volledige SEO + contentstrategie' },
+          { name: 'Groei', desc: 'Agressieve linkbuilding & ads' },
+        ],
+      },
+      {
+        name: 'Analytics & AI',
+        tagline: 'Dashboards, modellen & AI-integraties',
+        options: [
+          { name: 'Analytics Dashboard', desc: 'Maatwerk grafieken & KPI-tracking' },
+          { name: 'AI-integratie', desc: 'LLM, automatisering & ML-modellen' },
+        ],
+      },
+    ],
+  },
+  en: {
+    title: 'Pricing',
+    titleHighlight: 'Calculator',
+    subtitle: 'Select the services you need and get an instant estimate for your project.',
+    estimatedInvestment: 'Estimated Investment',
+    indicativeNote: 'Indicative range — final quote after consultation.',
+    enableNote: 'Enable services above to see an estimate.',
+    noServices: 'No services selected yet.',
+    cta: 'Request a Free Quote →',
+    footerNote: 'All prices are indicative and in EUR. The following costs are <strong style="color:#e2e0f0">not included</strong>: VAT, domain name, hosting &amp; SSL certificate.<br /><a href="/#contact" target="_parent">Contact us</a> for a tailored proposal.',
+    services: [
+      {
+        name: 'Website',
+        tagline: 'Design, development & deployment',
+        options: [
+          { name: 'Landing Page', desc: 'Single-page, fast & modern' },
+          { name: 'Multi-Page', desc: 'Full site with CMS integration' },
+          { name: 'E-Commerce', desc: 'Shop, payments & inventory' },
+        ],
+      },
+      {
+        name: 'Custom Application',
+        tagline: 'C#, Python, Node.js & database',
+        options: [
+          { name: 'Small App', desc: 'Internal tool or MVP' },
+          { name: 'Mid-Size App', desc: 'REST API + dashboard + DB' },
+          { name: 'Enterprise', desc: 'Complex integrations & scale' },
+        ],
+      },
+      {
+        name: 'SEO & Growth',
+        tagline: 'Monthly retainer — drive organic traffic',
+        options: [
+          { name: 'Starter', desc: 'Audit + basics + monthly report' },
+          { name: 'Professional', desc: 'Full SEO + content strategy' },
+          { name: 'Growth', desc: 'Aggressive link-building & ads' },
+        ],
+      },
+      {
+        name: 'Analytics & AI',
+        tagline: 'Dashboards, models & AI integrations',
+        options: [
+          { name: 'Analytics Dashboard', desc: 'Custom charts & KPI tracking' },
+          { name: 'AI Integration', desc: 'LLM, automation & ML models' },
+        ],
+      },
+    ],
+  },
+  fr: {
+    title: 'Calculateur',
+    titleHighlight: 'de Prix',
+    subtitle: 'Sélectionnez les services dont vous avez besoin et obtenez une estimation instantanée.',
+    estimatedInvestment: 'Investissement estimé',
+    indicativeNote: 'Fourchette indicative — devis définitif après consultation.',
+    enableNote: 'Activez des services pour voir une estimation.',
+    noServices: 'Aucun service sélectionné.',
+    cta: 'Demander un devis gratuit →',
+    footerNote: 'Tous les prix sont indicatifs et en EUR. Les coûts suivants sont <strong style="color:#e2e0f0">non inclus</strong> : TVA, nom de domaine, hébergement &amp; certificat SSL.<br /><a href="/#contact" target="_parent">Contactez-nous</a> pour un devis personnalisé.',
+    services: [
+      {
+        name: 'Site Web',
+        tagline: 'Design, développement & déploiement',
+        options: [
+          { name: 'Page d\'atterrissage', desc: 'Page unique, rapide & moderne' },
+          { name: 'Multi-Pages', desc: 'Site complet avec intégration CMS' },
+          { name: 'E-Commerce', desc: 'Boutique, paiements & inventaire' },
+        ],
+      },
+      {
+        name: 'Application Sur Mesure',
+        tagline: 'C#, Python, Node.js & base de données',
+        options: [
+          { name: 'Petite App', desc: 'Outil interne ou MVP' },
+          { name: 'App Moyenne', desc: 'REST API + tableau de bord + DB' },
+          { name: 'Enterprise', desc: 'Intégrations complexes & évolutif' },
+        ],
+      },
+      {
+        name: 'SEO & Croissance',
+        tagline: 'Abonnement mensuel — trafic organique',
+        options: [
+          { name: 'Starter', desc: 'Audit + bases + rapport mensuel' },
+          { name: 'Professionnel', desc: 'SEO complet + stratégie de contenu' },
+          { name: 'Croissance', desc: 'Link-building agressif & ads' },
+        ],
+      },
+      {
+        name: 'Analytics & IA',
+        tagline: 'Tableaux de bord, modèles & intégrations IA',
+        options: [
+          { name: 'Tableau de Bord', desc: 'Graphiques sur mesure & KPIs' },
+          { name: 'Intégration IA', desc: 'LLM, automatisation & modèles ML' },
+        ],
+      },
+    ],
+  },
+}
+
+// Prices are language-independent
+const prices = [
+  { range: '€199 – €999', options: ['€199 – €349', '€399 – €699', '€599 – €999'] },
+  { range: '€299 – €1.5k', options: ['€299 – €599', '€599 – €999', '€999 – €1,500+'] },
+  { range: '€49 – €249/mo', options: ['€49 – €99 /mo', '€99 – €179 /mo', '€149 – €249 /mo'] },
+  { range: '€199 – €899', options: ['€199 – €449', '€449 – €899'] },
+]
+
+const icons = [
+  {
+    icon: `<svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="3" stroke="currentColor" stroke-width="2"/><path d="M14 20L20 26L14 32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 32H34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+    iconBg: 'linear-gradient(135deg,#1e0a4a,#3b0764)',
+  },
+  {
+    icon: `<svg viewBox="0 0 48 48" fill="none"><path d="M24 6L42 16V32L24 42L6 32V16L24 6Z" stroke="currentColor" stroke-width="2"/><path d="M24 6V42M6 16L42 32M42 16L6 32" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/></svg>`,
+    iconBg: 'linear-gradient(135deg,#0a1e4a,#0d3276)',
+  },
+  {
+    icon: `<svg viewBox="0 0 48 48" fill="none"><path d="M24 10C16.268 10 10 16.268 10 24C10 31.732 16.268 38 24 38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 24H38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M30 15L38 12L35 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    iconBg: 'linear-gradient(135deg,#0a2e1e,#0d5c3a)',
+  },
+  {
+    icon: `<svg viewBox="0 0 48 48" fill="none"><rect x="8" y="20" width="12" height="18" rx="1" stroke="currentColor" stroke-width="2"/><rect x="18" y="12" width="12" height="26" rx="1" stroke="currentColor" stroke-width="2"/><rect x="28" y="6" width="12" height="32" rx="1" stroke="currentColor" stroke-width="2"/></svg>`,
+    iconBg: 'linear-gradient(135deg,#2e0a1e,#6d0f45)',
+  },
+]
+
+const optionIds = [
+  ['basic', 'advanced', 'ecommerce'],
+  ['small', 'medium', 'enterprise'],
+  ['starter', 'pro', 'growth'],
+  ['dashboard', 'aiapp'],
+]
+
+createApp({
+  setup() {
+    const langs = ['nl', 'en', 'fr']
+    const locale = ref(localStorage.getItem('ngc-locale') || 'nl')
+
+    function setLang(l) {
+      locale.value = l
+      localStorage.setItem('ngc-locale', l)
+    }
+
+    const T = computed(() => i18n[locale.value])
+
+    // Toggles & selections — stable across lang switches
+    const states = reactive([
+      { enabled: false, selected: 'basic' },
+      { enabled: false, selected: 'small' },
+      { enabled: false, selected: 'starter' },
+      { enabled: false, selected: 'dashboard' },
+    ])
+
+    const services = computed(() =>
+      T.value.services.map((svc, i) => ({
+        id: i,
+        name: svc.name,
+        tagline: svc.tagline,
+        icon: icons[i].icon,
+        iconBg: icons[i].iconBg,
+        range: prices[i].range,
+        enabled: states[i].enabled,
+        selected: states[i].selected,
+        options: svc.options.map((opt, j) => ({
+          id: optionIds[i][j],
+          name: opt.name,
+          desc: opt.desc,
+          price: prices[i].options[j],
+        })),
+      }))
+    )
+
+    function toggle(svc) { states[svc.id].enabled = !states[svc.id].enabled }
+
+    function getOption(svc) {
+      return svc.options.find(o => o.id === states[svc.id].selected) || svc.options[0]
+    }
+
+    function optionRange(svc) { return getOption(svc).price }
+
+    // Keep v-model in sync via state
+    function selectOption(svcId, optId) { states[svcId].selected = optId }
+
+    const activeServices = computed(() => services.value.filter((_, i) => states[i].enabled))
+    const hasSelections = computed(() => activeServices.value.length > 0)
+
+    const breakdown = computed(() =>
+      activeServices.value.map(svc => ({
+        name: `${svc.name} — ${getOption(svc).name}`,
+        price: getOption(svc).price,
+      }))
+    )
+
+    const totalRange = computed(() => {
+      if (!hasSelections.value) return '€0'
+      let lo = 0, hi = 0
+      for (const svc of activeServices.value) {
+        const [a, b] = parsePriceRange(getOption(svc).price)
+        lo += a; hi += b
+      }
+      return `${fmt(lo)} – ${fmt(hi)}`
+    })
+
+    function parsePriceRange(str) {
+      const nums = str.replace(/[€+,]/g, '').match(/[\d.]+/g) || ['0']
+      return [parseFloat(nums[0]) || 0, parseFloat(nums[1] || nums[0]) || 0]
+    }
+
+    function fmt(n) {
+      return n >= 1000 ? `€${(n / 1000).toFixed(n % 1000 === 0 ? 0 : 1)}k` : `€${n}`
+    }
+
+    return { langs, locale, setLang, T, services, states, toggle, optionRange, selectOption, hasSelections, breakdown, totalRange }
+  }
+}).mount('#app')
+</script>
+</body>
+</html>

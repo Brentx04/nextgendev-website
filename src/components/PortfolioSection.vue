@@ -74,9 +74,10 @@ const projectsMeta = [
   },
   {
     size: '',
-    bg: 'linear-gradient(135deg, #100520 0%, #2d1060 100%)',
-    tags: ['C#', 'MySQL'],
-    url: null,
+    bg: 'linear-gradient(135deg, #0d0520 0%, #2d0a5a 50%, #100520 100%)',
+    tags: ['Vue 3', 'JavaScript', 'CSS'],
+    url: '/calculator/index.html',
+    preview: '/calculator/index.html',
   },
   {
     size: 'large right',
