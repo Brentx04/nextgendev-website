@@ -23,6 +23,10 @@
         </a>
         <a href="#portfolio" class="btn-ghost" @click.prevent="scrollTo('portfolio')">{{ T.hero.ctaSecondary }} <span>→</span></a>
       </div>
+      <div class="hero-urgency" ref="urgencyRef">
+        <span class="urgency-dot"></span>
+        {{ T.hero.urgency }}
+      </div>
     </div>
 
     <div class="hero-logo-display">
@@ -58,6 +62,7 @@ const T = computed(() => translations[locale.value])
 const badgeRef  = ref(null)
 const subRef    = ref(null)
 const actionsRef = ref(null)
+const urgencyRef = ref(null)
 const statBarRef = ref(null)
 const line0 = ref(null)
 const line1 = ref(null)
@@ -104,7 +109,7 @@ onMounted(() => {
     }))
   })
 
-  ;[badgeRef, subRef, actionsRef].forEach((r, i) => {
+  ;[badgeRef, subRef, actionsRef, urgencyRef].forEach((r, i) => {
     if (!r.value) return
     r.value.style.opacity = '0'
     r.value.style.transform = 'translateY(20px)'
@@ -136,4 +141,31 @@ onMounted(() => {
   font-weight: 300;
 }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+.hero-urgency {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(251, 191, 36, 0.85);
+}
+
+.urgency-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245,158,11,0.8);
+  animation: urgency-pulse 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes urgency-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.4); opacity: 0.6; }
+}
 </style>

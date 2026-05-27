@@ -1,6 +1,7 @@
 <template>
   <div>
     <LoadingScreen />
+    <CookieBanner />
     <ScrollProgress :progress="scrollProgress" />
     <CircuitCanvas />
     <CustomCursor />
@@ -8,6 +9,7 @@
     <main>
       <HeroSection />
       <ServicesSection />
+      <ProcessSection />
       <AboutSection />
       <MarqueeSection />
       <PortfolioSection />
@@ -41,6 +43,8 @@ import FooterSection from './components/FooterSection.vue'
 import BackToTop from './components/BackToTop.vue'
 import FAQSection from './components/FAQSection.vue'
 import WhatsAppButton from './components/WhatsAppButton.vue'
+import ProcessSection from './components/ProcessSection.vue'
+import CookieBanner from './components/CookieBanner.vue'
 
 const activeSection = ref('home')
 const menuOpen = ref(false)
