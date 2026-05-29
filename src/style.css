@@ -129,12 +129,16 @@ body.cursor-hover .cursor-ring {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.01em;
   margin-bottom: 2rem;
-  overflow-wrap: break-word;
-  word-break: break-word;
+  overflow-wrap: normal;
+  word-break: normal;
   max-width: 100%;
+}
+.section-title .gradient-text {
+  display: inline;
+  white-space: normal;
 }
 
 /* ── KNOPPEN ── */
@@ -220,8 +224,9 @@ body.cursor-hover .cursor-ring {
   padding: 0 2rem;
   transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
 }
-#navbar.scrolled {
-  background: rgba(6,6,16,0.9);
+#navbar.scrolled,
+#navbar.menu-open {
+  background: rgba(6,6,16,0.98);
   backdrop-filter: blur(24px) saturate(1.4);
   border-bottom: var(--border);
   box-shadow: 0 4px 30px rgba(0,0,0,0.5), 0 1px 0 rgba(124,58,237,0.15);
@@ -1753,6 +1758,11 @@ body.cursor-hover .cursor-ring {
   body { cursor: auto; }
   a, button, .service-card, .project-card, .pillar { cursor: pointer; }
   .service-card:hover { transform: none; }
+}
+
+/* Extra cursor hide op mobiel als fallback */
+@media (max-width: 1024px) {
+  .cursor-dot, .cursor-ring { display: none !important; }
   .project-card:hover { transform: none !important; }
   .btn-primary:hover { transform: none; box-shadow: var(--glow-sm); }
 }
@@ -1762,7 +1772,7 @@ body.cursor-hover .cursor-ring {
 /* ---- 1280px: large tablet / small laptop ---- */
 @media (max-width: 1280px) {
   .hero { padding: 120px 7vw 80px; }
-  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq { padding: 7rem 7vw; }
+  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog { padding: 7rem 7vw; }
   .footer { padding: 3rem 7vw; }
   .about-inner { gap: 4rem; }
   .contact-inner { gap: 4rem; }
@@ -1784,7 +1794,7 @@ body.cursor-hover .cursor-ring {
     justify-content: center;
   }
 
-  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq { padding: 6rem 6vw; }
+  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog { padding: 6rem 6vw; }
   .footer { padding: 2.5rem 6vw; }
 
   .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1838,21 +1848,67 @@ body.cursor-hover .cursor-ring {
     text-align: center;
   }
 
+  .mobile-lang-switcher {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    padding: 0.5rem 0 1rem;
+  }
+  .mobile-lang-switcher .lang-btn {
+    background: none;
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 4px;
+    color: var(--grey-dim);
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    padding: 0.4rem 0.7rem;
+    transition: color 0.2s, background 0.2s;
+  }
+  .mobile-lang-switcher .lang-btn.active {
+    color: var(--purple-light);
+    background: rgba(124, 58, 237, 0.12);
+    border-color: var(--purple-light);
+  }
+  .mobile-lang-switcher .lang-btn:hover { color: var(--white); }
+
+  .mobile-pricing {
+    display: block;
+    text-align: center;
+    margin: 0 1.5rem 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid rgba(124, 58, 237, 0.35);
+    border-radius: 8px;
+    color: var(--purple-light);
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .mobile-pricing:hover { background: rgba(124, 58, 237, 0.12); }
+
   .hero { padding: 100px 5vw 4rem; overflow-x: hidden; }
   .hero-content { max-width: 100%; }
   .hero-title { font-size: clamp(2rem, 8vw, 3.5rem); white-space: normal; }
   .hero-sub { font-size: 0.95rem; line-height: 1.6; max-width: 100%; }
   .hero-sub br { display: none; }
   .hero-badge { font-size: 0.52rem; letter-spacing: 0.14em; }
-  .hero-stat-bar { gap: 1.25rem; padding: 1rem 1.25rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem; }
-  .stat-num { font-size: 1.5rem; }
-  .stat p { font-size: 0.6rem; }
+  .hero-stat-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; background: none; border: none; box-shadow: none; clip-path: none; position: static; margin-top: 2rem; width: 100%; }
+  .stat { padding: 0.85rem 0.5rem; border: 1px solid rgba(124,58,237,0.15); background: rgba(11,11,26,0.7); }
+  .stat:nth-child(odd) { border-right: none; }
+  .stat:nth-child(1), .stat:nth-child(2) { border-bottom: none; }
+  .stat-num { font-size: 1.6rem; }
+  .stat p { font-size: 0.58rem; white-space: normal; line-height: 1.3; }
   .stat-divider { display: none; }
   .scroll-indicator { display: none; }
 
-  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq { padding: 4rem 5vw; }
+  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog { padding: 4rem 5vw; }
   .footer { padding: 2rem 5vw; }
-  .section-title { font-size: clamp(1.5rem, 6vw, 2.5rem); }
+  .section-title { font-size: clamp(1.4rem, 5.5vw, 2.5rem); }
   .section-header { margin-bottom: 2rem; }
 
   .services-grid { grid-template-columns: 1fr; gap: 1px; }
@@ -1894,11 +1950,13 @@ body.cursor-hover .cursor-ring {
   .hero-actions .btn-primary,
   .hero-actions .btn-ghost { width: 100%; justify-content: center; }
   .hero-badge { font-size: 0.48rem; padding: 0.3rem 0.75rem; letter-spacing: 0.1em; }
-  .hero-stat-bar { gap: 0.75rem; padding: 0.85rem; }
+  .hero-stat-bar { margin-top: 1.5rem; }
+  .stat { padding: 0.7rem 0.4rem; }
+  .stat-num { font-size: 1.4rem; }
 
-  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq { padding: 3rem 4vw; }
+  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog { padding: 3rem 4vw; }
   .footer { padding: 2rem 4vw; }
-  .section-title { font-size: clamp(1.4rem, 8vw, 2rem); }
+  .section-title { font-size: clamp(1.2rem, 5.8vw, 1.8rem); }
 
   .service-card { padding: 1.5rem; }
   .about-pillars { grid-template-columns: 1fr; gap: 0.75rem; }
@@ -1920,3 +1978,9 @@ body.cursor-hover .cursor-ring {
 }
 
 body.menu-open { overflow: hidden; }
+
+/* ---- 360px: extra-small phones ---- */
+@media (max-width: 360px) {
+  .section-title { font-size: clamp(1rem, 5.5vw, 1.6rem); }
+  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog { padding: 2.5rem 3.5vw; }
+}

@@ -6,6 +6,7 @@
       </a>
       <p class="footer-copy">{{ T.footer.copy }}</p>
       <nav class="footer-links">
+        <a href="/blog/hoeveel-kost-website-belgie" target="_blank" rel="noopener">{{ T.footer.blog }}</a>
         <a href="#" @click.prevent="showPrivacy = true">{{ T.footer.privacy }}</a>
         <a href="#" @click.prevent="showTerms = true">{{ T.footer.terms }}</a>
         <a href="https://www.linkedin.com/in/brent-d-9a4908331/" target="_blank" rel="noopener">LinkedIn</a>

@@ -8,7 +8,12 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const isTouch = ref('ontouchstart' in window || navigator.maxTouchPoints > 0)
+const isTouch = ref(
+  'ontouchstart' in window ||
+  navigator.maxTouchPoints > 0 ||
+  window.innerWidth <= 1024 ||
+  window.matchMedia('(hover: none)').matches
+)
 const dotRef = ref(null)
 const ringRef = ref(null)
 

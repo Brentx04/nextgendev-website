@@ -1,5 +1,5 @@
 <template>
-  <nav id="navbar" :class="{ scrolled: isScrolled }">
+  <nav id="navbar" :class="{ scrolled: isScrolled, 'menu-open': menuOpen }">
     <div class="nav-inner">
       <a href="#home" class="logo" @click.prevent="scrollTo('home')">
         <img :src="baseUrl + 'NGC.png'" alt="Next Gen Codes logo" class="logo-img" />
@@ -44,26 +44,29 @@
       </button>
     </div>
 
-    <Transition name="mobile-menu">
-      <div v-if="menuOpen" class="mobile-menu">
-        <ul>
-          <li v-for="item in navItems" :key="item.id">
-            <a :href="'#' + item.id" @click.prevent="handleMobileNav(item.id)">{{ item.label }}</a>
-          </li>
-        </ul>
-        <div class="mobile-lang-switcher">
-          <button
-            v-for="lang in langs"
-            :key="lang"
-            class="lang-btn"
-            :class="{ active: locale === lang }"
-            @click="setLocale(lang)"
-          >{{ lang.toUpperCase() }}</button>
+    <Teleport to="body">
+      <Transition name="mobile-menu">
+        <div v-if="menuOpen" class="mobile-menu">
+          <ul>
+            <li v-for="item in navItems" :key="item.id">
+              <a :href="'#' + item.id" @click.prevent="handleMobileNav(item.id)">{{ item.label }}</a>
+            </li>
+          </ul>
+          <div class="mobile-lang-switcher">
+            <button
+              v-for="lang in langs"
+              :key="lang"
+              class="lang-btn"
+              :class="{ active: locale === lang }"
+              @click="setLocale(lang)"
+            >{{ lang.toUpperCase() }}</button>
+          </div>
+          <a href="/blog/hoeveel-kost-website-belgie" target="_blank" class="mobile-pricing">{{ T.nav.blog }}</a>
+          <a href="/calculator/index.html" target="_blank" class="mobile-pricing">{{ T.nav.pricing }}</a>
+          <a href="#contact" class="mobile-cta" @click.prevent="handleMobileNav('contact')">{{ T.nav.cta }}</a>
         </div>
-        <a href="/calculator/index.html" target="_blank" class="mobile-pricing">{{ T.nav.pricing }}</a>
-        <a href="#contact" class="mobile-cta" @click.prevent="handleMobileNav('contact')">{{ T.nav.cta }}</a>
-      </div>
-    </Transition>
+      </Transition>
+    </Teleport>
   </nav>
 </template>
 
@@ -101,13 +104,11 @@ let savedScrollY = 0
 watch(() => props.menuOpen, (open) => {
   if (open) {
     savedScrollY = window.scrollY
-    document.body.style.position = 'fixed'
-    document.body.style.top = `-${savedScrollY}px`
-    document.body.style.width = '100%'
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
   } else {
-    document.body.style.position = ''
-    document.body.style.top = ''
-    document.body.style.width = ''
+    document.documentElement.style.overflow = ''
+    document.body.style.overflow = ''
     window.scrollTo(0, savedScrollY)
   }
 })

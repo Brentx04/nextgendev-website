@@ -16,11 +16,13 @@
       <TestimonialsSection />
       <TeamSection />
       <FAQSection />
+      <BlogSection />
       <ContactSection />
     </main>
     <FooterSection />
     <BackToTop :visible="scrollY > 400" />
     <WhatsAppButton />
+    <ExitIntentPopup />
   </div>
 </template>
 
@@ -45,6 +47,8 @@ import FAQSection from './components/FAQSection.vue'
 import WhatsAppButton from './components/WhatsAppButton.vue'
 import ProcessSection from './components/ProcessSection.vue'
 import CookieBanner from './components/CookieBanner.vue'
+import ExitIntentPopup from './components/ExitIntentPopup.vue'
+import BlogSection from './components/BlogSection.vue'
 
 const activeSection = ref('home')
 const menuOpen = ref(false)
