@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <a href="#home" class="footer-logo" @click.prevent="scrollTop">
-        <img :src="baseUrl + 'NGC.png'" alt="Peter" class="footer-logo-img" />
+        <img :src="baseUrl + 'NGC.png'" alt="Next Gen Codes" class="footer-logo-img" />
       </a>
       <p class="footer-copy">{{ T.footer.copy }}</p>
 

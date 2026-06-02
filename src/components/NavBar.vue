@@ -2,9 +2,9 @@
   <nav id="navbar" :class="{ scrolled: isScrolled, 'menu-open': menuOpen }">
     <div class="nav-inner">
       <a href="#home" class="logo" @click.prevent="scrollTo('home')">
-        <img :src="baseUrl + 'NGC.png'" alt="Peter logo" class="logo-img" />
+        <img :src="baseUrl + 'NGC.png'" alt="Next Gen Codes logo" class="logo-img" />
         <span class="logo-line"></span>
-        <span class="logo-sub">PETER</span>
+        <span class="logo-sub">NEXT GEN CODES</span>
       </a>
 
       <ul class="nav-links">
