@@ -100,19 +100,28 @@
             {{ T.contact.fieldProject }}
           </label>
           <div class="custom-select" :class="{ open: selectOpen }" v-click-outside="closeSelect">
-            <button type="button" class="custom-select-trigger" @click="selectOpen = !selectOpen">
+            <button
+              type="button"
+              id="subject"
+              class="custom-select-trigger"
+              @click="selectOpen = !selectOpen"
+              aria-haspopup="listbox"
+              :aria-expanded="selectOpen"
+            >
               <span :class="{ placeholder: !form.subject }">
                 {{ form.subject ? T.contact.selectOptions.find(o => o.value === form.subject)?.label : T.contact.selectPlaceholder }}
               </span>
-              <svg class="select-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              <svg class="select-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <Transition name="dropdown">
-              <ul v-if="selectOpen" class="custom-select-list">
+              <ul v-if="selectOpen" class="custom-select-list" role="listbox">
                 <li
                   v-for="opt in T.contact.selectOptions"
                   :key="opt.value"
                   class="custom-select-item"
                   :class="{ active: form.subject === opt.value }"
+                  role="option"
+                  :aria-selected="form.subject === opt.value"
                   @click="pickOption(opt.value)"
                 >
                   <svg v-if="form.subject === opt.value" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
@@ -200,6 +209,8 @@
           </span>
         </button>
 
+        <p class="contact-reassure">{{ T.contact.reassure }}</p>
+
         <Transition name="fade">
           <div v-if="showSuccess" class="form-success">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -222,6 +233,7 @@ import { reactive, ref, computed, onMounted } from 'vue'
 import emailjs from '@emailjs/browser'
 import { useLocale } from '../composables/useLocale.js'
 import { translations } from '../i18n/translations.js'
+import { trackEvent } from '../composables/useAnalytics.js'
 
 // v-click-outside directive
 const vClickOutside = {
@@ -389,6 +401,7 @@ async function handleSubmit() {
       message:    form.message,
     }, EMAILJS_PUBLIC)
 
+    trackEvent('contact_submit', { subject: subjectLabel })
     form.name = form.email = form.subject = form.message = ''
     showSuccess.value = true
     setTimeout(() => { showSuccess.value = false }, 6000)

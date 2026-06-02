@@ -15,16 +15,28 @@
         :class="{ open: openIndex === i }"
         ref="itemRefs"
       >
-        <button class="faq-question" @click="toggle(i)" :aria-expanded="openIndex === i">
+        <button
+          class="faq-question"
+          :id="'faq-q-' + i"
+          @click="toggle(i)"
+          :aria-expanded="openIndex === i"
+          :aria-controls="'faq-a-' + i"
+        >
           <span class="faq-num">{{ String(i + 1).padStart(2, '0') }}</span>
           <span class="faq-q-text">{{ item.q }}</span>
-          <span class="faq-icon">
+          <span class="faq-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <polyline points="6 9 12 15 18 9"/>
             </svg>
           </span>
         </button>
-        <div class="faq-answer-wrap" :style="answerStyle(i)">
+        <div
+          class="faq-answer-wrap"
+          :id="'faq-a-' + i"
+          role="region"
+          :aria-labelledby="'faq-q-' + i"
+          :style="answerStyle(i)"
+        >
           <p class="faq-answer">{{ item.a }}</p>
         </div>
       </div>

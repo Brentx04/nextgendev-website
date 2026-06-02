@@ -4,8 +4,8 @@
       <div class="loader-bg"></div>
 
       <div class="loader-content">
-        <img :src="baseUrl + 'NGC.png'" alt="Next Gen Codes" class="loader-logo" />
-        <p class="loader-brand">NEXT GEN CODES</p>
+        <img :src="baseUrl + 'NGC.png'" alt="Peter" class="loader-logo" />
+        <p class="loader-brand">PETER</p>
 
         <div class="loader-bar-wrap">
           <div class="loader-bar" :style="{ width: progress + '%' }"></div>

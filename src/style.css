@@ -36,6 +36,14 @@
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── ACCESSIBILITY: keyboard focus ── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+:focus:not(:focus-visible) { outline: none; }
 html { scroll-behavior: smooth; font-size: 16px; overflow-x: clip; }
 body {
   background: var(--black);
@@ -123,7 +131,7 @@ body.cursor-hover .cursor-ring {
   letter-spacing: 0.2em;
   color: var(--accent);
   margin-bottom: 1rem;
-  text-shadow: 0 0 12px rgba(192,132,252,0.5);
+  text-shadow: 0 0 6px rgba(192,132,252,0.25);
 }
 .section-title {
   font-family: var(--font-display);
@@ -139,6 +147,13 @@ body.cursor-hover .cursor-ring {
 .section-title .gradient-text {
   display: inline;
   white-space: normal;
+}
+
+/* FAQ & Blog: vertical rhythm only — they self-center via max-width + margin auto */
+.faq, .blog {
+  position: relative;
+  z-index: 1;
+  padding: 8rem 0;
 }
 
 /* ── KNOPPEN ── */
@@ -1541,6 +1556,14 @@ body.cursor-hover .cursor-ring {
 }
 .spin { animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+.contact-reassure {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--grey);
+  opacity: 0.85;
+  margin-top: 0.9rem;
+}
 
 .form-success {
   display: flex;

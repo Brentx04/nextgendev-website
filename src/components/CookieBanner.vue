@@ -29,6 +29,7 @@
 import { ref, computed, onMounted } from 'vue'
 import { useLocale } from '../composables/useLocale.js'
 import { translations } from '../i18n/translations.js'
+import { grantConsent, denyConsent } from '../composables/useConsent.js'
 
 const { locale } = useLocale()
 const T = computed(() => translations[locale.value])
@@ -41,12 +42,12 @@ onMounted(() => {
 })
 
 function accept() {
-  localStorage.setItem('ngc-cookie-consent', 'accepted')
+  grantConsent()
   visible.value = false
 }
 
 function decline() {
-  localStorage.setItem('ngc-cookie-consent', 'declined')
+  denyConsent()
   visible.value = false
 }
 

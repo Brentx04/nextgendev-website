@@ -10,6 +10,7 @@
       <HeroSection />
       <ServicesSection />
       <ProcessSection />
+      <PricingSection />
       <AboutSection />
       <MarqueeSection />
       <PortfolioSection />
@@ -17,11 +18,13 @@
       <TeamSection />
       <FAQSection />
       <BlogSection />
+      <WebsiteAuditSection />
       <ContactSection />
     </main>
     <FooterSection />
     <BackToTop :visible="scrollY > 400" />
     <WhatsAppButton />
+    <StickyMobileCta :visible="scrollY > 600" />
     <ExitIntentPopup />
   </div>
 </template>
@@ -49,13 +52,17 @@ import ProcessSection from './components/ProcessSection.vue'
 import CookieBanner from './components/CookieBanner.vue'
 import ExitIntentPopup from './components/ExitIntentPopup.vue'
 import BlogSection from './components/BlogSection.vue'
+import PricingSection from './components/PricingSection.vue'
+import WebsiteAuditSection from './components/WebsiteAuditSection.vue'
+import StickyMobileCta from './components/StickyMobileCta.vue'
+import { applyStoredConsent } from './composables/useConsent.js'
 
 const activeSection = ref('home')
 const menuOpen = ref(false)
 const scrollY = ref(0)
 const scrollProgress = ref(0)
 
-const sectionIds = ['home', 'services', 'about', 'portfolio', 'testimonials', 'team', 'contact']
+const sectionIds = ['home', 'services', 'pricing', 'about', 'portfolio', 'testimonials', 'team', 'contact']
 
 function onScroll() {
   scrollY.value = window.scrollY
@@ -70,6 +77,9 @@ function onScroll() {
   activeSection.value = current
 }
 
-onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
+onMounted(() => {
+  applyStoredConsent()
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
 onUnmounted(() => window.removeEventListener('scroll', onScroll))
 </script>
