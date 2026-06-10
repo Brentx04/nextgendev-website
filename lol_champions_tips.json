@@ -1,0 +1,1024 @@
+{
+  "champions": [
+    { "name": "Aatrox", "role": "Top", "tips": [
+      "Land the edges of your Q (The Darkin Blade) for the full slash damage from both ends.",
+      "Use Q3 to knock enemies up; combo with Umbral Dash (E) to dash toward or away during the cast.",
+      "Your passive heals based on damage dealt to champions, so engage when you can hit multiple targets.",
+      "Save E (Umbral Dash) to dodge skillshots, not just for repositioning in combat."
+    ]},
+    { "name": "Ahri", "role": "Mid", "tips": [
+      "Use Charm (E) before all-in to guarantee your combo lands.",
+      "Spirit Rush (R) resets if you get a takedown, useful for chain-killing low HP targets.",
+      "Orb of Deception (Q) deals magic damage going out and true damage coming back, prioritize landing the return.",
+      "Use Q to last hit casters under turret thanks to the true damage on return."
+    ]},
+    { "name": "Akali", "role": "Mid", "tips": [
+      "Stand inside your Twilight Shroud (W) to become untargetable from ranged abilities.",
+      "Use Shuriken Flip (E) to reset auto-attack timer and reposition mid-combo.",
+      "Energy management is key early; avoid spamming Q to poke.",
+      "Save R2 (second cast of Perfect Execution) to finish off fleeing targets."
+    ]},
+    { "name": "Akshan", "role": "Mid/ADC", "tips": [
+      "Hide in bushes or behind minions to gain camouflage from passive.",
+      "Revive allies by killing the champion who scored a takedown on them within range.",
+      "Use Q's bounce to hit two targets, prioritize squishies on the second bounce.",
+      "Use W (Going Rogue) to scout and harass from a distance with reduced cooldown on takedowns."
+    ]},
+    { "name": "Alistar", "role": "Support", "tips": [
+      "Combo Pulverize (W) into Headbutt (Q) to knock enemies into your turret or team.",
+      "Use Flash + combo to catch enemies off guard in lane.",
+      "Ultimate (R) timing is crucial - use it to survive burst combos, not just to engage.",
+      "Headbutt allies into safety when they're about to die."
+    ]},
+    { "name": "Amumu", "role": "Jungle", "tips": [
+      "Curse of the Sad Mummy (R) is your main engage; flash into range for surprise ults.",
+      "Bandage Toss (Q) can be used to gap-close onto enemies or escape.",
+      "Tantrum (E) reduces incoming physical damage, build around tanky bruiser items.",
+      "Try to hit as many champions as possible with your ultimate for max value."
+    ]},
+    { "name": "Anivia", "role": "Mid", "tips": [
+      "Use Crystallize (E) to wall off enemies or block skillshots/escape routes.",
+      "Flash Frost (Q) detonation deals more damage, try to recast it on top of enemies.",
+      "Glacial Storm (R) drains mana but slows and damages over time - toggle wisely.",
+      "Your passive lets you respawn an egg form if you die, position aggressively when you have it up."
+    ]},
+    { "name": "Annie", "role": "Mid", "tips": [
+      "Track your passive (Pyromania) stacks - every 4th spell stuns.",
+      "Save your stun for when you flash in or when enemies engage on you.",
+      "Tibbers (R) can be reactivated to make him leap and deal AoE damage.",
+      "Use Disintegrate (Q) for cs and poke, mana refunds on kill."
+    ]},
+    { "name": "Aphelios", "role": "ADC", "tips": [
+      "Learn the 5 weapon combos - Calibrum (sniper) + Severum (lifesteal) is a strong combo.",
+      "Gravitum (gun) roots, great for setting up kills with your team.",
+      "Use Crescendum (R) for huge teamfight damage with rapid-fire shots.",
+      "Manage ammo carefully - swapping weapons too often wastes resources."
+    ]},
+    { "name": "Ashe", "role": "ADC", "tips": [
+      "Use Hawkshot (E) regularly for vision and to scout enemy jungler/rotations.",
+      "Enchanted Crystal Arrow (R) has huge range - use it to set up global plays.",
+      "Volley (W) applies your passive crit slow to all targets hit.",
+      "Frost Shot (passive) slows on auto-attacks, great for kiting."
+    ]},
+    { "name": "Aurelion Sol", "role": "Mid", "tips": [
+      "Build stardust by hitting champions with Q to increase your star size and damage.",
+      "Use W (Celestial Voyage) to roam quickly across the map.",
+      "Comet of Legend (R) can be used offensively to engage or defensively to escape.",
+      "Position your stars to zone enemies away from objectives."
+    ]},
+    { "name": "Aurora", "role": "Mid", "tips": [
+      "Use The Weirding (E) to dash through walls and reposition in fights.",
+      "Stack passive stacks on enemies before going for an all-in.",
+      "Between Worlds (R) grants a shield and bonus movement speed - use it to engage or disengage.",
+      "Q (The Hex) can be cast twice in quick succession for follow-up damage."
+    ]},
+    { "name": "Azir", "role": "Mid", "tips": [
+      "Use soldiers to shield allies in fights with Arise! (Q).",
+      "Shurima's Legacy (E) lets you teleport to your soldiers - use it to dodge skillshots.",
+      "Conquering Sands (R) can wall off enemies or push them into your team.",
+      "Stay behind your soldiers to maximize range and safety."
+    ]},
+    { "name": "Bard", "role": "Support", "tips": [
+      "Collect Meeps (chimes) for movement speed and ability power stacking.",
+      "Use Tempered Fate (R) to stop objectives like Baron/Dragon or to save allies.",
+      "Magical Journey (E) creates shortcuts through walls for your team.",
+      "Caretaker's Shrines heal allies and grant movement speed - place them strategically."
+    ]},
+    { "name": "Bel'Veth", "role": "Jungle", "tips": [
+      "Void Surge (W) dashes give bonus attack speed - chain them in fights.",
+      "Use R (Endless Banquet) to instantly clear waves and dive towers.",
+      "Above and Beyond (E) lets you dash across the map, use it to gank or escape.",
+      "True damage stacks from passive scale with attack speed - prioritize AS items."
+    ]},
+    { "name": "Blitzcrank", "role": "Support", "tips": [
+      "Land Rocket Grab (Q) to instantly turn fights - aim for isolated targets.",
+      "Use Power Fist (E) to amplify your grab follow-up damage.",
+      "Static Field (R) silences on activation, great for shutting down enchanters/casters.",
+      "Manaflow Band/W passive shield helps you survive trades after grabbing."
+    ]},
+    { "name": "Brand", "role": "Support/Mid", "tips": [
+      "Chain abilities to apply Blaze stacks - a third ability application detonates for bonus damage.",
+      "Pillar of Flame (Q) deals more damage to ablazed targets.",
+      "Pyroclasm (R) bounces between targets - aim it through groups for max bounces.",
+      "Conflagration (E) spreads Blaze to nearby enemies."
+    ]},
+    { "name": "Braum", "role": "Support", "tips": [
+      "Stack Concussive Blows (passive) with autos and Winter's Bite (Q) to stun.",
+      "Unbreakable (W) blocks projectiles for your team - position it to protect carries.",
+      "Glacial Fissure (R) knocks up and slows enemies in a line.",
+      "Stand In Front of Me (E) lets you body-block for an ally."
+    ]},
+    { "name": "Briar", "role": "Jungle", "tips": [
+      "Activate Blood Frenzy (passive) before fights for bonus attack speed and healing.",
+      "Use Chilling Scream (E) to root enemies, ideal for setting up your jungler ganks.",
+      "Head Rush (R) makes you immune to crowd control while charging.",
+      "Be careful with Hemoplague-like uncontrollable rage; disengage timing matters."
+    ]},
+    { "name": "Caitlyn", "role": "ADC", "tips": [
+      "Place Yordle Snap Traps (W) in bushes and common pathing spots for vision and CC.",
+      "Use 90 Caliber Net (E) to peel or finish off fleeing enemies, jump backward with it.",
+      "Piltover Peacemaker (Q) deals bonus damage if it travels far enough.",
+      "Ace in the Hole (R) is a long-range execute - combo with traps for guaranteed hits."
+    ]},
+    { "name": "Camille", "role": "Top", "tips": [
+      "Use Hookshot (E) onto walls to engage from unexpected angles.",
+      "Your ultimate (R) traps a single target, isolating them from their team.",
+      "Adaptive Defenses (passive) shields against the next instance of damage type after using an ability.",
+      "Precision Protocol (Q) true damage finishes execute targets."
+    ]},
+    { "name": "Cassiopeia", "role": "Mid", "tips": [
+      "Apply Noxious Blast (Q) before other abilities to reduce their cooldowns via passive.",
+      "Avoid moving in a straight line - your passive removes boots, but movement matters for dodging.",
+      "Petrifying Gaze (R) only stuns if enemies are facing you.",
+      "Twin Fang (E) deals more damage and refunds mana on poisoned targets."
+    ]},
+    { "name": "Cho'Gath", "role": "Top", "tips": [
+      "Stack Feast (R) on minions/champions to permanently grow in size and stats.",
+      "Rupture (Q) silences if it knocks up - use it to cancel channels.",
+      "Vorpal Spikes (W) passive applies on autos; weave in autos for poke.",
+      "Carnivore (passive) heals/restores mana on champion takedowns."
+    ]},
+    { "name": "Corki", "role": "Mid/ADC", "tips": [
+      "Phosphorus Bomb (Q) reveals stealthed units and deals true damage to structures.",
+      "Valkyrie (E) can be used to dodge skillshots or escape ganks.",
+      "Missile Barrage (R) stacks up over time - use the empowered shots wisely.",
+      "Build a mix of AD and AP since Corki scales with both."
+    ]},
+    { "name": "Darius", "role": "Top", "tips": [
+      "Stack Hemorrhage (passive) to 5 stacks for the execute on Noxian Guillotine (R).",
+      "Apprehend (E) pulls enemies in and grants armor pen - use it to start trades.",
+      "Decimate (Q) heals you based on enemies hit, position to hit multiple targets.",
+      "R resets cooldown on takedowns - chain kills in teamfights."
+    ]},
+    { "name": "Diana", "role": "Jungle/Mid", "tips": [
+      "Moonfall (E) pulls enemies toward you, combo with Q for burst.",
+      "Pale Cascade (W) shield absorbs damage and detonates for AoE.",
+      "Lunar Rush (R) resets on champion takedowns - chain through low-HP enemies.",
+      "Crescent Strike (Q) reveals enemies hit for a few seconds."
+    ]},
+    { "name": "Dr. Mundo", "role": "Top/Jungle", "tips": [
+      "Maximum Dosage (R) heals a percentage of max HP and grants resistances.",
+      "Throw your bonus health into Heart Zapper (E) - it scales off max HP.",
+      "Adrenaline Rush (passive) regenerates HP based on missing health.",
+      "Use Blunt Force Trauma (Q) cleavers to slow and harass from range."
+    ]},
+    { "name": "Draven", "role": "ADC", "tips": [
+      "Catch Spinning Axes (passive) to maintain bonus AD - practice your timing.",
+      "Stand Aside (E) knocks back and slows, good for peeling or finishing.",
+      "Whirling Death (R) axes deal more damage if caught and re-thrown.",
+      "Adoration stacks (passive gold) require last-hitting, not just damaging."
+    ]},
+    { "name": "Ekko", "role": "Jungle/Mid", "tips": [
+      "Chronobreak (R) heals based on damage dealt during the rewind window - go aggressive before using it.",
+      "Parallel Convergence (E) zone stuns enemies on second hit - delay the cast for max value.",
+      "Z-Drive Resonance (passive) detonates for bonus damage and slow on third hit.",
+      "Use Phase Dive (W) to gap close and gain a shield."
+    ]},
+    { "name": "Elise", "role": "Jungle", "tips": [
+      "Switch to Spider Form for burst combos, switch back to Human Form to escape with Cocoon (E).",
+      "Rappel (E in spider form) lets you jump to a champion and gain bonus AD next attack.",
+      "Spiderlings (passive) deal extra damage to low HP targets - great for executes.",
+      "Use Human Form Cocoon to stun from range before engaging."
+    ]},
+    { "name": "Evelynn", "role": "Jungle", "tips": [
+      "Stay in stealth (passive) until level 6 to avoid ganks and set up ambushes.",
+      "Hate Spike (Q) charges deal more damage - charge them up before engaging.",
+      "Last Caress (R) execute damage is doubled against low-HP enemies.",
+      "Use Whiplash (W) to slow and reposition during your combo."
+    ]},
+    { "name": "Ezreal", "role": "ADC", "tips": [
+      "Mystic Shot (Q) resets auto-attack timer and reduces cooldowns on hit.",
+      "Arcane Shift (E) is a blink - use it to dodge skillshots or reposition.",
+      "Trueshot Barrage (R) is global range, use it to secure kills across the map.",
+      "Essence Flux (W) buffs your next attack/spell with bonus magic damage."
+    ]},
+    { "name": "Fiddlesticks", "role": "Jungle", "tips": [
+      "Use Bountiful Harvest (W) on cooldown to fear and drain HP from enemies.",
+      "Crowstorm (R) can be cast from stealth for a surprise teamfight engage.",
+      "Terrify (Q) fears in a small AoE - great for peeling or initiating chaos.",
+      "Reap (E) heals you and slows enemies hit."
+    ]},
+    { "name": "Fiora", "role": "Top", "tips": [
+      "Hit Vitals (passive) for bonus true damage and healing - they appear on enemy champions periodically.",
+      "Bladework (W) empowers your next two autos; combo with vitals for max damage.",
+      "Riposte (E) parries crowd control and damage, use it defensively against engages.",
+      "Grand Challenge (R) reveals all 4 vitals and heals your team if you finish the duel."
+    ]},
+    { "name": "Fizz", "role": "Mid", "tips": [
+      "Playful/Trickster (E) makes you untargetable briefly - use it to dodge ultimates.",
+      "Urchin Strike (Q) dashes through units, good for engaging or escaping.",
+      "Chum the Waters (R) fish deals more damage closer to the impact center.",
+      "Seastone Trident (W) passive applies on-hit magic damage and healing."
+    ]},
+    { "name": "Galio", "role": "Mid/Support", "tips": [
+      "Hero's Entrance (R) taunts enemies near your landing spot - aim for clustered targets.",
+      "Wind Wall (passive shield from Righteous Gust) blocks projectiles when triggered.",
+      "Use Justice Punch (Q) to engage and knock back into your team.",
+      "Idol of Durand (W) taunts nearby enemies and shields you."
+    ]},
+    { "name": "Gangplank", "role": "Top", "tips": [
+      "Place Powder Kegs (W) in jungle camps and lanes, detonate with Q for big damage.",
+      "Parrrley (Q) applies a stacking passive that deals damage over time.",
+      "Cannon Barrage (R) zones large areas and slows - great for split push defense or teamfight setup.",
+      "Remove crowd control and heal with Cure (E)."
+    ]},
+    { "name": "Garen", "role": "Top", "tips": [
+      "Judgement (E) deals more damage the longer you spin - try not to interrupt it.",
+      "Decisive Strike (Q) silences on hit, use it to interrupt channels/ultimates.",
+      "Demacian Justice (R) execute scales with target's missing HP - great for finishing low-HP enemies.",
+      "Perseverance (passive) regenerates HP rapidly out of combat."
+    ]},
+    { "name": "Gnar", "role": "Top", "tips": [
+      "Manage your Rage meter (passive) - transform into Mega Gnar at the right time for fights.",
+      "Mega Gnar's W (GNAR!) knocks back and stuns on wall collision.",
+      "Hyper (E in mini form) leaps over walls and slows.",
+      "Boulder Toss (Q) as Mega Gnar knocks up enemies in a line."
+    ]},
+    { "name": "Gragas", "role": "Jungle/Top", "tips": [
+      "Body Slam (E) knocks up and resets cooldown on takedown.",
+      "Explosive Cask (R) can knock enemies into your team or away from objectives.",
+      "Drunken Rage (W) reduces incoming damage and boosts next ability.",
+      "Use Barrel Roll (Q) to zone enemies from objectives with the slow."
+    ]},
+    { "name": "Graves", "role": "Jungle", "tips": [
+      "End of the Line (Q) explodes on collision with terrain - aim near walls for max damage.",
+      "Smoke Screen (R) blinds enemies and reduces vision - use it to disengage or set up picks.",
+      "Quickdraw (E) reloads a charge of Q on hit.",
+      "True Grit (passive) grants armor/MR for standing still - useful when sieging."
+    ]},
+    { "name": "Gwen", "role": "Top/Jungle", "tips": [
+      "Cast Skip 'n Slash (E) inside your Hallowed Mist (W) for bonus attack speed and a dash.",
+      "Snip Snip! (Q) deals more damage the closer enemies are.",
+      "Stand in your mist (W) to gain a defensive buff against ranged attacks.",
+      "Needlework (R) shreds and slows multiple targets in a cone."
+    ]},
+    { "name": "Hecarim", "role": "Jungle", "tips": [
+      "Devastating Charge (E) builds momentum the longer you move forward without turning.",
+      "Onslaught of Shadows (R) fears enemies in a line, great for splitting up enemy teams.",
+      "Spirit of Dread (W) heals you based on damage dealt to nearby enemies.",
+      "Use Rampage (Q) bonus from passive to clear jungle camps quickly."
+    ]},
+    { "name": "Heimerdinger", "role": "Mid/Top", "tips": [
+      "Place H-28G Turrets (Q) in bushes and chokepoints for vision and zone control.",
+      "Hextech Micro-Rockets (W) deal bonus damage to low-HP and CC'd enemies.",
+      "CH-2 Electron Storm Grenade (E) stuns if it lands on champions hit by your other abilities.",
+      "Upgrade!!! (R) - use the right upgrade for the situation: rockets for poke, grenade for CC, turret for damage."
+    ]},
+    { "name": "Hwei", "role": "Mid/Support", "tips": [
+      "Combine spell combos for bonus effects (e.g., Devastating Fire + Severing Bolt).",
+      "Use Subject: Disaster (W) for AoE fear and burst damage.",
+      "Spiraling Despair (R) roots enemies caught in the convergence point - aim for chokepoints.",
+      "Practice your combo order to maximize CC chains."
+    ]},
+    { "name": "Illaoi", "role": "Top", "tips": [
+      "Land Tentacle Smash (Q) on tentacles for extra slams.",
+      "Test of Spirit (E) pulls out an enemy's spirit - hitting it deals true damage and heals you.",
+      "Leap of Faith (R) summons many tentacles - aim for objectives or teamfights.",
+      "Harsh Lesson (passive) heals you from tentacle damage on champions."
+    ]},
+    { "name": "Irelia", "role": "Top/Mid", "tips": [
+      "Bladesurge (Q) resets on kill - chain through minions to reach champions.",
+      "Flawless Duet (E) stuns if both blades hit the same target.",
+      "Vanguard's Edge (R) marks enemies hit, detonating for bonus damage when they take more damage.",
+      "Defiant Dance (W) reduces incoming damage from the marked direction."
+    ]},
+    { "name": "Ivern", "role": "Jungle/Support", "tips": [
+      "Brushmaker (passive) creates brush - use it to set up vision and ganks.",
+      "Daisy! (R) is a powerful pet - use her in objective fights.",
+      "Triggerseed (E) shields allies and roots enemies on cast.",
+      "Root and Bark grants you camps for free - clear smartly to maximize allied jungler farm."
+    ]},
+    { "name": "Janna", "role": "Support", "tips": [
+      "Monsoon (R) can heal/shield allies and knock back enemies - use it for huge teamfight swings.",
+      "Zephyr (W) passive grants movement speed - kite while autoattacking.",
+      "Howling Gale (Q) charge longer for more knockup/damage.",
+      "Eye of the Storm (E) shield + AD buff is great proactive peel."
+    ]},
+    { "name": "Jarvan IV", "role": "Jungle/Top", "tips": [
+      "Combo Demacian Standard (E) + Dragon Strike (Q) to create a wall and deal bonus damage.",
+      "Cataclysm (R) creates an arena, isolating a target - great for 1v1s and picks.",
+      "Golden Aegis (W) shields you and slows enemies around you.",
+      "Use the EQ flash for surprise engages."
+    ]},
+    { "name": "Jax", "role": "Top/Jungle", "tips": [
+      "Counter Strike (E) dodges all attacks briefly and stuns on activation.",
+      "Stack Relentless Assault (passive) by autoattacking for bonus attack speed.",
+      "Grandmaster's Might (R) gives armor/MR boost and empowers next attack.",
+      "Leap Strike (Q) lets you jump to allies, enemies, or minions to engage/escape."
+    ]},
+    { "name": "Jayce", "role": "Top/Mid", "tips": [
+      "Switch between Hammer (melee) and Cannon (ranged) forms based on the situation.",
+      "Shock Blast (Q in cannon form) detonates Acceleration Gate (E) for bonus damage and speed.",
+      "To-The-Skies! (R in hammer form) knocks up enemies, great for engages.",
+      "Use cannon form to poke from range, switch to hammer form to finish in melee."
+    ]},
+    { "name": "Jhin", "role": "ADC", "tips": [
+      "Your 4th auto-attack (passive) is always a guaranteed crit with bonus range.",
+      "Curtain Call (R) can execute low-HP enemies from extreme range.",
+      "Deadly Flourish (E) roots if the target was recently hit by you or an ally.",
+      "Whisper (W) traps deal more damage and reveal enemies in a cone."
+    ]},
+    { "name": "Jinx", "role": "ADC", "tips": [
+      "Get Excited! (passive) grants attack speed and movement speed after takedowns - chain kills.",
+      "Switch to rockets (W) for AoE poke and structure damage.",
+      "Flame Chompers! (E) root enemies who walk over them - place them to block chokepoints.",
+      "Super Mega Death Rocket! (R) deals more damage the farther it travels."
+    ]},
+    { "name": "K'Sante", "role": "Top", "tips": [
+      "Build up Ntofo stacks (passive) with abilities for bonus damage on next auto.",
+      "All Out (R) transforms your kit - use it to engage with Path Maker (E) for a long knock-up.",
+      "Override (E) can knock enemies into walls for a stun.",
+      "Ability shred from passive lowers enemy resistances over time."
+    ]},
+    { "name": "Kai'Sa", "role": "ADC", "tips": [
+      "Stack Plasma (passive) with abilities, then auto-attack to deal bonus magic damage.",
+      "Killer Instinct (R) lets you dash to nearby enemies who are below 50% HP - use it to dive backline.",
+      "Void Seeker (Q) marks enemies, increasing plasma stacking.",
+      "Supercharge (E) grants attack speed and movement speed - activate before fights."
+    ]},
+    { "name": "Kalista", "role": "ADC", "tips": [
+      "Rend (passive) - spears stack on enemies; recast Q to detonate them for bonus damage.",
+      "Sentinel bond with support lets you both pull each other - use Fate's Call (E) wisely.",
+      "Martial Poise (passive) lets you hop after every attack - use this to kite while attacking.",
+      "Coordinate Black Spear (R) with allies for a guaranteed root chain."
+    ]},
+    { "name": "Karma", "role": "Support/Mid", "tips": [
+      "Mantra (R) empowers your next ability - use empowered Inspire (W) for big shields/speed.",
+      "Empowered Soul Flare (E) roots enemies who stay in the zone too long.",
+      "Empowered Heavenly Wave (Q) deals bonus damage and slows in a line.",
+      "Use Mantra shield proactively to enable allies to all-in."
+    ]},
+    { "name": "Karthus", "role": "Jungle/Mid", "tips": [
+      "Defile (W) toggles a damaging aura - manage mana carefully.",
+      "Requiem (R) is global - use it to secure kills across the map even after death.",
+      "Wall of Pain (E) reduces enemy MR and slows those who pass through.",
+      "After death, your passive lets you cast spells for several seconds - maximize Defile uptime."
+    ]},
+    { "name": "Kassadin", "role": "Mid", "tips": [
+      "Riftwalk (R) cost increases with consecutive casts but resets on takedown.",
+      "Force Pulse (W) deals more damage and silences if you recently used another ability (Netherblade passive).",
+      "Null Sphere (Q) silences - use it to interrupt enemy ultimates.",
+      "Build Magic Resist early to scale into a teamfight powerhouse late game."
+    ]},
+    { "name": "Katarina", "role": "Mid", "tips": [
+      "Death Lotus (R) resets on takedown - chain kills across teamfights.",
+      "Shunpo (E) resets cooldown when it kills a unit, including daggers.",
+      "Throw daggers (Q) and reposition with Shunpo to chain resets.",
+      "Voracity (passive) reduces cooldowns on takedown - snowball off kills."
+    ]},
+    { "name": "Kayle", "role": "Top/Mid", "tips": [
+      "Kayle becomes ranged at level 6 - play safe early and scale.",
+      "Divine Judgment (R) can save allies from death - use proactively in skirmishes.",
+      "Radiant Blast (Q) slows and marks for bonus damage from autos.",
+      "Starfire Spellblade (passive) procs deal AoE damage around the target."
+    ]},
+    { "name": "Kayn", "role": "Jungle", "tips": [
+      "Choose your form based on enemy comp: Rhaast (tanky AoE) vs Shadow Assassin (mobile single-target).",
+      "Shadow Step (Q) lets you pass through units and walls.",
+      "Umbral Trespass (R) lets you enter a champion as Shadow Assassin to assassinate.",
+      "As Rhaast, your ultimate is a knockback - use it to peel or zone."
+    ]},
+    { "name": "Kennen", "role": "Top/Mid", "tips": [
+      "Stack Mark of the Storm (passive) on enemies for a stun - 3 hits stuns.",
+      "Slicing Maelstrom (R) deals AoE damage and helps stack marks for team stuns.",
+      "Lightning Rush (E) makes you untargetable while dashing through units.",
+      "Electrical Surge (W) passive procs deal bonus magic damage on autos."
+    ]},
+    { "name": "Kha'Zix", "role": "Jungle", "tips": [
+      "Isolated targets (no nearby units) take bonus damage from your abilities (passive).",
+      "Evolve abilities based on game plan - Void Assault (R) evolution adds a third dash.",
+      "Taste Their Fear (Q) deals bonus damage to isolated targets, great for picks.",
+      "Use Leap (E) to reposition and gain evasion after landing."
+    ]},
+    { "name": "Kindred", "role": "Jungle", "tips": [
+      "Mark of the Kindred (passive) marks jungle camps and champions - kill marked targets for stacks.",
+      "Lamb's Respite (R) prevents death for everyone in the zone - use to win or avoid losing teamfights.",
+      "Dance Between (E) lets you dash through a unit and gain attack speed.",
+      "Stack passive on a target before engaging for max damage."
+    ]},
+    { "name": "Kled", "role": "Top", "tips": [
+      "When dismounted, you become Skaarl-less Kled with reduced stats - retreat to heal up courage to remount.",
+      "Bear Trap on a Rope (Q) pulls you to the target if it hits.",
+      "Chaaaaaarge!!! (R) grants massive movement speed in a direction - use to engage or to escape.",
+      "Violent Tendencies (passive) empowers your next attack after autos - watch for the indicator."
+    ]},
+    { "name": "Kog'Maw", "role": "ADC", "tips": [
+      "Living Artillery (W) has long range - use it for poke and to zone enemies from objectives.",
+      "Void Ooze (E) leaves a trail that increases the range of your next Living Artillery.",
+      "Icathian Surprise (R) detonates on death dealing % max HP damage - don't be afraid to overextend slightly when low.",
+      "Bio-Arcane Barrage (passive) gives true damage on-hit at low HP enemies, great for shredding tanks."
+    ]},
+    { "name": "LeBlanc", "role": "Mid", "tips": [
+      "Mimic (R) replicates your last cast ability for burst combos.",
+      "Distortion (E) is a dash that you can recast to return to the original location.",
+      "Ethereal Chains (W) deals bonus damage and roots if it reapplies before expiring.",
+      "Use Sigil of Malice (Q) marks to set up your full burst combo."
+    ]},
+    { "name": "Lee Sin", "role": "Jungle", "tips": [
+      "Combo Sonic Wave (Q) into Resonating Strike (W) for poke/follow-up damage.",
+      "Use Dragon's Rage (R) to kick enemies into walls (stun) or away from objectives/allies.",
+      "Safeguard (W on ally) shields and dashes to allies - use it proactively to protect carries.",
+      "Tempest (E) reveals enemies hit and slows after a delay."
+    ]},
+    { "name": "Leona", "role": "Support", "tips": [
+      "Combo Zenith Blade (E) into Shield of Daybreak (Q) for a stun.",
+      "Solar Flare (R) stuns at the center - land it on key targets.",
+      "Sunlight (passive) marks enemies for bonus damage from allies.",
+      "Eclipse (W) shields you - activate before diving in."
+    ]},
+    { "name": "Lillia", "role": "Jungle", "tips": [
+      "Dream-Laden Bough (Q) deals bonus damage to sleeping/slowed targets.",
+      "Watch Out! Eep! (E) slows enemies and speeds up Lillia.",
+      "Lilting Lullaby (R) puts enemies to sleep - follow up with Q for big damage.",
+      "Use W (Blooming Blows) to clear jungle camps quickly with bonus magic damage stacking."
+    ]},
+    { "name": "Lissandra", "role": "Mid", "tips": [
+      "Glacial Path (E) is a ghost dash - use it to scout or escape through walls.",
+      "Frozen Tomb (R) makes you untargetable - use it to bait or save yourself, also locks down a champion.",
+      "Ring of Frost (W) roots nearby enemies - useful to stop dives.",
+      "Combo Q (Ice Shard) for slows and follow up with R for guaranteed root."
+    ]},
+    { "name": "Lucian", "role": "ADC/Mid", "tips": [
+      "Relentless Pursuit (E) resets on champion takedowns - chain dashes for kills.",
+      "Piercing Light (Q) passive lets your next auto fire an extra shot after using an ability.",
+      "The Culling (R) deals more damage the closer enemies are.",
+      "Ardent Blaze (W) reveals and slows enemies in a line."
+    ]},
+    { "name": "Lulu", "role": "Support", "tips": [
+      "Wild Growth (R) on allies grants a knockup and huge HP buff - great engage/peel tool.",
+      "Polymorph (E) on enemy carries shuts down their damage in fights.",
+      "Help, Pix! (Q) - shield allies or attack enemies, the bolt bounces to give vision.",
+      "Whimsy (W) can be used to speed up allies or slow/shrink enemies."
+    ]},
+    { "name": "Lux", "role": "Mid/Support", "tips": [
+      "Light Binding (Q) roots up to two targets - aim through minions to hit champions.",
+      "Final Spark (R) deals bonus damage to targets affected by your other spells (Illumination passive).",
+      "Lucent Singularity (E) zone slows - detonate it for AoE damage.",
+      "Prismatic Barrier (W) shields allies in both directions of the throw."
+    ]},
+    { "name": "Malphite", "role": "Top/Support", "tips": [
+      "Unstoppable Force (R) is a long-range engage that knocks up everyone hit - aim for the whole enemy team.",
+      "Ground Slam (E) reduces enemy attack speed, great vs auto-attack reliant champions.",
+      "Seismic Shard (Q) slows and deals bonus damage based on enemy missing HP.",
+      "Granite Shield (passive) absorbs damage - wait for it to recharge before engaging."
+    ]},
+    { "name": "Malzahar", "role": "Mid", "tips": [
+      "Nether Grasp (R) is a long-duration suppress - use it on priority targets.",
+      "Malefic Visions (E) jumps to a new target on kill, dealing % max HP damage.",
+      "Null Zone (W) deals more damage the more health the target has.",
+      "Voidlings (passive) spawn from Call of the Void (Q) hits and assist in clearing/fighting."
+    ]},
+    { "name": "Maokai", "role": "Top/Support", "tips": [
+      "Sapling Toss (Q) saplings root and reveal enemies they hit.",
+      "Vengeful Maelstrom (R) deals AoE damage and provides global vision when activated.",
+      "Twisted Advance (E) roots after a chain - use it to lock down priority targets.",
+      "Sap Magic (passive) heals you when hit by enemy spells."
+    ]},
+    { "name": "Master Yi", "role": "Jungle", "tips": [
+      "Highlander (R) grants movement speed, attack speed, and tenacity - use it to chase or escape.",
+      "Alpha Strike (Q) makes you invulnerable briefly and resets on takedown.",
+      "Double Strike (passive) procs every other auto for bonus true damage at higher levels.",
+      "Wuju Style (W) adds true damage to autos - great for melting tanks."
+    ]},
+    { "name": "Milio", "role": "Support", "tips": [
+      "Cozy Campfire (R) cleanses and grants a powerful shield to allies in the zone - use to counter enemy ultimates.",
+      "Warm Hugs (W) shields and speeds up allies hit, including through Ultra Mega Fire Kick (Q).",
+      "Combo Q through allies to apply Warm Hugs shields before fights.",
+      "Passive grants bonus range on abilities the lower your mana - manage mana for poke range."
+    ]},
+    { "name": "Miss Fortune", "role": "ADC", "tips": [
+      "Bullet Time (R) deals more damage to targets affected by your other abilities.",
+      "Make It Rain (E) slows a large area - use it to zone or set up R.",
+      "Strut (passive) grants bonus movement speed when not taking damage - great for kiting.",
+      "Double Up (Q) bounces to a target behind for double damage - position for value."
+    ]},
+    { "name": "Mordekaiser", "role": "Top/Jungle", "tips": [
+      "Realm of Death (R) isolates a single enemy in a 1v1 realm - great for picking off backline carries.",
+      "Death Wears Down (E) marks enemies, slowing and dealing bonus damage on second hit.",
+      "Indestructible (W) shields based on damage dealt - use it during extended trades.",
+      "Use Obliterate (Q) to last hit and deal AoE damage in melee range."
+    ]},
+    { "name": "Morgana", "role": "Support/Mid", "tips": [
+      "Black Shield (E) blocks the next CC effect - use proactively before enemy engages.",
+      "Tormented Soil (W) damages enemies who stand on it, great for zoning.",
+      "Soul Shackles (R) stuns enemies who stay tethered too long - position for max value.",
+      "Dark Binding (Q) is a long-range root - lead your shots."
+    ]},
+    { "name": "Naafiri", "role": "Mid/Jungle", "tips": [
+      "Summon a Pack (passive) creates dogs that assist in combat - use them for extra damage in fights.",
+      "Eviscerate (Q) dashes to a target - chain into combos.",
+      "Hounds' Pursuit (E) gives a shield and speed boost while dashing through units.",
+      "Pack Your Bags (R) damages and displaces enemies - great in skirmishes."
+    ]},
+    { "name": "Nami", "role": "Support", "tips": [
+      "Tidal Wave (R) knocks up and slows - use it to start teamfights.",
+      "Aqua Prison (Q) is your main CC - lead your shots on priority targets.",
+      "Ebb and Flow (W) heals allies and damages enemies, bouncing between them.",
+      "Tidecaller's Blessing (E) buffs an ally with attack speed and a slow on-hit."
+    ]},
+    { "name": "Nasus", "role": "Top", "tips": [
+      "Siphoning Strike (Q) stacks permanently on kills - prioritize last hits to scale your Q damage.",
+      "Fury of the Sands (R) transforms you into a powerful AoE bruiser - use in teamfights.",
+      "Wither (E) cripples a target's attack speed and movement - great vs hypercarries.",
+      "Spirit Fire (W) reduces armor - apply before all-ins."
+    ]},
+    { "name": "Nautilus", "role": "Support", "tips": [
+      "Dredge Line (Q) hooks and pulls you to the target, also pulling them slightly toward you.",
+      "Depth Charge (R) homes onto your hooked target dealing knockup and damage.",
+      "Titan's Wrath (W) shields you - autoattack after casting for bonus damage.",
+      "Riptide (E) roots enemies on the second hit - position for it to hit twice."
+    ]},
+    { "name": "Neeko", "role": "Mid/Support", "tips": [
+      "Disguise yourself as allies/minions (passive) to bait enemies.",
+      "Pop Blossom (R) telegraphs but deals huge AoE damage and stuns - use as a finisher.",
+      "Shapesplitter (W) creates a clone that mimics your movements - use for extra info/distraction.",
+      "Tangle-Barbs (Q) roots if it hits an already-rooted target from your E."
+    ]},
+    { "name": "Nidalee", "role": "Jungle", "tips": [
+      "Javelin Toss (Q) deals massively more damage to low-HP targets in human form.",
+      "Use Cougar form's Pounce (E) to chase, then Takedown (Q) to execute.",
+      "Bushwhack (W) traps grant vision and reveal stealthed units.",
+      "Swipe (E in human form) heals you when hitting champions - useful for sustain."
+    ]},
+    { "name": "Nilah", "role": "ADC", "tips": [
+      "Jubilant Veil (R) shares a shield and lifesteal buff with all nearby allies - use in big skirmishes.",
+      "Formless Blade (Q) hits in a wide arc and grants lifesteal, scaling with allied lifesteal too.",
+      "Slipstream (E) dashes through enemies, granting movement speed for each enemy hit.",
+      "Jousting (passive) grants bonus attack range and movement speed in a tether with enemies."
+    ]},
+    { "name": "Nocturne", "role": "Jungle", "tips": [
+      "Paranoia (R) silences your target globally and grants vision near them - use to dive backline.",
+      "Duskbringer (Q) leaves a trail granting bonus damage and movement speed when you walk through it.",
+      "Unspeakable Horror (E) fears enemies if it persists for the full duration.",
+      "Shroud of Darkness (W) blocks the next ability/auto and empowers your next attack."
+    ]},
+    { "name": "Nunu & Willump", "role": "Jungle", "tips": [
+      "Absolute Zero (R) channel deals massive damage if completed - use Snowball Fight (W) to set up the kill.",
+      "Consume (Q) deals bonus true damage to monsters, great for fast jungle clears.",
+      "Biggest Snowball Ever! (W) grows the longer you roll - use it to engage from afar.",
+      "Smash (E) knocks up after 2 autos in melee range."
+    ]},
+    { "name": "Olaf", "role": "Top/Jungle", "tips": [
+      "Ragnarok (R) removes all CC and grants tenacity - use it against heavy CC teams.",
+      "Reckless Swing (Q) deals true damage based on your current HP, but damages yourself too.",
+      "Undertow (E) leaves an axe on the ground that slows when picked up again.",
+      "Berserker Rage (passive) grants attack speed scaling with missing health."
+    ]},
+    { "name": "Orianna", "role": "Mid", "tips": [
+      "Command: Shockwave (R) pulls enemies toward the ball - position the ball centrally before casting.",
+      "Command: Protect (W) shields an ally and moves the ball to them.",
+      "Command: Dissonance (E) ball deals damage in a zone - use to zone enemies.",
+      "Command: Attack (Q) deals bonus damage based on target's missing health."
+    ]},
+    { "name": "Ornn", "role": "Top", "tips": [
+      "Forge upgraded items for yourself and teammates at the Hearthblossom anvil.",
+      "Searing Charge (R) knocks enemies into walls for a stun - aim for chokepoints.",
+      "Bellows Breath (W) buffs your next ability - combine with Q or E for bonus effects.",
+      "Volcanic Rupture (Q) creates pillars that can be used with W for a wall of fire."
+    ]},
+    { "name": "Pantheon", "role": "Top/Support", "tips": [
+      "Grand Skyfall (R) lets you choose the landing location for a global engage with a shield on landing.",
+      "Comet Spear (Q) crits against enemies hit by Shield Vault (E).",
+      "Aegis Assault (W) blocks projectiles from the front and deals AoE damage.",
+      "Use Shield Vault (E) to stun and dash to a target."
+    ]},
+    { "name": "Poppy", "role": "Top/Support", "tips": [
+      "Heroic Charge (E) slams enemies into walls for a stun - position for max value.",
+      "Steadfast Presence (W) blocks dashes through you and slows the dasher.",
+      "Keeper's Verdict (R) knocks enemies away - can hit multiple if lined up.",
+      "Hammer Shock (Q) deals bonus damage based on target's max HP."
+    ]},
+    { "name": "Pyke", "role": "Support", "tips": [
+      "Death from Below (R) executes low-HP enemies and resets cooldown on kill - chain kills in teamfights.",
+      "Bone Skewer (Q) hooks and pulls enemies toward you.",
+      "Phantom Undertow (E) stuns enemies on the return trip.",
+      "Gold from kills with R goes to your team, not you - assists are key for your build."
+    ]},
+    { "name": "Qiyana", "role": "Mid/Jungle", "tips": [
+      "Use terrain (grass, water, rock) to empower your Q with different effects (root, slow+shield, knockup).",
+      "Terrashape (R) grants bonus stats based on the last element you used.",
+      "Audacity (E) dashes to enemies you've recently damaged.",
+      "Combo elemental Q + E + R for huge burst on isolated targets."
+    ]},
+    { "name": "Quinn", "role": "Top/ADC", "tips": [
+      "Behind Enemy Lines (R) grants huge movement speed and turns autos into AoE - use to roam or chase.",
+      "Vault (E) blinds and roots after a brief delay - use to disengage from melee.",
+      "Harrier (passive) marks targets via Valor - attack marked targets for bonus damage.",
+      "Use Valor's scouting to gain vision of enemy jungler/flanks."
+    ]},
+    { "name": "Rakan", "role": "Support", "tips": [
+      "Combo Grand Entrance (R) for a knockup, then Gleaming Quill (Q) to root for a kill.",
+      "Battle Dance (E) shields you and dashes to an ally - use to peel or all-in together.",
+      "The Quickness (W) grants speed and shields - activate before engaging.",
+      "Use W cooldown reduction from hitting enemies to chain abilities faster."
+    ]},
+    { "name": "Rammus", "role": "Jungle/Top", "tips": [
+      "Defensive Ball Curl (E) massively boosts armor/MR and adds damage to autos - activate before fights.",
+      "Tremors (R) deals AoE damage around you, great when surrounded.",
+      "Powerball (Q) lets you roll to engage and stuns on impact.",
+      "Build full tank - your damage scales with bonus armor/MR."
+    ]},
+    { "name": "Rek'Sai", "role": "Jungle", "tips": [
+      "Burrow (R toggle) to travel underground quickly and create tunnels for fast rotations.",
+      "Unburrow near isolated targets to knock them up with Un-burrow (R).",
+      "Tunnels can be used by your team too for fast map traversal.",
+      "Furious Bite (Q) deals bonus damage if the target is below 50% HP."
+    ]},
+    { "name": "Rell", "role": "Support", "tips": [
+      "Ferromancy: Crash Down (R) dismounts you for a knockup - mount up again to remount with healing.",
+      "Attract and Repel (W) pulls enemies toward you (mounted) or pushes them away (dismounted).",
+      "Mounted form gives mobility, dismounted gives tankiness and CC.",
+      "Use Mount Up (R while dismounted) to disengage or reposition during fights."
+    ]},
+    { "name": "Renata Glasc", "role": "Support", "tips": [
+      "Berserk (R) can turn an enemy against their team - cast it on a key threat during a fight.",
+      "Bailout (E) revives an ally as a temporary buff if they would die after using it.",
+      "Handshake! (Q) chains enemies together, dragging one toward the other.",
+      "Loyalty Program (W) shields and grants attack speed/movement speed to allies."
+    ]},
+    { "name": "Renekton", "role": "Top", "tips": [
+      "Manage Fury (passive) by autoattacking and using abilities; spend it on empowered Q/E/W.",
+      "Empowered Slice and Dice (E) heals you, useful for sustained trades.",
+      "Dominus (R) grants bonus HP and Fury regen - use during extended fights.",
+      "Empowered Cull the Meek (W) heals based on damage dealt to multiple enemies."
+    ]},
+    { "name": "Rengar", "role": "Jungle", "tips": [
+      "Ambush (Q) from brush deals bonus damage and grants empowered abilities (Bonetooth Necklace passive).",
+      "Bola Strike (E) roots if thrown from brush/stealth.",
+      "Thrill of the Hunt (R) grants stealth and reveals the lowest HP enemy nearby - use to pick off carries.",
+      "Save empowered Bola (root) for engaging onto priority targets."
+    ]},
+    { "name": "Riven", "role": "Top", "tips": [
+      "Combo Broken Wings (Q) charges with Valor (E) dash for extended mobility and damage.",
+      "Wind Slash (R) deals more damage to low-HP enemies and can be cast through walls if you have charges.",
+      "Ki Burst (W) stuns nearby enemies - use it to interrupt or follow up combos.",
+      "Runic Blade (passive) empowers your next auto after using an ability - weave autos into your combo."
+    ]},
+    { "name": "Rumble", "role": "Top/Jungle", "tips": [
+      "Manage your Heat gauge (passive) - overheating disables abilities temporarily.",
+      "The Equalizer (R) deals more damage at the edges - aim it to box enemies into the danger zone center.",
+      "Flamespitter (Q) deals more damage to low-HP targets at high heat.",
+      "Electro-Harpoon (E) slows and applies bonus damage from Q/W."
+    ]},
+    { "name": "Ryze", "role": "Mid/Top", "tips": [
+      "Chain Realm Warp (R) with allies for surprise team engages.",
+      "Spell Flux (E) reduces enemy MR and applies your passive rune mark.",
+      "Overload (Q) refunds cooldown when cast on a marked target (from E or W).",
+      "Build mostly AP/mana items - Ryze scales heavily with mana."
+    ]},
+    { "name": "Samira", "role": "ADC", "tips": [
+      "Build Style points (passive) by using varied abilities/attacks without repeating - unlocks Inferno Trigger (R).",
+      "Wild Rush (E) dashes to an ally or through an enemy, resetting on takedown.",
+      "Blade Whirl (W) blocks projectiles and deals damage to nearby enemies.",
+      "Combo into knocked-up/airborne enemies for guaranteed damage with Q."
+    ]},
+    { "name": "Sejuani", "role": "Jungle/Top", "tips": [
+      "Glacial Prison (R) stuns a long line of enemies - aim through chokepoints in teamfights.",
+      "Permafrost (passive) stuns enemies who are already slowed and hit by your abilities.",
+      "Winter's Wrath (E) applies a guaranteed stun if the enemy was already slowed.",
+      "Build tank items and engage for your team - your CC chains are extremely valuable."
+    ]},
+    { "name": "Senna", "role": "Support/ADC", "tips": [
+      "Last Embrace (Q) deals bonus damage and roots if it hits an enemy in fog of war/brush.",
+      "Collect Mist from minion deaths near you (passive) for permanent AD/AP/range.",
+      "Dawning Shadow (R) heals allies and damages enemies along a long line.",
+      "Curse of the Black Mist (W) grants stealth in brush/fog for you and nearby allies."
+    ]},
+    { "name": "Seraphine", "role": "Support/Mid", "tips": [
+      "Abilities cost extra mana but echo a second cast for free if you have allies nearby (passive).",
+      "Encore (R) stuns/charms enemies already affected by CC.",
+      "Surround Sound (W) shields allies and grants bonus range.",
+      "High Note (passive) procs deal bonus magic damage on autos."
+    ]},
+    { "name": "Sett", "role": "Top/Support", "tips": [
+      "The Show Stopper (R) deals more damage based on your max HP - build HP for bigger ults.",
+      "Grit (passive) builds a shield as you take/deal damage - haymaker (next empowered auto) when full.",
+      "Facebreaker (E) hits twice if there are enemies on both sides of you.",
+      "Pick Apart Their Armor (W) grants bonus damage based on target's max HP."
+    ]},
+    { "name": "Shaco", "role": "Jungle/Top", "tips": [
+      "Hallucinate (R) creates a clone to bait enemies - swap places defensively.",
+      "Two-Shiv Poison (Q) deals bonus damage to low-HP enemies and applies a slow.",
+      "Jack In The Box (W) hidden in brush fears enemies who walk near it.",
+      "Backstab (passive) deals bonus damage when attacking from behind."
+    ]},
+    { "name": "Shen", "role": "Top/Support", "tips": [
+      "Stand United (R) shields and teleports you to an ally anywhere on the map - use to save teammates in danger.",
+      "Spirit's Refuge (E) blocks incoming damage in an area - use to protect allies from burst.",
+      "Shadow Dash (W) taunts enemies hit at the end of the dash.",
+      "Twilight Assault (Q) marks the enemy with lowest HP% - prioritize hitting them."
+    ]},
+    { "name": "Shyvana", "role": "Jungle", "tips": [
+      "Dragon's Descent (R) transforms you and lets you leap into a fight, dealing AoE damage.",
+      "Twin Bite (Q) deals bonus magic damage on the second hit and heals while in dragon form.",
+      "Burnout (E) deals more damage and grants more movement speed in dragon form.",
+      "Use Flame Breath (W) to mark targets for bonus damage."
+    ]},
+    { "name": "Singed", "role": "Top", "tips": [
+      "Insanity Potion (R) buffs all your stats - drink it before extended fights/chases.",
+      "Fling (E) throws enemies behind you - use it to fling carries into your team or away from theirs.",
+      "Poison Trail (W) deals damage over time - run through enemies to apply it.",
+      "Use Mega Adhesive (Q) to slow chasers or zone enemies from objectives."
+    ]},
+    { "name": "Sion", "role": "Top/Jungle", "tips": [
+      "Glory in Death (passive) lets you move and detonate for damage after dying - use it for one last engage/escape.",
+      "Unstoppable Onslaught (R) charges further the longer you channel - use from max range for huge knockups.",
+      "Soul Furnace (W) shield detonates for AoE damage - time it well.",
+      "Decimating Smash (Q) deals bonus damage to structures when fully charged."
+    ]},
+    { "name": "Sivir", "role": "ADC", "tips": [
+      "Spell Shield (E) blocks a single enemy spell - use it to negate enemy engages or burst.",
+      "On the Hunt (R) grants your team bonus movement speed - use for chases or rotations.",
+      "Boomerang Blade (Q) hits twice on the return - position to hit on both passes.",
+      "Ricochet (W) bounces between enemies, great for wave clear."
+    ]},
+    { "name": "Skarner", "role": "Jungle", "tips": [
+      "Impale (R) drags an enemy with you while you have crystal spires for bonus effects.",
+      "Crystal Spires give vision and bonuses when controlled - prioritize objectives near them.",
+      "Fracture (E) slows and damages in a line - chain into Impale for engages.",
+      "Shattered Earth (passive) marks enemies for bonus damage on subsequent hits."
+    ]},
+    { "name": "Smolder", "role": "ADC", "tips": [
+      "Stack passive (Dragon Practice) by last-hitting with Q early to scale your fire breath.",
+      "Achooo! (R) sneeze deals more damage based on stacks - save for big fights once stacked.",
+      "Flap, Flap, Flap (E) grants a shield and movement speed - use to dodge skillshots.",
+      "Super Sneeze stacks build from takedowns and minion kills with Q - prioritize farming."
+    ]},
+    { "name": "Sona", "role": "Support", "tips": [
+      "Crescendo (R) stuns all enemies hit in a line - great for starting teamfights.",
+      "Power Chord (passive) procs every 3rd ability cast - weave abilities for extra damage/utility.",
+      "Switch songs (Q/W/E) based on what your team needs - aura plus power chord effect.",
+      "Use Song of Celerity (E) to help allies escape or chase."
+    ]},
+    { "name": "Soraka", "role": "Support", "tips": [
+      "Wish (R) heals your whole team globally - use it during teamfights for huge sustain.",
+      "Equinox (E) silences and roots enemies who stay in the zone too long.",
+      "Starcall (Q) heals you when it hits an enemy.",
+      "Astral Infusion (W) heals an ally at the cost of your own HP - manage your health pool."
+    ]},
+    { "name": "Swain", "role": "Mid/Support", "tips": [
+      "Demonic Ascension (R) heals you based on damage dealt by you and nearby allies in the AoE.",
+      "Vision of Empire (W) reveals a huge area and deals damage - use for global vision/poke.",
+      "Death's Hand (Q) deals bonus damage to the target if multiple bolts hit.",
+      "Nevermove (E) roots after a delay - use to set up ultimates."
+    ]},
+    { "name": "Sylas", "role": "Mid/Jungle", "tips": [
+      "Hijack (R) steals an enemy ultimate - prioritize stealing impactful ultimates.",
+      "Petricite Burst (Q) deals more damage with more chains around you (from E).",
+      "Abscond/Abduct (E) - first cast dashes, second cast pulls enemies to you.",
+      "Kingslayer (W) heals more against low-HP targets - use to finish kills."
+    ]},
+    { "name": "Syndra", "role": "Mid", "tips": [
+      "Unleashed Power (R) deals more damage with more spheres - collect spheres from Q/W before ulting.",
+      "Scatter the Weak (E) knocks back spheres and enemies - combo with R for stuns.",
+      "Force of Will (W) picks up and throws spheres for burst damage.",
+      "Dark Sphere (Q) creates permanent spheres on kill - farm safely to build up spheres."
+    ]},
+    { "name": "Tahm Kench", "role": "Support/Top", "tips": [
+      "Devour (R/W) can save an ally from death by eating them - use proactively when they're in danger.",
+      "An Acquired Taste (passive) stacks on enemies hit, grant bonus damage when devouring them.",
+      "Abyssal Voyage (R) carries an ally to a target location - great for surprise plays.",
+      "Tongue Lash (Q) slows and deals bonus damage to stacked targets."
+    ]},
+    { "name": "Taliyah", "role": "Jungle/Mid", "tips": [
+      "Weaver's Wall (W) lets you traverse terrain quickly - use for ganks and rotations.",
+      "Unraveled Earth (E) detonates when enemies move on it, knocking them up.",
+      "Threaded Volley (Q) deals more damage the more rocks you've collected.",
+      "Seismic Shove (R) knocks enemies away in a line - chain CC with allies."
+    ]},
+    { "name": "Talon", "role": "Mid/Jungle", "tips": [
+      "Shadow Assault (R) makes you untargetable and reveals enemies hit by the blades.",
+      "Rake (E) deals more damage on the way back - position to hit twice.",
+      "Cutthroat (Q) resets cooldown on takedown - chain kills on squishies.",
+      "Use walls with W (Noxian Diplomacy passive synergy) to gap close unexpectedly."
+    ]},
+    { "name": "Taric", "role": "Support", "tips": [
+      "Cosmic Radiance (R) grants invulnerability after a delay - time it for key fight moments.",
+      "Bastion (E) links you to an ally, sharing armor and your abilities' effects.",
+      "Dazzle (Q) stuns after a delay - bait enemies into position first.",
+      "Starlight's Touch (W) heals and reduces ability cooldowns based on autoattacks landed."
+    ]},
+    { "name": "Teemo", "role": "Top", "tips": [
+      "Place Noxious Traps (R) in brush, jungle paths, and chokepoints for vision denial and zone control.",
+      "Blinding Dart (Q) blinds, neutralizing auto-attack reliant enemies.",
+      "Camouflage (passive) grants stealth out of combat - use for ambushes.",
+      "Toxic Shot (W) poison stacks deal damage over time on autos."
+    ]},
+    { "name": "Thresh", "role": "Support", "tips": [
+      "Death Sentence (Q) hooks and pulls enemies to you - lead your shots.",
+      "Collect souls with passive for bonus armor/AP and lantern shield strength.",
+      "The Box (R) walls deal damage and slow when broken - use to trap enemies.",
+      "Dark Passage (E) lantern can save allies by pulling them to you."
+    ]},
+    { "name": "Tristana", "role": "ADC", "tips": [
+      "Buster Shot (E) knocks enemies back - use to peel or set up kills near walls.",
+      "Rocket Jump (W) resets cooldown on takedown and deals AoE damage on landing.",
+      "Draw a Bead (passive) grants bonus range as you level up.",
+      "Buster Shot (R upgrade) can knock enemies into your turrets/team."
+    ]},
+    { "name": "Trundle", "role": "Top/Jungle", "tips": [
+      "Subjugate (R) steals stats from the enemy - use it on tanks to swing fights.",
+      "Pillar of Ice (E) blocks paths and slows - use to split enemy teams or block jungle paths.",
+      "Chomp (Q) heals you and shreds armor when biting champions.",
+      "Use Pillar to secure objectives by blocking enemy access."
+    ]},
+    { "name": "Tryndamere", "role": "Top", "tips": [
+      "Undying Rage (R) prevents death - use it to survive burst and turn fights around.",
+      "Spinning Slash (E) resets cooldown on kill and crits based on Fury.",
+      "Build Fury (passive) through autos/crits to fuel Bloodlust (Q) healing.",
+      "Mocking Shout (W) slows enemies and reduces their attack damage."
+    ]},
+    { "name": "Twisted Fate", "role": "Mid", "tips": [
+      "Destiny (R) reveals all enemy champions and enables Gate (teleport) - use for global presence.",
+      "Pick a Card (Q) - Blue card for mana, Red card for damage+slow, Gold card for stun.",
+      "Wild Cards (W) deal damage in three directions - good for poke/wave clear.",
+      "Stacked Deck (passive) empowers autos every few hits for bonus damage and attack speed."
+    ]},
+    { "name": "Twitch", "role": "ADC", "tips": [
+      "Ambush (passive) grants stealth out of combat - use it to flank or set up ambushes.",
+      "Spray and Pray (R) gives your autos bonus range and makes them pierce - line up enemies.",
+      "Contaminate (E) detonates Deadly Venom stacks for bonus damage - stack poison before detonating.",
+      "Use stealth to sneak into position before teamfights start."
+    ]},
+    { "name": "Udyr", "role": "Jungle", "tips": [
+      "Switch stances based on the situation: Phoenix for AoE damage, Bear for CC, Tiger for single-target burst, Turtle for sustain.",
+      "Wingborne Storm (R Phoenix) deals AoE around you - good for clearing/teamfights.",
+      "Stance switching grants bonus effects (Awakened stances) - chain stances strategically.",
+      "Bear stance stuns on the third consecutive hit."
+    ]},
+    { "name": "Urgot", "role": "Top", "tips": [
+      "Fear Beyond Death (R) executes and fears nearby enemies if it kills the target.",
+      "Disdain (E) shields and dashes through the target, flipping them behind you.",
+      "Corrosive Charge (Q) deals more damage and slows more on the second hit.",
+      "Use Purge (W) to kite while dealing sustained damage."
+    ]},
+    { "name": "Varus", "role": "ADC/Mid", "tips": [
+      "Chain of Corruption (R) roots enemies who are afflicted with Blight stacks longer.",
+      "Stack Living Vengeance (passive)/Blight stacks via Q and W for bonus magic damage.",
+      "Hail of Arrows (E) deals more damage to enemies at the edge of the impact zone.",
+      "Charge Piercing Arrow (Q) for more damage and range against grouped enemies."
+    ]},
+    { "name": "Vayne", "role": "ADC/Top", "tips": [
+      "Final Hour (R) grants stealth, attack speed, and turns Tumble into a movement speed steroid.",
+      "Silver Bolts (passive) deal true damage every 3rd hit, percent of max HP - great vs tanks.",
+      "Condemn (E) knocks back and stuns if the target hits a wall.",
+      "Use Tumble (Q) to dodge skillshots and reposition while attacking."
+    ]},
+    { "name": "Veigar", "role": "Mid/Support", "tips": [
+      "Primordial Burst (R) deals more damage to low-HP enemies - use to execute.",
+      "Phenomenal Evil Power (passive) stacks AP permanently on champion takedowns.",
+      "Event Horizon (E) stuns enemies who cross the edges of the cage - flash inside to trap them.",
+      "Dark Matter (W) telegraphs but deals heavy damage - lead your shots."
+    ]},
+    { "name": "Vel'Koz", "role": "Mid/Support", "tips": [
+      "Lifeform Disintegration Ray (R) deals more damage the longer it channels on the same target.",
+      "Tectonic Disruption (E) knocks up if the target was hit by another ability first.",
+      "Void Rift (W) detonates after a delay for bonus damage to marked targets.",
+      "Plasma Fission (Q) splits on recast - use to hit multiple targets."
+    ]},
+    { "name": "Vex", "role": "Mid", "tips": [
+      "Gloomy/Doom (R) deals bonus true damage to dashing enemies - punish mobile champions.",
+      "Mistral Bolt (E) shields you and refreshes when an enemy you've hit dashes.",
+      "Personal Space (W) deals more damage and grants a shield based on enemy proximity.",
+      "Looming Darkness (Q) deals bonus damage to feared/marked enemies."
+    ]},
+    { "name": "Vi", "role": "Jungle", "tips": [
+      "Cease and Desist (R) dashes to and knocks up the target - punch through other enemies first if possible.",
+      "Denting Blows (passive) shreds armor and deals bonus damage on every 3rd hit.",
+      "Vault Breaker (Q) charge longer for more range and damage.",
+      "Excessive Force (E) deals bonus damage based on target's missing health."
+    ]},
+    { "name": "Viego", "role": "Jungle", "tips": [
+      "Possession (passive) lets you take over killed enemy champions - use this to infiltrate enemy team.",
+      "Spectral Maw (E) stuns enemies who are already affected by CC.",
+      "Heartbreaker (Q) deals more damage to enemies behind your target.",
+      "Harrowed Path (R) makes you untargetable while dashing - use to engage safely."
+    ]},
+    { "name": "Viktor", "role": "Mid", "tips": [
+      "Upgrade abilities via Hex Core - prioritize based on your build (e.g., Gravity Field for engage).",
+      "Chaos Storm (R) follows you and deals damage in an expanding radius.",
+      "Death Ray (E) deals bonus damage to enemies marked by Glorious Evolution stacks.",
+      "Gravity Field (W) roots enemies who stay in it too long - use to zone."
+    ]},
+    { "name": "Vladimir", "role": "Mid/Top", "tips": [
+      "Sanguine Pool (E) makes you untargetable and heals based on enemies hit - use to dodge skillshots.",
+      "Hemoplague (R) increases damage taken by affected enemies - use it before your team's burst.",
+      "Transfusion (Q) heals you, alternating between empowered casts.",
+      "Use your own HP via Tides of Blood (W) to deal bonus damage - manage your health pool."
+    ]},
+    { "name": "Volibear", "role": "Top/Jungle", "tips": [
+      "Stormbringer (R) makes you unstoppable while charging and deals bonus true damage on landing.",
+      "Thundering Smash (Q) deals more damage and stuns when used on structures or jumping from terrain.",
+      "Frenzy (passive) grants bonus attack speed and lifesteal after using an ability.",
+      "Sky Splitter (E) marks enemies for bonus lightning damage."
+    ]},
+    { "name": "Warwick", "role": "Jungle", "tips": [
+      "Infinite Duress (R) suppresses and heals you based on target's max HP - great for picks.",
+      "Jaws of the Beast (Q) heals more against low-HP enemies.",
+      "Blood Hunt (passive) reveals and speeds you toward low-HP enemies - use to finish kills across the map.",
+      "Primal Howl (E) shields and fears nearby enemies."
+    ]},
+    { "name": "Wukong", "role": "Top/Jungle", "tips": [
+      "Cyclone (R) grants armor/MR and knocks up enemies around you repeatedly.",
+      "Nimbus Strike (E) dashes to a target, hitting nearby enemies too - good for engaging multiple targets.",
+      "Decoy (W) creates a clone and grants stealth - use to dodge ultimates or fake out enemies.",
+      "Crushing Blow (Q) reduces target's armor temporarily."
+    ]},
+    { "name": "Xayah", "role": "ADC", "tips": [
+      "Recall feathers with Bladecaller (Q) to root enemies standing on 3+ feathers.",
+      "Featherstorm (R) makes you untargetable - use to dodge ultimates and reposition.",
+      "Deadly Plumage (W) feathers can be picked up later for the root combo.",
+      "Coordinate with Rakan for double-CC engages."
+    ]},
+    { "name": "Xerath", "role": "Mid/Support", "tips": [
+      "Rite of the Arcane (R) has massive range - use it to poke from extreme safety.",
+      "Arcanopulse (Q) deals bonus damage when fully charged.",
+      "Eye of Destruction (E) stuns enemies caught in the center of the explosion.",
+      "Shocking Orb (W) deals more damage at max range."
+    ]},
+    { "name": "Xin Zhao", "role": "Jungle/Top", "tips": [
+      "Three Talon Strike (Q) on the third hit knocks the target up.",
+      "Crescent Sweep (R) knocks back nearby enemies and grants bonus stats - use to peel for carries.",
+      "Audacious Charge (E) slows enemies around your target on arrival.",
+      "Determination (passive) heals you - chain Q resets to sustain through fights."
+    ]},
+    { "name": "Yasuo", "role": "Mid/Top", "tips": [
+      "Last Breath (R) targets airborne enemies - combo with allies' knockups for team engages.",
+      "Sweeping Blade (E) resets cooldown when it kills a unit.",
+      "Steel Tempest (Q) third hit knocks up - use it to set up your own ultimate.",
+      "Wind Wall (W) blocks enemy projectiles - use it to block ultimates like Caitlyn R or Ashe R."
+    ]},
+    { "name": "Yone", "role": "Mid/Top", "tips": [
+      "Fate Sealed (R) pulls in airborne enemies - combo with your own Q3 knockup.",
+      "Spirit Cleave (E) hits in spirit form (your shield's reach) - position for max hits.",
+      "Mortal Steel (Q) third cast knocks up enemies in a line.",
+      "Soul Unbound (W) lets you dash forward as a spirit, leaving your body behind."
+    ]},
+    { "name": "Yorick", "role": "Top", "tips": [
+      "Maiden of the Mist (R) summons a strong AI ally - use her to split push or in fights.",
+      "Mourning Mist (E) marks enemies, spawning a ghoul on hit if it stacks twice.",
+      "Last Rites (Q) marks minions/monsters - killing them spawns ghouls.",
+      "Use ghouls to push side lanes while you group with your team."
+    ]},
+    { "name": "Yuumi", "role": "Support", "tips": [
+      "Attach to allies (passive) to become untargetable and grant them buffs.",
+      "Final Chapter (R) roots enemies caught in the line - use it to peel or pick.",
+      "You Are Not Alone (W) attaches to allies, granting heal/shield over time.",
+      "Detach to use Prowling Projectile (Q) for poke when safe."
+    ]},
+    { "name": "Zac", "role": "Jungle", "tips": [
+      "Elastic Slingshot (E) charge longer for more range and damage, knocks up on landing.",
+      "Cell Division (passive) splits into blobs on death - reform them for a partial revive.",
+      "Let's Bounce! (R) knocks up all nearby enemies multiple times - great teamfight initiation.",
+      "Pick up your own blobs (from passive split) to heal."
+    ]},
+    { "name": "Zed", "role": "Mid/Jungle", "tips": [
+      "Death Mark (R) deals bonus damage based on damage dealt during the mark duration - combo before ulting.",
+      "Living Shadow (W) lets you swap places with your shadow - use defensively or offensively.",
+      "Shadow Slash (E) applies your shadow's slash too if a shadow is nearby.",
+      "Use shadows to dodge skillshots by swapping at the last second."
+    ]},
+    { "name": "Zeri", "role": "ADC", "tips": [
+      "Spark Surge (E) over terrain grants bonus range and a burst of speed.",
+      "Lightning Crash (R) attacks chain to nearby enemies - position to hit multiple.",
+      "Living Battery (passive) charges your E by autoattacking.",
+      "Burst Fire (Q) bounces off terrain for extra damage."
+    ]},
+    { "name": "Ziggs", "role": "Mid", "tips": [
+      "Mega Inferno Bomb (R) deals more damage to structures - use to destroy turrets/inhibitors fast.",
+      "Satchel Charge (E) can knock enemies into your team or used to escape/jump walls.",
+      "Hexplosive Minefield (W) zones areas - use to deny jungle paths or objectives.",
+      "Short Fuse (Q) - hold it longer for more range."
+    ]},
+    { "name": "Zilean", "role": "Support/Mid", "tips": [
+      "Chrono Shift (R) on allies revives them if they would die - use proactively before fights.",
+      "Time Bomb (Q) double-stack on the same target for double damage and stun.",
+      "Rewind (W) lowers your other ability cooldowns - use it often.",
+      "Time Warp (E) speeds up allies and slows enemies - great for chases/escapes."
+    ]},
+    { "name": "Zoe", "role": "Mid", "tips": [
+      "Sleepy Trouble Bubble (W) sleeping targets take bonus damage from your next attack.",
+      "Portal Jump (E) lets you reposition and grants a free spell pickup along the way.",
+      "Paddle Star! (R) spell can be picked up from enemy summoner spells/items dropped on death (passive).",
+      "Use Spell Thief passive to gain a free copy of enemy summoner spells."
+    ]},
+    { "name": "Zyra", "role": "Support/Mid", "tips": [
+      "Stranglethorns (R) roots and damages enemies, also empowering nearby plants.",
+      "Place plants with Q/E near brush and objectives for vision and zone control.",
+      "Grasping Roots (E) roots if it travels far enough before hitting.",
+      "Rampant Growth (passive) grants extra plant seeds over time - place them in key spots."
+    ]},
+    { "name": "Mel", "role": "Mid/Support", "tips": [
+      "Reflect incoming damage and crowd control with your defensive ability - use it against burst combos.",
+      "Focus enemy team's frontline to build resources for your ultimate's execute potential.",
+      "Use your ranged poke to wear down enemies before all-in.",
+      "Position carefully - your kit rewards reactive play over proactive engages."
+    ]},
+    { "name": "Ambessa", "role": "Top/Jungle", "tips": [
+      "Chain dashes together for extended mobility in skirmishes.",
+      "Use your stance-switching mechanic to adapt between engage and disengage tools.",
+      "Punish enemies who overextend with your gap-closing combo.",
+      "Build a mix of damage and durability to stay relevant throughout fights."
+    ]}
+  ]
+}
