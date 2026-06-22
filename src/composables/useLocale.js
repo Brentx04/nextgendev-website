@@ -1,11 +1,13 @@
 import { ref } from 'vue'
 
-const locale = ref(localStorage.getItem('ngc-locale') || 'nl')
+// Guard localStorage so this module is safe to import during SSR/pre-render.
+const stored = typeof localStorage !== 'undefined' ? localStorage.getItem('ngc-locale') : null
+const locale = ref(stored || 'nl')
 
 export function useLocale() {
   function setLocale(lang) {
     locale.value = lang
-    localStorage.setItem('ngc-locale', lang)
+    if (typeof localStorage !== 'undefined') localStorage.setItem('ngc-locale', lang)
   }
   return { locale, setLocale }
 }

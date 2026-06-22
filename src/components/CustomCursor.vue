@@ -8,12 +8,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const isTouch = ref(
-  'ontouchstart' in window ||
-  navigator.maxTouchPoints > 0 ||
-  window.innerWidth <= 1024 ||
-  window.matchMedia('(hover: none)').matches
-)
+// Default to touch (= cursor hidden) so SSR/pre-render is safe and renders nothing.
+// The real check runs on the client in onMounted.
+const isTouch = ref(true)
 const dotRef = ref(null)
 const ringRef = ref(null)
 
@@ -37,6 +34,11 @@ function animateCursor() {
 }
 
 onMounted(() => {
+  isTouch.value =
+    'ontouchstart' in window ||
+    navigator.maxTouchPoints > 0 ||
+    window.innerWidth <= 1024 ||
+    window.matchMedia('(hover: none)').matches
   if (isTouch.value) return
 
   mouseMoveHandler = e => { mx = e.clientX; my = e.clientY }

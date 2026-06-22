@@ -27,8 +27,8 @@
       </form>
 
       <nav class="footer-links">
-        <a href="/diensten/website-laten-maken-genk" rel="noopener">{{ T.footer.linkGenk }}</a>
-        <a href="/diensten/webshop-laten-maken" rel="noopener">{{ T.footer.linkWebshop }}</a>
+        <RouterLink to="/diensten/website-laten-maken-genk">{{ T.footer.linkGenk }}</RouterLink>
+        <RouterLink to="/diensten/webshop-laten-maken">{{ T.footer.linkWebshop }}</RouterLink>
         <a href="/blog/hoeveel-kost-website-belgie" target="_blank" rel="noopener">{{ T.footer.blog }}</a>
         <a href="#" data-privacy @click.prevent="showPrivacy = true">{{ T.footer.privacy }}</a>
         <a href="#" @click.prevent="showTerms = true">{{ T.footer.terms }}</a>

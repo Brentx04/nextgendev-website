@@ -1,0 +1,69 @@
+/* Styles for the minimal "landing" pages (service routes).
+   Everything is namespaced under .landing-root so it can be a global import
+   (needed because the article markup is slotted) without touching the home page. */
+.landing-root {
+  --bg: #06060f;
+  --purple: #7c3aed;
+  --purple-light: #a78bfa;
+  --pink: #ec4899;
+  --white: #f5f3ff;
+  --grey: #94a3b8;
+  --border: rgba(124,58,237,0.18);
+  --font-display: 'Orbitron', monospace;
+  --font-body: 'Rajdhani', sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body), sans-serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: block;
+}
+
+.landing-root .site-nav { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 5vw; border-bottom: 1px solid var(--border); background: rgba(6,6,15,0.95); position: sticky; top: 0; z-index: 100; }
+.landing-root .site-nav a { text-decoration: none; }
+.landing-root .nav-logo { display: flex; align-items: center; line-height: 0; }
+.landing-root .nav-cta { font-family: var(--font-display); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; color: var(--white); background: linear-gradient(135deg, var(--purple), var(--pink)); padding: 0.55rem 1.2rem; border-radius: 6px; transition: opacity 0.2s; }
+.landing-root .nav-cta:hover { opacity: 0.85; }
+
+.landing-root .article-hero { max-width: 780px; margin: 4rem auto 0; padding: 0 5vw; }
+.landing-root .article-tag { font-family: var(--font-display); font-size: 0.55rem; font-weight: 700; letter-spacing: 0.2em; color: var(--purple-light); margin-bottom: 1.2rem; }
+.landing-root .article-title { font-family: var(--font-display); font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; color: var(--white); margin-bottom: 1.2rem; }
+.landing-root .article-title span { background: linear-gradient(135deg, var(--purple-light), var(--pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.landing-root .article-intro { font-size: 1.15rem; color: var(--grey); line-height: 1.8; border-left: 3px solid var(--purple); padding-left: 1.2rem; margin: 2rem 0 3rem; }
+
+.landing-root .article-body { max-width: 780px; margin: 0 auto; padding: 0 5vw 6rem; }
+.landing-root .article-body h2 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; letter-spacing: 0.05em; color: var(--white); margin: 3rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+.landing-root .article-body h3 { font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; color: var(--purple-light); letter-spacing: 0.08em; margin: 2rem 0 0.6rem; }
+.landing-root .article-body p { font-size: 1rem; color: var(--grey); line-height: 1.8; margin-bottom: 1.2rem; }
+.landing-root .article-body strong { color: var(--white); }
+.landing-root .article-body ul, .landing-root .article-body ol { padding-left: 1.4rem; color: var(--grey); margin-bottom: 1.2rem; }
+.landing-root .article-body li { margin-bottom: 0.4rem; line-height: 1.7; }
+
+.landing-root .price-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: 0.95rem; }
+.landing-root .price-table th { background: rgba(124,58,237,0.15); color: var(--purple-light); font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.12em; padding: 0.8rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+.landing-root .price-table td { padding: 0.85rem 1rem; border-bottom: 1px solid rgba(124,58,237,0.08); color: var(--grey); vertical-align: top; }
+.landing-root .price-table tr:last-child td { border-bottom: none; }
+.landing-root .price-table td:first-child { color: var(--white); font-weight: 600; }
+.landing-root .price-table td.price { color: var(--purple-light); font-weight: 700; font-family: var(--font-display); font-size: 0.85rem; white-space: nowrap; }
+
+.landing-root .callout { background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(236,72,153,0.06)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 1.8rem; margin: 2rem 0; }
+.landing-root .callout-title { font-family: var(--font-display); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; color: var(--purple-light); margin-bottom: 0.6rem; }
+.landing-root .callout p { margin-bottom: 0; }
+
+.landing-root .article-cta { background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(236,72,153,0.08)); border: 1px solid rgba(124,58,237,0.25); border-radius: 16px; padding: 2.5rem 2rem; margin: 4rem 0 2rem; text-align: center; }
+.landing-root .article-cta h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: var(--white); margin-bottom: 0.8rem; }
+.landing-root .article-cta p { font-size: 0.95rem; color: var(--grey); margin-bottom: 1.5rem; }
+.landing-root .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.landing-root .btn-primary { font-family: var(--font-display); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; color: var(--white); background: linear-gradient(135deg, var(--purple), var(--pink)); border: none; border-radius: 8px; padding: 0.85rem 1.8rem; text-decoration: none; transition: opacity 0.2s, box-shadow 0.2s; }
+.landing-root .btn-primary:hover { opacity: 0.88; box-shadow: 0 0 24px rgba(124,58,237,0.4); }
+.landing-root .btn-secondary { font-family: var(--font-display); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; color: var(--purple-light); background: none; border: 1px solid rgba(124,58,237,0.4); border-radius: 8px; padding: 0.85rem 1.8rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.landing-root .btn-secondary:hover { border-color: var(--purple-light); color: var(--white); }
+
+.landing-root .blog-footer { border-top: 1px solid var(--border); padding: 2rem 5vw; text-align: center; color: var(--grey); font-size: 0.85rem; }
+.landing-root .blog-footer a { color: var(--purple-light); text-decoration: none; }
+
+@media (max-width: 600px) {
+  .landing-root .price-table { font-size: 0.85rem; }
+  .landing-root .price-table th, .landing-root .price-table td { padding: 0.6rem 0.7rem; }
+  .landing-root .article-cta { padding: 1.8rem 1.2rem; }
+}

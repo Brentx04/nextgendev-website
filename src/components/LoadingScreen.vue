@@ -24,13 +24,15 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const alreadyLoaded = sessionStorage.getItem('ngc-loaded')
-const visible = ref(!alreadyLoaded)
+// Start hidden so the pre-rendered HTML never bakes in the loader (and to avoid
+// a hydration mismatch). We decide whether to show it on the client, in onMounted.
+const visible = ref(false)
 const progress = ref(0)
 const baseUrl = import.meta.env.BASE_URL
 
 onMounted(() => {
-  if (alreadyLoaded) return
+  if (sessionStorage.getItem('ngc-loaded')) return
+  visible.value = true
   sessionStorage.setItem('ngc-loaded', '1')
 
   const duration = 1100
