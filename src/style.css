@@ -161,8 +161,8 @@ body.cursor-hover .cursor-ring {
   white-space: normal;
 }
 
-/* FAQ & Blog: vertical rhythm only — they self-center via max-width + margin auto */
-.faq, .blog {
+/* FAQ, Blog, Pricing, Audit: vertical rhythm only — they self-center via max-width + margin auto */
+.faq, .blog, .pricing, .audit {
   position: relative;
   z-index: 1;
   padding: 8rem 0;
@@ -1807,7 +1807,7 @@ body.cursor-hover .cursor-ring {
 /* ---- 1280px: large tablet / small laptop ---- */
 @media (max-width: 1280px) {
   .hero { padding: 120px 7vw 80px; }
-  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog { padding: 7rem 7vw; }
+  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog, .pricing, .audit { padding: 7rem 7vw; }
   .footer { padding: 3rem 7vw; }
   .about-inner { gap: 4rem; }
   .contact-inner { gap: 4rem; }
@@ -1829,7 +1829,7 @@ body.cursor-hover .cursor-ring {
     justify-content: center;
   }
 
-  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog { padding: 6rem 6vw; }
+  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog, .pricing, .audit { padding: 6rem 6vw; }
   .footer { padding: 2.5rem 6vw; }
 
   .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1944,8 +1944,9 @@ body.cursor-hover .cursor-ring {
   .stat-divider { display: none; }
   .scroll-indicator { display: none; }
 
-  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog { padding: 4rem 5vw; }
-  .footer { padding: 2rem 5vw; }
+  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog, .pricing, .audit { padding: 4rem 5vw; }
+  /* extra bottom space so the fixed StickyMobileCta bar never covers footer content */
+  .footer { padding: 2rem 5vw calc(2rem + 64px); }
   .section-title { font-size: clamp(1.4rem, 5.5vw, 2.5rem); }
   .section-header { margin-bottom: 2rem; }
 
@@ -1977,7 +1978,8 @@ body.cursor-hover .cursor-ring {
   .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; }
   .footer-copy { margin-left: 0; font-size: 0.75rem; }
   .footer-links { justify-content: center; flex-wrap: wrap; gap: 1rem; }
-  .back-to-top { bottom: 1.5rem; right: 1.5rem; }
+  /* lift above the StickyMobileCta bar (~56px) so they don't overlap */
+  .back-to-top { bottom: 5rem; right: 1.5rem; }
 }
 
 /* ---- 480px: small phone ---- */
@@ -1992,7 +1994,7 @@ body.cursor-hover .cursor-ring {
   .stat { padding: 0.7rem 0.4rem; }
   .stat-num { font-size: 1.4rem; }
 
-  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog { padding: 3rem 4vw; }
+  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog, .pricing, .audit { padding: 3rem 4vw; }
   .footer { padding: 2rem 4vw; }
   .section-title { font-size: clamp(1.2rem, 5.8vw, 1.8rem); }
 
@@ -2020,5 +2022,5 @@ body.menu-open { overflow: hidden; }
 /* ---- 360px: extra-small phones ---- */
 @media (max-width: 360px) {
   .section-title { font-size: clamp(1rem, 5.5vw, 1.6rem); }
-  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog { padding: 2.5rem 3.5vw; }
+  .services, .about, .portfolio, .team, .contact, .testimonials, .process, .faq, .blog, .pricing, .audit { padding: 2.5rem 3.5vw; }
 }

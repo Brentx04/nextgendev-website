@@ -9,7 +9,6 @@
     <slot />
     <FooterSection />
     <BackToTop :visible="scrollY > 400" />
-    <WhatsAppButton />
     <StickyMobileCta :visible="scrollY > 600" />
     <ExitIntentPopup />
   </div>
@@ -25,7 +24,6 @@ import NavBar from '../components/NavBar.vue'
 import CookieBanner from '../components/CookieBanner.vue'
 import FooterSection from '../components/FooterSection.vue'
 import BackToTop from '../components/BackToTop.vue'
-import WhatsAppButton from '../components/WhatsAppButton.vue'
 import StickyMobileCta from '../components/StickyMobileCta.vue'
 import ExitIntentPopup from '../components/ExitIntentPopup.vue'
 import { applyStoredConsent } from '../composables/useConsent.js'
