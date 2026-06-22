@@ -127,7 +127,7 @@ function handleMobileNav(id) {
 function onScroll() { isScrolled.value = window.scrollY > 40 }
 
 function onResize() {
-  if (window.innerWidth > 768 && props.menuOpen) {
+  if (window.innerWidth > 1180 && props.menuOpen) {
     emit('update:menuOpen', false)
   }
 }
@@ -237,7 +237,7 @@ onUnmounted(() => {
   background: rgba(124, 58, 237, 0.12);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1180px) {
   .lang-switcher {
     display: none;
   }
