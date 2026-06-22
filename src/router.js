@@ -15,4 +15,16 @@ export const routes = [
     component: () => import('./views/diensten/WebshopLatenMaken.vue'),
     meta: { layout: 'landing' },
   },
+  {
+    path: '/blog/hoeveel-kost-website-belgie',
+    name: 'blog-prijzen',
+    component: () => import('./views/blog/HoeveelKostWebsiteBelgie.vue'),
+    meta: { layout: 'landing' },
+  },
+  {
+    path: '/blog/professionele-website-belang',
+    name: 'blog-belang',
+    component: () => import('./views/blog/ProfessioneleWebsiteBelang.vue'),
+    meta: { layout: 'landing' },
+  },
 ]
