@@ -4,6 +4,23 @@
 // promise (no analytics until consent) and makes the cookie banner real.
 const STORAGE_KEY = 'ngc-cookie-consent'
 
+// Microsoft Clarity (heatmaps / session replay). Paste your project ID here to
+// activate it — find it in clarity.microsoft.com → Settings → Overview.
+// While empty, Clarity stays disabled. It only loads AFTER cookie consent.
+const CLARITY_PROJECT_ID = ''
+let clarityLoaded = false
+
+function loadClarity() {
+  if (clarityLoaded || !CLARITY_PROJECT_ID) return
+  if (typeof window === 'undefined' || typeof document === 'undefined') return
+  clarityLoaded = true
+  ;(function (c, l, a, r, i, t, y) {
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) }
+    t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y)
+  })(window, document, 'clarity', 'script', CLARITY_PROJECT_ID)
+}
+
 function updateGtagConsent(granted) {
   if (typeof window === 'undefined' || typeof window.gtag !== 'function') return
   window.gtag('consent', 'update', {
@@ -17,6 +34,7 @@ function updateGtagConsent(granted) {
 export function grantConsent() {
   localStorage.setItem(STORAGE_KEY, 'accepted')
   updateGtagConsent(true)
+  loadClarity()
 }
 
 export function denyConsent() {
@@ -27,7 +45,9 @@ export function denyConsent() {
 // Re-apply the stored choice on every page load (Consent Mode defaults to denied).
 export function applyStoredConsent() {
   if (typeof window === 'undefined') return
-  updateGtagConsent(localStorage.getItem(STORAGE_KEY) === 'accepted')
+  const accepted = localStorage.getItem(STORAGE_KEY) === 'accepted'
+  updateGtagConsent(accepted)
+  if (accepted) loadClarity()
 }
 
 export function getConsent() {

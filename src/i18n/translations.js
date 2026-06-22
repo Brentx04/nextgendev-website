@@ -310,6 +310,8 @@ export const translations = {
     footer: {
       copy: '© 2025 Next Gen Codes. Alle rechten voorbehouden. Met trots gemaakt in Genk, België.',
       blog: 'Blog',
+      linkGenk: 'Website laten maken in Genk',
+      linkWebshop: 'Webshop laten maken',
       privacy: 'Privacybeleid',
       terms: 'Voorwaarden',
       privacyTag: '// PRIVACYBELEID',
@@ -645,6 +647,8 @@ export const translations = {
     footer: {
       copy: '© 2025 Next Gen Codes. All rights reserved. Proudly made in Genk, Belgium.',
       blog: 'Blog',
+      linkGenk: 'Website laten maken in Genk',
+      linkWebshop: 'Webshop laten maken',
       privacy: 'Privacy Policy',
       terms: 'Terms',
       privacyTag: '// PRIVACY POLICY',
@@ -980,6 +984,8 @@ export const translations = {
     footer: {
       copy: '© 2025 Next Gen Codes. Tous droits réservés. Fièrement créé à Genk, Belgique.',
       blog: 'Blog',
+      linkGenk: 'Création de site à Genk',
+      linkWebshop: 'Création de webshop',
       privacy: 'Politique de confidentialité',
       terms: 'Conditions',
       privacyTag: '// POLITIQUE DE CONFIDENTIALITÉ',

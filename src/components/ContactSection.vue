@@ -200,6 +200,8 @@
           <span v-if="errors.message" class="field-error">{{ errors.message }}</span>
         </div>
 
+        <input type="text" v-model="honeypot" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
         <button type="submit" class="contact-submit" :disabled="sending">
           <span class="submit-bg"></span>
           <span class="submit-content">
@@ -234,6 +236,7 @@ import emailjs from '@emailjs/browser'
 import { useLocale } from '../composables/useLocale.js'
 import { translations } from '../i18n/translations.js'
 import { trackEvent } from '../composables/useAnalytics.js'
+import { useSpamGuard } from '../composables/useSpamGuard.js'
 
 // v-click-outside directive
 const vClickOutside = {
@@ -248,6 +251,7 @@ const vClickOutside = {
 
 const { locale } = useLocale()
 const T = computed(() => translations[locale.value])
+const { honeypot, isBot } = useSpamGuard()
 
 const EMAILJS_SERVICE  = 'service_0r0sbat'
 const EMAILJS_TEMPLATE = 'template_m4tj936'
@@ -385,6 +389,8 @@ function validate() {
 
 async function handleSubmit() {
   if (!validate() || sending.value) return
+  // Silently drop bot submissions (honeypot filled or submitted too fast).
+  if (isBot()) { showSuccess.value = true; setTimeout(() => { showSuccess.value = false }, 6000); return }
   sending.value = true
   showError.value = false
 

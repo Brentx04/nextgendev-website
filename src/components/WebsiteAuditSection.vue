@@ -59,6 +59,8 @@
           <span v-if="errors.url" class="field-err">{{ errors.url }}</span>
         </div>
 
+        <input type="text" v-model="honeypot" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
         <button type="submit" class="audit-submit" :disabled="sending">
           {{ sending ? T.audit.sending : T.audit.submit }}
         </button>
@@ -82,9 +84,11 @@ import emailjs from '@emailjs/browser'
 import { useLocale } from '../composables/useLocale.js'
 import { translations } from '../i18n/translations.js'
 import { trackEvent } from '../composables/useAnalytics.js'
+import { useSpamGuard } from '../composables/useSpamGuard.js'
 
 const { locale } = useLocale()
 const T = computed(() => translations[locale.value])
+const { honeypot, isBot } = useSpamGuard()
 
 const EMAILJS_SERVICE  = 'service_0r0sbat'
 const EMAILJS_TEMPLATE = 'template_m4tj936'
@@ -107,6 +111,7 @@ function validate() {
 
 async function handleSubmit() {
   if (!validate() || sending.value) return
+  if (isBot()) { showSuccess.value = true; setTimeout(() => { showSuccess.value = false }, 6000); return }
   sending.value = true
   showError.value = false
 

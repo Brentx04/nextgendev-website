@@ -33,7 +33,7 @@ onMounted(() => {
   if (alreadyLoaded) return
   sessionStorage.setItem('ngc-loaded', '1')
 
-  const duration = 2200
+  const duration = 1100
   const start = performance.now()
 
   function tick(now) {
@@ -43,7 +43,7 @@ onMounted(() => {
     if (p < 100) {
       requestAnimationFrame(tick)
     } else {
-      setTimeout(() => { visible.value = false }, 400)
+      setTimeout(() => { visible.value = false }, 250)
     }
   }
 

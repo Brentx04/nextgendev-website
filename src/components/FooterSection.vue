@@ -20,12 +20,15 @@
           />
           <button type="submit" class="nl-submit" :disabled="nlSending">{{ T.newsletter.submit }}</button>
         </div>
+        <input type="text" v-model="honeypot" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <Transition name="fade">
           <p v-if="nlMsg" class="nl-msg" :class="nlMsgType" role="status">{{ nlMsg }}</p>
         </Transition>
       </form>
 
       <nav class="footer-links">
+        <a href="/diensten/website-laten-maken-genk" rel="noopener">{{ T.footer.linkGenk }}</a>
+        <a href="/diensten/webshop-laten-maken" rel="noopener">{{ T.footer.linkWebshop }}</a>
         <a href="/blog/hoeveel-kost-website-belgie" target="_blank" rel="noopener">{{ T.footer.blog }}</a>
         <a href="#" data-privacy @click.prevent="showPrivacy = true">{{ T.footer.privacy }}</a>
         <a href="#" @click.prevent="showTerms = true">{{ T.footer.terms }}</a>
@@ -88,10 +91,12 @@ import emailjs from '@emailjs/browser'
 import { useLocale } from '../composables/useLocale.js'
 import { translations } from '../i18n/translations.js'
 import { trackEvent } from '../composables/useAnalytics.js'
+import { useSpamGuard } from '../composables/useSpamGuard.js'
 
 const baseUrl = import.meta.env.BASE_URL
 const { locale } = useLocale()
 const T = computed(() => translations[locale.value])
+const { honeypot, isBot } = useSpamGuard()
 
 const showPrivacy = ref(false)
 const showTerms = ref(false)
@@ -108,6 +113,7 @@ const nlMsgType = ref('nl-msg--ok')
 
 async function subscribe() {
   if (nlSending.value) return
+  if (isBot()) { nlEmail.value = ''; nlMsg.value = T.value.newsletter.success; nlMsgType.value = 'nl-msg--ok'; setTimeout(() => { nlMsg.value = '' }, 6000); return }
   const email = nlEmail.value.trim()
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     nlError.value = true
