@@ -51,7 +51,7 @@ const { locale } = useLocale()
 const T = computed(() => translations[locale.value])
 
 const sectionRef = ref(null)
-const memberPhoto = import.meta.env.BASE_URL + 'brent.png'
+const memberPhoto = import.meta.env.BASE_URL + 'brent.jpg'
 const memberSkills = ['Vue', 'JavaScript', 'C#', 'UI/UX']
 
 function scrollTo(id) {
