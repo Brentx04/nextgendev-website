@@ -123,6 +123,10 @@ body.cursor-hover .cursor-ring {
   box-shadow: 0 0 12px rgba(192,132,252,0.3);
 }
 
+/* Exit-popup open: echte cursor i.p.v. de custom cursor (zie ExitIntentPopup.vue) */
+body.exit-popup-open .cursor-dot,
+body.exit-popup-open .cursor-ring { display: none; }
+
 /* Fallback: de echte cursor terugzetten zodra de custom cursor niet draait.
    `cursor: none` staat hieronder op body en op elf interactieve elementen,
    maar de custom cursor die het moet vervangen wordt alleen aangezet door

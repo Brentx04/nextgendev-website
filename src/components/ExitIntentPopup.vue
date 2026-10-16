@@ -93,11 +93,16 @@ function show() {
     // no storage: the teardown below still prevents a second trigger
   }
   teardown()
+  // Swap the custom cursor for the native one while the popup is open: the
+  // 6px dot is easy to lose over the card, and right after the mouse comes
+  // back into the window it still sits at the edge where it left.
+  document.body.classList.add('exit-popup-open')
   visible.value = true
 }
 
 function close() {
   visible.value = false
+  document.body.classList.remove('exit-popup-open')
 }
 
 function scrollToContact() {
@@ -128,7 +133,10 @@ onMounted(() => {
   }
 })
 
-onUnmounted(teardown)
+onUnmounted(() => {
+  teardown()
+  document.body.classList.remove('exit-popup-open')
+})
 </script>
 
 <style scoped>
@@ -138,6 +146,7 @@ onUnmounted(teardown)
   background: rgba(6, 6, 15, 0.82);
   backdrop-filter: blur(6px);
   z-index: 99000;
+  cursor: auto;
   display: flex;
   align-items: center;
   justify-content: center;
