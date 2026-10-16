@@ -43,7 +43,7 @@
           </div>
 
           <!-- Dismiss -->
-          <button class="popup-dismiss" @click="dismiss">{{ T.exitIntent.dismiss }}</button>
+          <button class="popup-dismiss" @click="close">{{ T.exitIntent.dismiss }}</button>
         </div>
       </div>
     </Transition>
@@ -59,17 +59,45 @@ const { locale } = useLocale()
 const T = computed(() => translations[locale.value])
 
 const visible = ref(false)
-const dismissed = ref(false)
-const STORAGE_KEY = 'ngc-exit-dismissed'
+const STORAGE_KEY = 'ngc-exit-shown'
+
+// Shown at most once per session. The flag is written the moment the popup
+// opens, not when it is closed, so closing it in any way is final: previously
+// the X and the CTAs left no trace, which made the popup reappear on every
+// further attempt to leave the page.
+let armTimer = null
+let mobileTimer = null
+
+function alreadyShown() {
+  // sessionStorage throws in private mode / with site data blocked
+  try {
+    return sessionStorage.getItem(STORAGE_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
+function teardown() {
+  document.removeEventListener('mouseleave', handleMouseLeave)
+  clearTimeout(armTimer)
+  clearTimeout(mobileTimer)
+  armTimer = null
+  mobileTimer = null
+}
+
+function show() {
+  if (alreadyShown()) return
+  try {
+    sessionStorage.setItem(STORAGE_KEY, '1')
+  } catch {
+    // no storage: the teardown below still prevents a second trigger
+  }
+  teardown()
+  visible.value = true
+}
 
 function close() {
   visible.value = false
-}
-
-function dismiss() {
-  visible.value = false
-  dismissed.value = true
-  sessionStorage.setItem(STORAGE_KEY, '1')
 }
 
 function scrollToContact() {
@@ -80,38 +108,27 @@ function scrollToContact() {
 }
 
 function handleMouseLeave(e) {
-  // Only trigger when mouse exits from the top of the window
+  // Only trigger when the mouse exits from the top of the window
   if (e.clientY > 10) return
-  if (dismissed.value) return
-  if (sessionStorage.getItem(STORAGE_KEY)) return
-  visible.value = true
+  show()
 }
 
-// Mobile: show after 40s if not dismissed
-let mobileTimer = null
-
 onMounted(() => {
-  // Check if already dismissed this session
-  if (sessionStorage.getItem(STORAGE_KEY)) return
+  if (alreadyShown()) return
 
-  // Desktop: exit intent on mouse leaving top
-  document.addEventListener('mouseleave', handleMouseLeave)
+  // Arm the exit intent only after a few seconds, so it cannot fire while the
+  // page is still loading and the cursor happens to sit near the top edge.
+  armTimer = setTimeout(() => {
+    document.addEventListener('mouseleave', handleMouseLeave)
+  }, 5000)
 
-  // Mobile fallback: show after 40 seconds of being on page
-  const isMobile = window.innerWidth < 768
-  if (isMobile) {
-    mobileTimer = setTimeout(() => {
-      if (!dismissed.value && !sessionStorage.getItem(STORAGE_KEY)) {
-        visible.value = true
-      }
-    }, 40000)
+  // Mobile has no mouse to track: fall back to a timer
+  if (window.innerWidth < 768) {
+    mobileTimer = setTimeout(show, 40000)
   }
 })
 
-onUnmounted(() => {
-  document.removeEventListener('mouseleave', handleMouseLeave)
-  if (mobileTimer) clearTimeout(mobileTimer)
-})
+onUnmounted(teardown)
 </script>
 
 <style scoped>
@@ -297,11 +314,25 @@ onUnmounted(() => {
 }
 .popup-dismiss:hover { color: #94a3b8; }
 
-/* Transition */
-.popup-enter-active { transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
-.popup-leave-active { transition: opacity 0.22s ease, transform 0.22s ease; }
-.popup-enter-from { opacity: 0; transform: scale(0.88) translateY(20px); }
-.popup-leave-to { opacity: 0; transform: scale(0.95) translateY(10px); }
+/* Transition — the overlay only fades. Animating a transform on it as well
+   forces the backdrop-filter to re-rasterise the whole viewport every frame,
+   which stutters badly over the animated canvas behind it. The scale runs on
+   the card instead, which is cheap to composite. */
+.popup-enter-active { transition: opacity 0.28s ease; }
+.popup-leave-active { transition: opacity 0.2s ease; }
+.popup-enter-from, .popup-leave-to { opacity: 0; }
+
+.popup-enter-active .exit-popup { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.popup-leave-active .exit-popup { transition: transform 0.2s ease; }
+.popup-enter-from .exit-popup { transform: scale(0.88) translateY(20px); }
+.popup-leave-to .exit-popup { transform: scale(0.95) translateY(10px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .popup-enter-active .exit-popup,
+  .popup-leave-active .exit-popup { transition: none; }
+  .popup-enter-from .exit-popup,
+  .popup-leave-to .exit-popup { transform: none; }
+}
 
 @media (max-width: 500px) {
   .exit-popup { padding: 2.2rem 1.4rem 1.6rem; border-radius: 16px; }

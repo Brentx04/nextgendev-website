@@ -41,6 +41,10 @@ onMounted(() => {
     window.matchMedia('(hover: none)').matches
   if (isTouch.value) return
 
+  // Pas nu mag `cursor: none` gelden: de stylesheet hangt de echte cursor aan
+  // deze klasse op, zodat er nooit een venster is zonder zichtbare aanwijzer.
+  document.body.classList.add('has-custom-cursor')
+
   mouseMoveHandler = e => { mx = e.clientX; my = e.clientY }
   document.addEventListener('mousemove', mouseMoveHandler)
   animateCursor()
@@ -56,5 +60,6 @@ onMounted(() => {
 onUnmounted(() => {
   cancelAnimationFrame(rafId)
   document.removeEventListener('mousemove', mouseMoveHandler)
+  document.body.classList.remove('has-custom-cursor')
 })
 </script>

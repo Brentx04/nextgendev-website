@@ -102,7 +102,8 @@ img { max-width: 100%; display: block; }
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  z-index: 9999;
+  /* boven elke overlay, ook de exit-popup op 99000 */
+  z-index: 100001;
   transition: transform 0.1s;
   box-shadow: 0 0 8px var(--accent-bright), 0 0 16px rgba(232,121,249,0.5);
 }
@@ -113,7 +114,7 @@ img { max-width: 100%; display: block; }
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  z-index: 9998;
+  z-index: 100000;
   transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.08s;
 }
 body.cursor-hover .cursor-ring {
@@ -121,6 +122,25 @@ body.cursor-hover .cursor-ring {
   border-color: var(--accent);
   box-shadow: 0 0 12px rgba(192,132,252,0.3);
 }
+
+/* Fallback: de echte cursor terugzetten zodra de custom cursor niet draait.
+   `cursor: none` staat hieronder op body en op elf interactieve elementen,
+   maar de custom cursor die het moet vervangen wordt alleen aangezet door
+   CustomCursor.vue (muis aanwezig en venster breder dan 1024px). In elk ander
+   geval — smal venster, touchscreen-laptop, uitgeschakelde JS — bleef er
+   helemaal geen zichtbare muisaanwijzer over. */
+body:not(.has-custom-cursor) { cursor: auto; }
+body:not(.has-custom-cursor) .btn-primary,
+body:not(.has-custom-cursor) .btn-ghost,
+body:not(.has-custom-cursor) .logo,
+body:not(.has-custom-cursor) .nav-link,
+body:not(.has-custom-cursor) .btn-nav-cta,
+body:not(.has-custom-cursor) .hamburger,
+body:not(.has-custom-cursor) .service-card,
+body:not(.has-custom-cursor) .project-card,
+body:not(.has-custom-cursor) .testimonial-card,
+body:not(.has-custom-cursor) .contact-submit,
+body:not(.has-custom-cursor) .back-to-top { cursor: pointer; }
 
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 4px; }
